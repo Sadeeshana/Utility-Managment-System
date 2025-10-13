@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bills Management</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <div class="d-flex">
+    <!-- Sidebar -->
+    <div class="bg-primary text-white p-3" style="width:250px; min-height:100vh;">
+      <h4><i class="bi bi-lightning-charge-fill"></i> Utility Manager</h4>
+      <ul class="nav flex-column mt-4">
+        <li class="nav-item"><a href="Dashboard.html" class="nav-link text-white-50"><i class="bi bi-grid"></i> Dashboard</a></li>
+        <li class="nav-item"><a href="Bills.html" class="nav-link text-white active"><i class="bi bi-receipt"></i> Bills</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white-50"><i class="bi bi-graph-up"></i> Usage Tracking</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white-50"><i class="bi bi-tools"></i> Services</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white-50"><i class="bi bi-credit-card"></i> Payments</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white-50"><i class="bi bi-bar-chart"></i> Reports</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white-50"><i class="bi bi-gear"></i> Settings</a></li>
+      </ul>
+      <a href="#" class="text-white d-block mt-auto"><i class="bi bi-box-arrow-left"></i> Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="p-4 w-100">
+      <!-- Header -->
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3>Bills Management</h3>
+        <div class="d-flex align-items-center">
+          <i class="bi bi-person-circle fs-4 me-2"></i> I
+        </div>
+      </div>
+
+      <!-- Card -->
+      <div class="card p-4 shadow-sm">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5>Bills Management</h5>
+          <button class="btn btn-primary"><i class="bi bi-plus-circle"></i> Add New Bill</button>
+        </div>
+
+        <!-- Filters -->
+        <div class="d-flex gap-3 mb-3">
+          <select class="form-select w-auto">
+            <option>All Types</option>
+            <option>Electricity</option>
+            <option>Water</option>
+            <option>Gas</option>
+            <option>Internet</option>
+          </select>
+          <select class="form-select w-auto">
+            <option>All Status</option>
+            <option>Paid</option>
+            <option>Due</option>
+            <option>Overdue</option>
+          </select>
+        </div>
+
+        <!-- Table -->
+        <table class="table align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Service</th>
+              <th>Amount</th>
+              <th>Due Date</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><i class="bi bi-lightning-charge-fill text-warning"></i> Electricity</td>
+              <td>$245.50</td>
+              <td>Oct 15, 2025</td>
+              <td><span class="badge bg-warning text-dark">Due</span></td>
+              <td>
+                <button class="btn btn-sm btn-secondary">View</button>
+                <button class="btn btn-sm btn-primary">Pay</button>
+              </td>
+            </tr>
+            <tr>
+              <td><i class="bi bi-droplet-fill text-primary"></i> Water</td>
+              <td>$89.20</td>
+              <td>Oct 8, 2025</td>
+              <td><span class="badge bg-success">Paid</span></td>
+              <td><button class="btn btn-sm btn-secondary">View</button></td>
+            </tr>
+            <tr>
+              <td><i class="bi bi-fire text-danger"></i> Gas</td>
+              <td>$156.75</td>
+              <td>Oct 5, 2025</td>
+              <td><span class="badge bg-danger">Overdue</span></td>
+              <td>
+                <button class="btn btn-sm btn-secondary">View</button>
+                <button class="btn btn-sm btn-primary">Pay</button>
+              </td>
+            </tr>
+            <tr>
+              <td><i class="bi bi-wifi text-info"></i> Internet</td>
+              <td>$79.99</td>
+              <td>Oct 12, 2025</td>
+              <td><span class="badge bg-success">Paid</span></td>
+              <td><button class="btn btn-sm btn-secondary">View</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

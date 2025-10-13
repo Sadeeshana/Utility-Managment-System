@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Utility Management Dashboard</title>
+
+  <!-- Bootstrap --> 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    #wrapper {
+      display: flex;
+    }
+
+    .sidebar {
+      width: 250px;
+      min-height: 100vh;
+      background: linear-gradient(180deg, #6a11cb 0%, #2575fc 100%);
+      color: white;
+    }
+
+    .sidebar h4 {
+      font-weight: 600;
+    }
+
+    .sidebar .nav-link {
+      color: #ffffffb3;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .sidebar .nav-link.active,
+    .sidebar .nav-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      color: #fff;
+    }
+
+    .bill-card h5 {
+      font-weight: 600;
+      color: #333;
+    }
+
+    .bill-card p {
+      font-size: 14px;
+    }
+
+    .user-info {
+      font-weight: 500;
+    }
+
+    .list-group-item {
+      border: none;
+      padding-left: 0;
+    }
+
+    .list-group-item i {
+      vertical-align: middle;
+    }
+
+    .list-group-item small {
+      font-size: 12px;
+    }
+
+    .card-title {
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="d-flex" id="wrapper">
+    <!-- Side -->
+    <div class="sidebar p-3">
+      <h4 class="mb-4"><i class="bi bi-lightning-charge-fill"></i> Utility Manager</h4>
+      <ul class="nav flex-column">
+        <li class="nav-item"><a href="Dashboard.html" class="nav-link active"><i class="bi bi-grid"></i> Dashboard</a></li>
+        <li class="nav-item"><a href="Bills.html" class="nav-link"><i class="bi bi-receipt"></i> Bills</a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-graph-up"></i> Usage Tracking</a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-tools"></i> Services</a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-credit-card"></i> Payments</a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-bar-chart"></i> Reports</a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-gear"></i> Settings</a></li>
+      </ul>
+    </div>
+
+    <!-- Side -->
+    <div class="p-4 w-100">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3>Dashboard</h3>
+        <div class="user-info d-flex align-items-center">
+          <i class="bi bi-person-circle fs-4 me-2"></i>
+          <span>I</span>
+        </div>
+      </div>
+
+      <!-- Bill -->
+      <div class="row g-3 mb-4">
+        <div class="col-md-3">
+          <div class="card bill-card border-0 shadow-sm">
+            <div class="card-body">
+              <h5>$245.50</h5>
+              <p class="text-muted mb-1">Electricity Bill</p>
+              <span class="badge bg-warning text-dark">Due in 5 days</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card bill-card border-0 shadow-sm">
+            <div class="card-body">
+              <h5>$89.20</h5>
+              <p class="text-muted mb-1">Water Bill</p>
+              <span class="badge bg-success">Paid</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card bill-card border-0 shadow-sm">
+            <div class="card-body">
+              <h5>$156.75</h5>
+              <p class="text-muted mb-1">Gas Bill</p>
+              <span class="badge bg-danger">Overdue</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card bill-card border-0 shadow-sm">
+            <div class="card-body">
+              <h5>$79.99</h5>
+              <p class="text-muted mb-1">Internet Bill</p>
+              <span class="badge bg-success">Paid</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chart and recent -->
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title mb-3">Monthly Usage Overview</h5>
+              <canvas id="usageChart"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title mb-3">Recent Activities</h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i>Water bill payment successful <small class="text-muted d-block">2 hours ago</small></li>
+                <li class="list-group-item"><i class="bi bi-lightning-fill text-warning me-2"></i>Electricity usage above average <small class="text-muted d-block">1 day ago</small></li>
+                <li class="list-group-item"><i class="bi bi-droplet-half text-info me-2"></i>New gas bill received <small class="text-muted d-block">3 days ago</small></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

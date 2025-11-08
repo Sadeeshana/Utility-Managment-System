@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Managers Reports & Analytics</title>
+    <link rel="stylesheet" href="Topconsumer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="app-container">
+<!--Navigation bar-->
+        <nav class="sidebar">
+            <h2 class="sidebar-title">Managers Reports & Analytics</h2>
+
+            <div class="nav-menu">
+                <button class="nav-button" onclick="window.location.href='Genaratereports.html'">Full Reports (PDF)</button>
+                <button class="nav-button active">Top consumers by utility</button>
+                <button class="nav-button">Unpaid bills</button>
+                <button class="nav-button">Useages of utility</button>
+            </div>
+        </nav>
+ <!--Topics-->
+ <main class="main-content">
+ <header>
+        <h1><center>Top consumers report</center></h1> 
+        <h3><center>Identify and analysis the top consumers</center></h3>
+
+        </header>
+
+<!--Search bar section-->
+
+        <section class="filter-bar">
+            <div class="filter-group">
+                <label class="filter-label">Utility Type</label>
+                <button class="filter-dropdown">Electrcity</button>
+                <button class="filter-dropdown">Gas</button>
+                <button class="filter-dropdown">Water</button>
+
+
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">Time Period</label>
+                <button class="filter-button" id="time-period-btn">
+                    <span>This Month</span>
+                    &#128197;    
+                </button>
+
+            </div>
+
+            <div class="filter-group search-group">
+                <label class="filter-label">Search consumer</label>
+                <div class = "search-box">
+                    <input type="text" placeholder="Name or Account ID">
+                    &#128269;
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <button class="export-button">
+                    Export &#11015;
+
+                </button>
+
+            </div>
+
+        </section>
+</main>
+        </div>
+       
+<script src="Topconsumer.js"></script>
+
+</body>
+</html>

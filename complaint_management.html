@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complaint Management</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background-color: #f5f6fa;
+    color: #333;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    width: 220px;
+    height: 100vh;
+    background-color: #0a3d62;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .sidebar-header {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .sidebar-header h2 {
+    font-size: 18px;
+    margin: 0;
+  }
+
+  .sidebar-header p {
+    font-size: 13px;
+    margin: 2px 0 0 0;
+    opacity: 0.8;
+  }
+
+  .menu {
+    flex-grow: 1;
+  }
+
+  .menu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    font-size: 15px;
+    transition: background 0.3s;
+    cursor: pointer;
+  }
+
+  .menu a i {
+    width: 20px;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .menu a:hover, .menu a.active {
+    background-color: #14406d;
+  }
+
+  .bottom-menu {
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .bottom-menu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .bottom-menu a i {
+    width: 20px;
+    text-align: center;
+  }
+
+  .bottom-menu a:hover {
+    background-color: #14406d;
+  }
+
+  /* Main content */
+  .main {
+    margin-left: 220px;
+    padding: 25px 40px;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header h1 {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  .header p {
+    margin: 2px 0 0 0;
+    font-size: 13px;
+    color: #555;
+  }
+
+  .add-btn {
+    background-color: #8cd3de;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .add-btn:hover {
+    background-color: #82ccdd;
+  }
+
+  /* Search bar */
+  .search-bar {
+    position: relative;
+    margin: 20px 0;
+  }
+
+  .search-bar input {
+    width: 93%;
+    padding: 10px 40px;
+    border-radius: 6px;
+    border: 2px solid #2f3640; 
+    font-size: 14px;
+    transition: border-color 0.3s;
+    outline: none;
+  }
+
+  .search-bar input:focus {
+    border-color: #82ccdd; 
+  }
+
+  .search-bar i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 16px;
+  }
+
+  /* Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #b9e1e9;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  thead {
+    background-color: #e5f3f6;
+    font-weight: 600;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid #a3cfd6;
+  }
+
+  th {
+    font-size: 14px;
+    color: #333;
+  }
+
+  td {
+    font-size: 14px;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* Pagination */
+  .pagination {
+    margin-top: 10px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #555;
+  }
+
+  .pagination span {
+    color: #555;
+  }
+
+  .pagination .pages {
+    display: flex;
+    gap: 8px;
+  }
+
+  .pagination .pages button {
+    background: none;
+    border: none;
+    color: #0077aa;
+    cursor: pointer;
+    font-size: 14px;
+    transition: color 0.2s, font-weight 0.2s;
+  }
+
+  .pagination .pages button.active {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #004e6f;
+  }
+
+  .pagination .pages button:hover {
+    color: #004e6f;
+  }
+</style>
+</head>
+<body>
+  <div class="sidebar">
+    <div>
+      <div class="sidebar-header">
+        <h2><i class="fa-solid fa-user-gear"></i> Admin Panel</h2>
+        <p>Utility management</p>
+      </div>
+      <div class="menu">
+        <a href="#"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+        <a href="#"><i class="fa-solid fa-users"></i> Customers</a>
+        <a href="#"><i class="fa-solid fa-file-invoice-dollar"></i> Billings</a>
+        <a href="#"><i class="fa-solid fa-chart-bar"></i> Reports</a>
+        <a href="#" class="active"><i class="fa-solid fa-triangle-exclamation"></i> Complaints</a>
+      </div>
+    </div>
+    <div class="bottom-menu">
+      <a id="settings"><i class="fa-solid fa-gear"></i> Settings</a>
+      <a id="logout"><i class="fa-solid fa-right-from-bracket"></i> Log out</a>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <div>
+        <h1>Complaint Management</h1>
+        <p>View, Manage and track customer complaints.</p>
+      </div>
+      <button class="add-btn"><i class="fa-solid fa-plus"></i> Add new Complaint</button>
+    </div>
+
+    <div class="search-bar">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="search" placeholder="search ID, customer or keyword....">
+    </div>
+
+    <table id="complaintTable">
+      <thead>
+        <tr>
+          <th>Complaint ID</th>
+          <th>Customer ID</th>
+          <th>Complaint Type</th>
+          <th>Description</th>
+          <th>Date Filed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>CMP200</td><td>CU101</td><td>Water Quality</td><td>Strong chlorine smell</td><td>2025/09/20</td></tr>
+        <tr><td>CMP201</td><td>CU034</td><td>Gas Billing</td><td>6× higher than previous year</td><td>2025/09/14</td></tr>
+        <tr><td>CMP202</td><td>CU234</td><td>Gas Leak</td><td>Strong gas odor</td><td>2025/10/02</td></tr>
+        <tr><td>CMP203</td><td>CU160</td><td>Water Pressure</td><td>Pressure is low every evening</td><td>2025/09/28</td></tr>
+        <tr><td>CMP204</td><td>CU200</td><td>Electricity disconnection</td><td>Payment made 5 days ago</td><td>2025/10/31</td></tr>
+      </tbody>
+    </table>
+
+    <div class="pagination">
+      <span>Showing 1 to 5 of 50 results</span>
+      <div class="pages">
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <span>...</span>
+      </div>
+    </div>
+  </div>
+
+<script>
+  // Search filter
+  document.getElementById('search').addEventListener('input', function() {
+    let filter = this.value.toLowerCase();
+    let rows = document.querySelectorAll('#complaintTable tbody tr');
+    rows.forEach(row => {
+      let text = row.innerText.toLowerCase();
+      row.style.display = text.includes(filter) ? '' : 'none';
+    });
+  });
+
+  // Pagination buttons
+  const buttons = document.querySelectorAll('.pagination .pages button');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // Clickable settings & logout
+  document.getElementById('settings').addEventListener('click', () => {
+    alert('⚙️ Redirecting to Settings Page...');
+  });
+
+  document.getElementById('logout').addEventListener('click', () => {
+    alert('🚪 Logging out...');
+  });
+</script>
+</body>
+</html>

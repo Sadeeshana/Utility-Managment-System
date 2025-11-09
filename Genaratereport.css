@@ -12,10 +12,10 @@ body {
 
 
 .sidebar {
-    width: 300px;
+    width: 200px;
     background-color: #0a2d4d; 
     color: white;
-    padding: 30px;
+    padding: 10px;
     flex-shrink: 0; 
 }
 

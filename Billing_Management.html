@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Billing Management</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="Billing_Management.css">
+</head>
+
+<body>
+  <div class="sidebar">
+    <div>
+      <div class="sidebar-header">
+        <h2><i class="fa-solid fa-user-gear"></i> Admin Panel</h2>
+        <p>Utility management</p>
+      </div>
+      <div class="menu">
+        <a href="#"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+        <a href="#"><i class="fa-solid fa-users"></i> Customers</a>
+        <a href="Billing_Management.html" class="active"><i class="fa-solid fa-file-invoice-dollar"></i> Billings</a>
+        <a href="#"><i class="fa-solid fa-chart-bar"></i> Reports</a>
+        <a href="complaint_management.html"><i class="fa-solid fa-triangle-exclamation"></i> Complaints</a>
+      </div>
+    </div>
+    <div class="bottom-menu">
+      <a id="settings"><i class="fa-solid fa-gear"></i> Settings</a>
+      <a id="logout"><i class="fa-solid fa-right-from-bracket"></i> Log out</a>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <div>
+        <h1>Billing Management</h1>
+        <p>View, manage and track customer invoices.</p>
+      </div>
+      <button id="addBillBtn" class="add-btn"><i class="fa-solid fa-plus"></i> Add new Bill</button>
+    </div>
+
+    <div class="search-bar">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="search" placeholder="search ID, customer or keyword....">
+    </div>
+
+    <table id="billingTable">
+      <thead>
+        <tr>
+          <th>Bill ID</th>
+          <th>Customer ID</th>
+          <th>Meter ID</th>
+          <th>Billing Date</th>
+          <th>Due Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>B-25-009</td><td>CU200</td><td>MTRW-3451</td><td>2025/11/01</td><td>2025/10/31</td></tr>
+        <tr><td>B-25-102</td><td>CU235</td><td>MTRG-7865</td><td>2025/10/15</td><td>2025/10/29</td></tr>
+        <tr><td>B-25-222</td><td>CU786</td><td>MTRF-8964</td><td>2025/11/03</td><td>2025/11/03</td></tr>
+        <tr><td>B-25-400</td><td>CU893</td><td>MTRW-6435</td><td>2025/09/26</td><td>2025/10/10</td></tr>
+      </tbody>
+    </table>
+
+    <div class="pagination">
+      <span>Showing 1 to 5 of 50 results</span>
+      <div class="pages">
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <span>...</span>
+      </div>
+    </div>
+  </div>
+
+<script src="Billing_Management.js"></script>
+</body>
+</html>

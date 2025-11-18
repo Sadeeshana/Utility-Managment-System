@@ -1,28 +1,45 @@
-:root{
-  /* Sidebar and background colors */
-  --sidebar-bg: #0A3D62; 
-  --sidebar-accent: #083352;
-  --page-bg: #F5F6FA;
-  /* Panels and text */
-  --panel-bg: #82CCDD; 
-  --panel-text: #2F3640;
-  /* Pills and buttons */
-  --pill-bg: #82CCDD;
-  --pill-text: #2F3640;
-  --accent-cta: #E58E26;
-  /* Other colors */
-  --muted: #B0B0B0;
-  /* Shape and spacing */
-  --card-radius: 12px;
-  --round-pill: 18px;
-  --glass-pad: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.sidebar {
+    width: 300px;
+    background-color: #0a2d4d; 
+    color: white;
+    padding: 10px;
+    flex-shrink: 0; 
+}
+
+.sidebar-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+.nav-button {
+    display: block;
+    width: 100%;
+    padding: 18px 25px;
+    background-color: transparent;
+    border: 1px solid #3e6b98; 
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: left;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.nav-button:hover,
+.nav-button.active {
+    background-color: #1b4975; 
+    border-color: #1b4975;
 }
 
 /* Reset and base styling */
-*{
-  box-sizing: border-box;
-}
 
 html,body{
   height: 100%;
@@ -41,35 +58,7 @@ body{
   min-height: 100vh;    /* Full height layout */
 }
 
-/* Sidebar */
-.sidebar{
-  width: 350px;
-  background: var(--sidebar-bg);
-  color: #FFFFFF;
-  padding: 15px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
 
-/* Sidebar navigation links */
-.side-nav{
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  margin-top: 8px;
-}
-
-.side-nav-item{
-  color: rgba(255,255,255,0.9);
-  text-decoration: none;
-  padding: 15px 20px 20px 30px;
-  transition: background .15s;
-}
-
-.side-nav-item:hover{
-  background: rgba(255,255,255,0.04);
-}
 
 /* Main content */
 .main{

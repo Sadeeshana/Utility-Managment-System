@@ -16,8 +16,13 @@ document.getElementById('registerForm').addEventListener('submit',async function
     //Show the php registration message
     messageDiv.textContent = data;
 
-    if(data.includes("Successful")){
-      this.reset(); // Clear the form on success
+    if(data.includes("successful")){
+      this.reset(); 
+      
+      //Redirect to the page
+      setTimeout(() => {
+        window.location.href ="LoginScreen.html";
+      },2000)
     }
   })
   .catch(error => {
@@ -25,5 +30,5 @@ document.getElementById('registerForm').addEventListener('submit',async function
   });
 
 
-});
+}); 
 

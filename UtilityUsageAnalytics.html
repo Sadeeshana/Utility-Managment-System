@@ -7,22 +7,24 @@
 
   <!-- Link to CSS file -->
   <link rel="stylesheet" href="UtilityUsageAnalytics.css">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
   <div class="page">
-    <!-- Sidebar (left side menu) -->
-    <aside class="sidebar">
-      <div class="sidebar-brand"></div>
+    
+     <!--Navigation bar-->
+        <nav class="sidebar">
+            <h2 class="sidebar-title">Managers Reports & Analytics</h2>
 
-      <nav class="side-nav">
-        <a class="side-nav-item" href="#">Full Reports (PDF)</a>
-        <a class="side-nav-item" href="#">Top Consumers by Utility</a>
-        <a class="side-nav-item" href="#">Unpaid Bills</a>
-        <a class="side-nav-item active" href="#">Usages of Utility</a>
-      </nav>
-
-      <div class="sidebar-footer"></div>
-    </aside>
+            <div class="nav-menu">
+                <button class="nav-button" onclick="window.location.href='Genaratereports.html'">Full Reports (PDF)</button>
+                <button class="nav-button active">Top consumers by utility</button>
+                <button class="nav-button" onclick="window.location.href='Unpaidbills.html'">Unpaid bills</button>
+                <button class="nav-button" >Useages of utility</button>
+            </div>
+        </nav>
+    
 
     <!-- Main content -->
     <main class="main">

@@ -23,11 +23,99 @@
         </nav>
  <!--Topics-->
  <main class="main-content">
- <header>
-        <h1><center>Unpaid Bills</center></h1> 
-        <p><center>View, manage and act on all outstanding utility bills</center></p>
+   <header>
+     <h1><center>Unpaid Bills</center></h1>
+     <p><center>View, manage and act on all outstanding utility bills</center></p>
+   </header>
 
-        </header>
+   <!-- Top stats -->
+   <section class="stats">
+     <div class="stat-card">
+       <div class="stat-title">Total Amount Overdue</div>
+      
+     </div>
+     <div class="stat-card">
+       <div class="stat-title">Number Of Overdue Bills</div>
+       
+     </div>
+     <div class="stat-card">
+       <div class="stat-title">Average Days Overdue</div>
+       
+     </div>
+   </section>
+
+   <!-- Filters -->
+   <section class="controls">
+     <div class="search-wrap">
+       <input type="text" class="search-input" placeholder="Search by name , account">
+     </div>
+
+     <div class="control-group">
+       <div class="dropdown" id="f-utility">
+         <button class="chip" aria-haspopup="listbox" aria-expanded="false">
+           <span class="chip-label">Utility : All</span><span class="chev">▾</span>
+         </button>
+         <ul class="menu" role="listbox">
+           <li class="menu-item" data-value="all" aria-selected="true">All</li>
+           <li class="menu-item" data-value="electricity">Electricity</li>
+           <li class="menu-item" data-value="gas">Gas</li>
+           <li class="menu-item" data-value="water">Water</li>
+         </ul>
+       </div>
+
+       <div class="dropdown" id="f-status">
+         <button class="chip" aria-haspopup="listbox" aria-expanded="false">
+           <span class="chip-label">Status : Overdue</span><span class="chev">▾</span>
+         </button>
+         <ul class="menu" role="listbox">
+           <li class="menu-item" data-value="overdue" aria-selected="true">Overdue</li>
+           <li class="menu-item" data-value="all">All</li>
+         </ul>
+       </div>
+
+       <div class="dropdown" id="f-due">
+         <button class="chip" aria-haspopup="listbox" aria-expanded="false">
+           <span class="chip-label">Due date</span><span class="chev">▾</span>
+         </button>
+         <ul class="menu" role="listbox">
+           <li class="menu-item" data-value="soonest" aria-selected="true">Soonest first</li>
+           <li class="menu-item" data-value="latest">Latest first</li>
+         </ul>
+       </div>
+
+       <button class="chip export" id="export-csv">Export CSV ⬇</button>
+     </div>
+   </section>
+
+   <!-- Table -->
+   <section class="list-card">
+     <div class="table-wrap">
+       <table class="bills-table">
+         <thead>
+           <tr>
+             <th style="width:44px;"><input type="checkbox" aria-label="Select all"></th>
+             <th>CUSTOMER - NAME</th>
+             <th>ACCOUNT #</th>
+             <th>AMOUNT</th>
+             <th>DUE DATE</th>
+             <th>UTILITY</th>
+             <th>ACTIONS</th>
+           </tr>
+         </thead>
+         
+       </table>
+     </div>
+
+     <div class="list-footer">
+       <div class="count">Showing 1-4 of 78</div>
+       <div class="pager">
+         <button class="btn small" disabled>Previous</button>
+         <button class="btn small current" aria-current="page">1</button>
+         <button class="btn small">2</button>
+         <button class="btn small">Next</button>
+       </div>
+     </div>
+   </section>
  </main>
     </div>
     <script src="Unpaidbills.js"></script>

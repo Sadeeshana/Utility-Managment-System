@@ -1,0 +1,180 @@
+/* Employee registration from styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+}
+
+html, body {
+    height: 100%;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f3f6f9;
+    color: #22313f;
+}
+.container {
+    max-width: 1100px;
+    margin: 36px auto;
+    display: flex;
+    background: #ffffff;
+    border-radius: 12px
+    box-shadow:0 8px 30px rgba(16,24,40,0.08);
+}
+
+/* Left visual panel (illustration + back button) */
+.left-panel {
+  width: 42%;
+  min-width: 320px;
+  background: linear-gradient(180deg, #05344d 0%, #0b4962 100%);
+  color: #ffffff;
+  padding: 48px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.left-panel h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.left-panel p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+  text-align: center;
+  line-height: 1.4;
+  max-width: 240px;
+}
+
+.left-panel .illustration {
+  width: 260px;
+  height: auto;
+}
+
+.left-panel .back-btn {
+  display: inline-block;
+  margin-top: 20px;
+  background: #ff9933;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 26px;
+  text-decoration: none;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+
+/* Right form panel */
+.form-container {
+  width: 58%;
+  padding: 40px 48px;
+  background: #ffffff;
+}
+
+.welcome-text {
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.welcome-text h1 {
+  color: #203040;
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.welcome-text p {
+  color: #6b7785;
+  font-size: 13px;
+}
+
+.registration-image {
+  text-align: center;
+  margin: 10px 0 20px 0;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-row {
+  display: flex;
+  gap: 14px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+label {
+  display: block;
+  font-size: 12px;
+  color: #6b7785;
+  margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #e6eef3;
+  border-radius: 18px;
+  background: #ffffff;
+  color: #22313f;
+  font-size: 14px;
+}
+
+input::placeholder {
+  color: #9aa6b2;
+}
+
+input:focus {
+  outline: none;
+  border-color: #91c3d3;
+  box-shadow: 0 6px 18px rgba(14, 99, 137, 0.06);
+}
+
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 22px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-register {
+  background: #07364d;
+  color: #fff;
+  margin-top: 12px;
+}
+
+.btn-register:hover { opacity: 0.95; }
+
+.btn-back {
+  background: #ff9933;
+  color: #fff;
+  margin-top: 12px;
+}
+
+/* small screen adjustments */
+@media (max-width: 900px) {
+  .container { flex-direction: column; margin: 20px; }
+  .left-panel, .form-container { width: 100%; }
+  .left-panel { padding: 28px; }
+  .form-container { padding: 26px; }
+  .form-row { flex-direction: column; }
+}
+
+/* utility helpers */
+.muted { color: #6b7785; font-size: 13px; }
+
+/* small tweak for very small screens */
+@media (max-width: 420px) {
+  .welcome-text h1 { font-size: 22px; }
+}

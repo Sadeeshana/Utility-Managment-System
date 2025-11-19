@@ -12,7 +12,7 @@ body {
 
 
 .sidebar {
-    width: 200px;
+    width: 300px;
     background-color: #0a2d4d; 
     color: white;
     padding: 10px;
@@ -70,5 +70,162 @@ body {
     padding: 40px;
     overflow-y: auto;
     background-color: #f0f4f8;
-
 }
+
+/* Table card */
+.table-card {
+    background: #0b3d5c;
+    color: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-top: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* Table */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table thead th {
+    background: #0d4e73;
+    text-align: left;
+    padding: 14px 16px;
+    font-weight: 600;
+    letter-spacing: .02em;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.data-table tbody td {
+    padding: 14px 16px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    font-size: 0.95rem;
+}
+
+.data-table tbody tr:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+.data-table tbody .empty td {
+    text-align: center;
+    color: rgba(255,255,255,0.85);
+}
+
+/* Footer */
+.table-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    background: #0b3d5c;
+}
+
+.results-info {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.9);
+}
+
+.pagination button {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 6px;
+    padding: 6px 10px;
+    margin-left: 6px;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Dropdown */
+.dropdown { position: relative; display: inline-block; }
+.filter-dropdown {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: white;
+    color: black; 
+    border: 1px solid rgba(255,255,255,.25);
+    padding: 10px 12px; border-radius: 8px; cursor: pointer;
+}
+
+.dropdown-menu {
+    position: absolute; top: 110%; left: 0; min-width: 190px;
+    background: white; 
+    color: black; 
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 10px; padding: 6px 0; z-index: 10;
+    box-shadow: 0 8px 18px rgba(0,0,0,.25);
+
+    /* transition instead of display:none */
+    visibility: hidden; opacity: 0; transform: translateY(-6px);
+    transition: opacity .15s ease, transform .15s ease, visibility 0s linear .15s;
+}
+.dropdown.open .dropdown-menu {
+    visibility: visible; opacity: 1; transform: translateY(0); transition-delay: 0s;
+}
+.dropdown-item {
+    padding: 10px 12px; cursor: pointer; user-select: none;
+}
+.dropdown-item:hover { background: rgba(255,255,255,.08); }
+.dropdown-item[aria-selected="true"] { background: rgba(255,255,255,.12); }
+
+
+.filter-group { display: flex; flex-direction: column; }
+.filter-label { font-size: 0.95rem; opacity: .9; margin-bottom: 8px; }
+
+/* Buttons: dropdown, time period, export */
+.filter-button,
+.export-button,
+.filter-dropdown {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    color:black;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 8px;
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: background .18s ease, border-color .18s ease, transform .06s ease;
+}
+
+.filter-button:active,
+.export-button:active,
+.filter-dropdown:active { transform: translateY(1px); }
+.filter-button:focus,
+.export-button:focus,
+.filter-dropdown:focus { outline: none; box-shadow: 0 0 0 3px rgba(32,149,243,.35); }
+
+/* Search box */
+.search-group { flex: 1 1 320px; }
+.search-box { position: relative; display: inline-flex; width: 100%; }
+.search-box input {
+    width: 100%;
+    height: 40px;
+    background: white;
+    color: black;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 8px;
+    padding: 0 40px 0 12px;
+}
+.search-box input::placeholder { color: rgba(255,255,255,.8); }
+.search-box input:focus { outline: none; box-shadow: 0 0 0 3px rgba(32,149,243,.35); }
+.search-box .icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: .85;
+    pointer-events: none;
+}
+
+/* Hide helper for inputs used only to trigger native pickers */
+.visually-hidden {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+

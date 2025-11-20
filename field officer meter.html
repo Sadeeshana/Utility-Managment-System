@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Meter Management</title>
+<style>
+    body { margin:0; font-family:Arial,sans-serif; background:#f5f7fb; display:flex; }
+    /* Sidebar */
+    .sidebar { width:260px; background:#083452; color:#fff; height:100vh; padding:30px 20px; box-sizing:border-box; }
+    .logo { font-size:20px; font-weight:bold; margin-bottom:30px; }
+    /* Menu */
+    .menu-list { list-style:none; margin:0; padding:0; }
+    .menu-link { display:flex; align-items:center; gap:12px; background:#fff; margin:10px 0; padding:14px 18px; border-radius:25px; text-decoration:none; color:#083452; font-weight:bold; transition:background .15s,color .15s; }
+    .menu-link:hover { background:#cbeff5; }
+    .menu-link.is-active { background:#a7e4ef; }
+    .menu-link:focus-visible { outline:2px solid #6ecbd5; outline-offset:2px; }
+    .menu-link .icon { width:18px; height:18px; flex-shrink:0; }
+    .bottom-links { position:absolute; bottom:30px; left:25px; color:#fff; }
+
+    /* Content */
+    .content { flex:1; padding:30px 50px; overflow:auto; }
+    h1 { margin:0; font-size:32px; }
+    .subtitle { margin-top:5px; color:#555; }
+    .top-bar { margin-top:20px; display:flex; gap:10px; flex-wrap:wrap; }
+    .search-box { width:350px; padding:12px; border:1px solid #ccc; border-radius:25px; font-size:15px; }
+    .dropdown { padding:12px 20px; border-radius:25px; border:1px solid #ccc; font-size:15px; min-width:230px; background:#fff; font-weight:600; box-shadow:0 2px 4px rgba(0,0,0,.08); }
+    .btn-add { background:#6ecbd5; padding:12px 25px; font-size:15px; border-radius:25px; border:none; cursor:pointer; font-weight:bold; display:flex; align-items:center; gap:8px; box-shadow:0 2px 4px rgba(0,0,0,.12); }
+
+    /* Table wrapper */
+    .table-wrapper { margin-top:25px; background:#fff; border-radius:20px; overflow:hidden; box-shadow:0 4px 14px rgba(0,0,0,.08); border:1px solid #e2e8f0; }
+    table { width:100%; border-collapse:separate; border-spacing:0; background:transparent; }
+    th,td { padding:15px 18px; text-align:left; border-bottom:1px solid #eef2f5; font-size:15px; }
+    th { background:linear-gradient(180deg,#f6f8fa,#edf1f5); font-weight:700; letter-spacing:.5px; position:sticky; top:0; z-index:1; }
+    tbody tr { transition:background .15s; }
+    tbody tr:hover { background:#f0faff; }
+    tbody tr:nth-child(even) { background:#fafcfd; }
+    tbody tr:last-child td { border-bottom:none; }
+    thead tr:first-child th:first-child { border-top-left-radius:20px; }
+    thead tr:first-child th:last-child { border-top-right-radius:20px; }
+    tbody tr:last-child td:first-child { border-bottom-left-radius:20px; }
+    tbody tr:last-child td:last-child { border-bottom-right-radius:20px; }
+
+    /* Meter select button */
+    .meter-id-cell { display:flex; align-items:center; gap:8px; }
+    .meter-select-btn { width:24px; height:24px; border:none; background:#ffffff; color:#083452; border-radius:6px; display:flex; align-items:center; justify-content:center; cursor:pointer; padding:0; box-shadow:0 0 0 1px #cbd5e1; transition:background .15s, box-shadow .15s, transform .15s; }
+    .meter-select-btn:hover { background:#e6f6fa; }
+    .meter-select-btn:active { transform:scale(.9); }
+    .meter-select-btn svg { width:15px; height:15px; }
+    .meter-select-btn.select-active { background:#6ecbd5; box-shadow:0 0 0 2px #083452; color:#083452; }
+    .meter-selected { background:#e6faff !important; }
+
+    /* Pagination */
+    .pagination { display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:20px; }
+    .page-group { display:inline-flex; border:1px solid #ccc; border-radius:30px; overflow:hidden; }
+    .page-btn { background:#fff; border:none; padding:8px 16px; font-size:14px; cursor:pointer; color:#083452; font-weight:600; display:inline-flex; align-items:center; justify-content:center; min-width:60px; }
+    .page-btn + .page-btn { border-left:1px solid #ccc; }
+    .page-btn:hover { background:#e6f6fa; }
+    .page-btn.is-current { background:#a7e4ef; box-shadow:inset 0 0 0 2px #6ecbd5; }
+</style>
+</head>
+<body>
+<div class="sidebar">
+    <div class="logo">Field Officers<br>Management System</div>
+
+    <nav class="menu" aria-label="Main navigation">
+        <ul class="menu-list">
+            <li>
+                <a href="#" class="menu-link">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <rect x="3" y="3" width="8" height="8" fill="currentColor"/>
+                        <rect x="13" y="3" width="8" height="8" fill="currentColor"/>
+                        <rect x="3" y="13" width="8" height="8" fill="currentColor"/>
+                        <rect x="13" y="13" width="8" height="8" fill="currentColor"/>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="menu-link is-active">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M4 14a8 8 0 0 1 16 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M12 14 L16 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="12" cy="14" r="1.5" fill="currentColor"/>
+                    </svg>
+                    <span>Meter Management</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="menu-link">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <circle cx="12" cy="8" r="4" fill="currentColor"/>
+                        <path d="M4 20a8 8 0 0 1 16 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span>Customers</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="menu-link">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <rect x="6" y="3" width="12" height="18" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <path d="M9 7h6M9 11h6M9 15h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span>Billings</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="menu-link">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M6 3h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                        <path d="M15 3v5h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                        <path d="M9 17v-3M12 17v-5M15 17v-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M8 17h8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span>Reports</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="bottom-links">
+        <p>⚙ Settings</p>
+        <p>↩ Log Out</p>
+    </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+    <h1>Meter Management</h1>
+    <div class="subtitle">Register, view, and manage all utility meters in the system</div>
+
+    <div class="top-bar">
+        <input class="search-box" placeholder="Search by Meter ID, Address.............">
+        <select class="dropdown">
+            <option>Utility Type: All</option>
+            <option>Electric</option>
+            <option>Water</option>
+            <option>Gas</option>
+        </select>
+        <button class="btn-add">+ Enter New Data</button>
+    </div>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Meter ID</th>
+                    <th>Utility Type</th>
+                    <th>Location/Address</th>
+                    <th>Last Reading Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><div class="meter-id-cell"><button type="button" class="meter-select-btn" aria-pressed="false" aria-label="Select meter ETC-6081" data-meter="ETC-6081"></button><span>ETC-6081</span></div></td>
+                    <td>Electric</td>
+                    <td>207 Lake road, Maharagama</td>
+                    <td>2025-08-15</td>
+                </tr>
+                <tr>
+                    <td><div class="meter-id-cell"><button type="button" class="meter-select-btn" aria-pressed="false" aria-label="Select meter WAT-5414" data-meter="WAT-5414"></button><span>WAT-5414</span></div></td>
+                    <td>Water</td>
+                    <td>180 Central road, Colombo</td>
+                    <td>2025-06-23</td>
+                </tr>
+                <tr>
+                    <td><div class="meter-id-cell"><button type="button" class="meter-select-btn" aria-pressed="false" aria-label="Select meter GAS-5375" data-meter="GAS-5375"></button><span>GAS-5375</span></div></td>
+                    <td>Gas</td>
+                    <td>631 Baseline road, Colombo</td>
+                    <td>2025-07-12</td>
+                </tr>
+                <tr>
+                    <td><div class="meter-id-cell"><button type="button" class="meter-select-btn" aria-pressed="false" aria-label="Select meter ETC-1856" data-meter="ETC-1856"></button><span>ETC-1856</span></div></td>
+                    <td>Electric</td>
+                    <td>595 Maradana road, Colombo</td>
+                    <td>2025-05-30</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="pagination">
+        <div class="page-group">
+            <button class="page-btn" data-nav="prev" aria-label="Previous page">Previous</button>
+            <button class="page-btn is-current" data-page="1" aria-label="Page 1">1</button>
+            <button class="page-btn" data-page="2" aria-label="Page 2">2</button>
+            <button class="page-btn" data-nav="next" aria-label="Next page">Next</button>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Menu active state
+    document.querySelectorAll('.menu-link').forEach(function(link){
+        link.addEventListener('click', function(e){
+            if (link.getAttribute('href') === '#') e.preventDefault();
+            document.querySelectorAll('.menu-link').forEach(function(l){ l.classList.remove('is-active'); });
+            link.classList.add('is-active');
+        });
+    });
+
+    // Pagination logic
+    var pageGroup = document.querySelector('.page-group');
+    if (pageGroup) {
+        var currentPage = 1, maxPage = 2;
+        function setCurrent(page) {
+            currentPage = page;
+            pageGroup.querySelectorAll('[data-page]').forEach(function(btn){
+                btn.classList.toggle('is-current', parseInt(btn.dataset.page,10) === currentPage);
+            });
+        }
+        pageGroup.addEventListener('click', function(e){
+            var btn = e.target.closest('.page-btn');
+            if (!btn) return;
+            if (btn.dataset.page) setCurrent(parseInt(btn.dataset.page,10));
+            else if (btn.dataset.nav === 'prev' && currentPage > 1) setCurrent(currentPage - 1);
+            else if (btn.dataset.nav === 'next' && currentPage < maxPage) setCurrent(currentPage + 1);
+        });
+    }
+
+    // Meter selection buttons
+    document.querySelectorAll('.meter-select-btn').forEach(function(btn){
+        btn.addEventListener('click', function(){
+            var row = btn.closest('tr');
+            var selected = row.classList.toggle('meter-selected');
+            btn.classList.toggle('select-active', selected);
+            btn.setAttribute('aria-pressed', selected ? 'true' : 'false');
+        });
+    });
+});
+</script>
+</body>
+</html>

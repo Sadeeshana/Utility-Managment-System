@@ -413,14 +413,14 @@
                 </div>
 
                 <div class="customer-table-container">
-                    <table class="customer-table">
+                    <table class="customer-table" id="Customerdata">
                         <thead>
                             <tr>
+                                <th>Customer Id</th>
                                 <th>Customer Name</th>
-                                <th>Account ID</th>
+                                <th>Address</th>
                                 <th>Email</th>
-                                <th>Status</th>
-                                <th>Actions</th>
+                                <th>Customer Type</th>
                             </tr>
                         </thead>
                         <tbody id="customerTableBody">
@@ -449,13 +449,8 @@
         // --- JAVASCRIPT ---
         document.addEventListener('DOMContentLoaded', () => {
             // 1. Sample Data (Simulating a database fetch)
-            const customerData = [
-                { name: "Eleanor Pena", id: "ACC-001254", email: "eleanor.p@example.com", status: "Active" },
-                { name: "Arthur", id: "ACC-001254", email: "eauthr.p@example.com", status: "Active" },
-                { name: "harry", id: "ACC-001254", email: "harry.p@example.com", status: "Active" },
-                { name: "goliath", id: "ACC-001254", email: "goali.p@example.com", status: "Active" },
-                { name: "Jane Doe", id: "ACC-001255", email: "jane.d@example.com", status: "Active" },
-            ];
+            loadCustomers();
+            
 
             const tableBody = document.getElementById('customerTableBody');
             const searchInput = document.getElementById('searchInput');
@@ -515,7 +510,45 @@
             document.querySelector('.add-customer-btn').addEventListener('click', () => {
                 window.location.href = 'addnewcustomer.html';
             });
-        });
+  });
+
+
+
+  function loadCustomers() {
+    fetch('Php/CustomerMan.php') 
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const tableBody = document.querySelector('#customerTableBody');
+            tableBody.innerHTML = ''; 
+
+            data.forEach(cusd => {
+                
+                const row = `
+                    <tr>
+                        <td>${cusd.CustomerID}</td>
+                        <td>${cusd.Customer_Name}</td>
+                        <td>${cusd.Address}</td>
+                        <td>${cusd.Email}</td>
+                        <td>${cusd.Customer_Type}</td>
+                    </tr>
+                `;
+                tableBody.innerHTML += row;
+            });
+
+            filterTable(); 
+        })
+        .catch(error => console.error('Error loading data:', error));
+}
+
+
+loadCustomers();
+
+setInterval(loadCustomers, 3000);
     </script>
 </body>
 </html>

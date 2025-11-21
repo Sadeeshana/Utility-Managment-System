@@ -9,15 +9,15 @@
     <style>
         /* --- CSS STYLES --- */
         :root {
-            --dark-blue: #284457; /* Sidebar background */
-            --mid-blue: #375b75; /* Nav item background */
-            --light-blue: #40c4ff; /* Primary/Active color */
+            --dark-blue: #0A3D62; /* Sidebar background */
+            --mid-blue: #0A3D62; /* Nav item background */
+            --light-blue: #0A3D62; /* Primary/Active color */
             --text-light: #ffffff;
             --text-dark: #333;
             --active-bg: #4c8aaf; /* Active nav item background */
-            --input-border: #82ccdd;
-            --button-blue: #5bc0de;
-            --button-gray: #f0f0f0;
+            --input-border: #0A3D62;
+            --button-blue: #0A3D62;
+            --button-gray: white;
         }
 
         /* Global Reset and Body Styling */
@@ -29,7 +29,7 @@
         }
 
         body {
-            background-color: #f4f4f4;
+            background-color: white;
         }
 
         /* Dashboard Layout (Flexbox) */
@@ -54,7 +54,7 @@
             display: flex;
             align-items: center;
             padding: 0 20px 20px;
-            border-bottom: 1px solid var(--mid-blue);
+            border-bottom: 1px solid #4c8aaf;
             margin-bottom: 20px;
         }
 
@@ -123,7 +123,7 @@
         }
 
         .content-header p {
-            color: #666;
+            color: black;
             font-size: 16px;
             margin-bottom: 20px;
         }
@@ -142,11 +142,11 @@
             border-radius: 5px;
             padding: 8px 15px;
             width: 50%;
-            background-color: #f7f7f7;
+            background-color: white;
         }
 
         .search-field i {
-            color: #999;
+            color: black;
             margin-right: 10px;
         }
 
@@ -155,14 +155,14 @@
             flex-grow: 1;
             font-size: 16px;
             outline: none;
-            background-color: transparent;
+            background-color: white;
         }
 
         /* Form Sections */
         .form-section {
             margin-bottom: 30px;
             padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid white;
         }
         
         .form-section:last-of-type {
@@ -201,7 +201,7 @@
 
         .form-group label {
             font-size: 14px;
-            color: #666;
+            color: black;
             margin-bottom: 5px;
         }
 
@@ -253,7 +253,7 @@
             border: 1px solid var(--input-border);
             border-radius: 5px;
             transition: background-color 0.2s, border-color 0.2s;
-            user-select: none;
+            
         }
         
         .checkmark {
@@ -313,7 +313,7 @@
         #cancelButton {
             background-color: var(--button-gray);
             color: var(--text-dark);
-            border: 1px solid #ccc;
+            border: 1px solid black;
         }
 
         #createButton {
@@ -335,16 +335,16 @@
             </div>
 
             <nav class="sidebar-nav">
-                <a href="#" class="nav-item">
+                <a href="Dashbaord.html" class="nav-item">
                     <i class="fas fa-th-large"></i> Dashboard
                 </a>
-                <a href="#" class="nav-item active">
+                <a href="addnewcustomer.html" class="nav-item active">
                     <i class="fas fa-users"></i> Customers
                 </a>
-                <a href="#" class="nav-item">
+                <a href="Billing.html" class="nav-item">
                     <i class="fas fa-file-invoice"></i> Billings
                 </a>
-                <a href="#" class="nav-item">
+                <a href="Genaratereports.html" class="nav-item">
                     <i class="fas fa-chart-bar"></i> Reports
                 </a>
             </nav>
@@ -457,12 +457,7 @@
                             </label>
                         </div>
                         
-                        <div class="checkbox-group">
-                            <input type="checkbox" id="serviceInternet" name="services" value="Internet">
-                            <label for="serviceInternet" class="checkbox-label">
-                                <span class="checkmark"></span>Internet
-                            </label>
-                        </div>
+                        
                     </div>
                 </div>
 

@@ -1,9 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
-  window.goBack = function () {
-    window.history.back();
-  };
-
-  // Highlight search input when typing
+ // Highlight search input when typing
   const searchInput = document.getElementById("searchInput");
   searchInput.addEventListener("input", () => {
     if (searchInput.value.trim() !== "") {
@@ -86,4 +81,4 @@ Amount given: Rs. ${given.toFixed(2)}
 Change: Rs. ${changeValue}
 Receipt type: ${receiptType.toUpperCase()}`);
   });
-});
+

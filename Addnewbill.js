@@ -1,6 +1,3 @@
-
-
-// Wrap behavior in DOMContentLoaded so elements exist
 document.addEventListener('DOMContentLoaded', () => {
     // Safe element getters
     const get = id => document.getElementById(id);
@@ -8,15 +5,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const amountGivenEl = get('amountGiven');
     const amountToPayEl = get('amountToPay');
     const changeEl = get('change');
-    const addBtn = get('addBillBtn');
+    const billForm = get('billForm');
+    // REMOVED: const messageDiv = get('responseMessage');
 
+    // --- 1. Change Calculation Logic ---
     function calculateChange() {
         const amountToPay = parseFloat(amountToPayEl && amountToPayEl.value) || 0;
         const amountGiven = parseFloat(amountGivenEl && amountGivenEl.value) || 0;
         const delta = amountGiven - amountToPay;
 
         if (changeEl) {
-            if (amountGiven <= amountToPay) {
+            if (amountGiven < amountToPay) {
                 changeEl.value = '0.00';
                 changeEl.style.color = 'red';
             } else {
@@ -26,62 +25,84 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Attach listeners only when elements exist
+    // Attach listeners for calculation
     if (amountGivenEl) amountGivenEl.addEventListener('input', calculateChange);
     if (amountToPayEl) amountToPayEl.addEventListener('input', calculateChange);
 
-    // Add Bill button → Validate form
-    if (addBtn) {
-        addBtn.addEventListener('click', function () {
-            const requiredFields = [
-                'customerId',
-                'billId',
-                'meterId',
-                'billingDate',
-                'dueDate',
-                'totalBill',
-                'amountToPay',
-                'amountGiven'
-            ];
+    // Initial calculation on page load
+    calculateChange();
 
+
+    // --- 2. Form Submission and Validation Logic ---
+    if (billForm) {
+        billForm.addEventListener('submit', async function (e) {
+            e.preventDefault(); // Stop normal form submission
+
+            // A. VALIDATION
+            const requiredFields = ['customerId', 'billId', 'meterId', 'billingDate', 'dueDate', 'totalBill', 'amountToPay', 'amountGiven'];
             let isValid = true;
 
-            // Clear previous error outlines safely
-            requiredFields.forEach(id => {
-                const el = get(id);
-                if (el) el.style.borderColor = '#ccc';
-            });
+            // Reset borders
+            requiredFields.forEach(id => { const el = get(id); if (el) el.style.borderColor = '#ccc'; });
 
-            // Check all fields
+            // Check empty fields
             requiredFields.forEach(id => {
                 const input = get(id);
-                if (!input || input.value === '' || input.value === null) {
+                if (!input || input.value.trim() === '') {
                     if (input) input.style.borderColor = 'red';
                     isValid = false;
                 }
             });
 
             if (!isValid) {
-                alert('Please fill all fields before adding the bill.');
+                // CHANGED: Use alert instead of messageDiv
+                alert('Please fill all fields.');
                 return;
             }
 
-            // Extra validation: Amount Given must be larger than Amount To Pay
-            const amountToPay = parseFloat((get('amountToPay') && get('amountToPay').value) || 0);
-            const amountGiven = parseFloat((get('amountGiven') && get('amountGiven').value) || 0);
+            // Check Amount Given > Amount To Pay
+            const amountToPay = parseFloat(amountToPayEl.value) || 0;
+            const amountGiven = parseFloat(amountGivenEl.value) || 0;
 
-            if (amountGiven <= amountToPay) {
-                alert('Amount given must be larger than amount to pay.');
-                const ag = get('amountGiven');
-                if (ag) ag.style.borderColor = 'red';
+            if (amountGiven < amountToPay) {
+                // CHANGED: Use alert instead of messageDiv
+                alert('Amount given must be equal to or larger than amount to pay.');
+                amountGivenEl.style.borderColor = 'red';
                 return;
             }
 
-            // If all ok
-            alert('Bill Added Successfully!');
+
+            // B. SEND TO PHP
+            const formData = new FormData(this);
+
+            try {
+                const response = await fetch("Php/Addbill.php", {
+                    method: "POST",
+                    body: formData
+                });
+                
+                const data = await response.text();
+
+                // Check if PHP message contains "successful"
+                if (data.toLowerCase().includes("successful")) {
+                    // CHANGED: Alert success
+                    alert(data); 
+                    this.reset(); // Clear form
+                    calculateChange(); // Reset change field
+                    
+                    // Redirect after 1 second
+                    setTimeout(() => {
+                        window.location.href = "Billing_Management.html";
+                    }, 1000);
+                } else {
+                    // CHANGED: Alert error from PHP
+                    alert(data); 
+                }
+
+            } catch (error) {
+                 // CHANGED: Alert network error
+                alert("Error: " + error);
+            }
         });
     }
-
-    // initial calculation
-    calculateChange();
 });

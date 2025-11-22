@@ -55,6 +55,7 @@ function loadBills() {
                         <td>${bill.MeterID}</td>
                         <td>${bill.BillingDate}</td>
                         <td>${bill.DueDate}</td>
+                        <td>${bill.Payment_Status}</td>
                     </tr>
                 `;
                 tableBody.innerHTML += row;

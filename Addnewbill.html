@@ -18,12 +18,12 @@
 
   <div class="container">
 
-    <form id="billForm">
+    <form id="billForm" method="post">
 
       <div class="row">
         <div class="form-group">
-          <label>Customer ID</label>
-          <input type="text" id="customerId" placeholder="Enter your Customer ID">
+          <label>Bill ID</label>
+          <input type="text" id="billId" placeholder="Enter your Bill ID" name="BillID">
         </div>
 
         <div class="form-group">
@@ -34,8 +34,8 @@
 
       <div class="row">
         <div class="form-group">
-          <label>Bill ID</label>
-          <input type="text" id="billId" placeholder="Enter your Bill ID">
+          <label>Customer ID</label>
+          <input type="text" id="customerId" placeholder="Enter your Customer ID" name="CustomerID">
         </div>
 
         <div class="form-group">
@@ -47,7 +47,7 @@
       <div class="row">
         <div class="form-group">
           <label>Meter ID</label>
-          <input type="text" id="meterId" placeholder="Enter your Meter ID">
+          <input type="text" id="meterId" placeholder="Enter your Meter ID" name="MeterID">
         </div>
 
         <div class="form-group">
@@ -59,7 +59,7 @@
       <div class="row">
         <div class="form-group">
           <label>Billing Date</label>
-          <input type="date" id="billingDate">
+          <input type="date" id="billingDate" name="BillingDate">
         </div>
 
         <div class="form-group">
@@ -71,11 +71,18 @@
       <div class="row">
         <div class="form-group">
           <label>Due Date</label>
-          <input type="date" id="dueDate">
+          <input type="date" id="dueDate" name="DueDate">
         </div>
       </div>
 
-      <button type="button" id="addBillBtn" class="add-btn">Add New Bill</button>
+      <div class="row">
+        <div class="form-group">
+          <label>Payment</label>
+          <input type="text" id="Pay" name="payment">
+        </div>
+      </div>
+
+      <button type="submit" id="addBillBtn" class="add-btn">Add New Bill</button>
     </form>
 
   </div>

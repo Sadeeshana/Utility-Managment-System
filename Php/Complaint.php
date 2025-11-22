@@ -1,48 +1,28 @@
 <?php
-// Local DB Connection
-require_once "db.php"; 
+include 'database.php'; 
 
-// Handle Pagination Using POST
-$limit = 5;
-$page  = isset($_POST['page']) ? intval($_POST['page']) : 1;
-$start = ($page - 1) * $limit;
+// Select data
+$sql = "SELECT 
+            ComplaintID, 
+            CustomerID, 
+            EmployeeID, 
+            FORMAT(Complaint_date, 'yyyy/MM/dd') as Complaint_date, -- Format date
+            Description,
+            Status_of_Complaint
+        FROM Complaint
+        ORDER BY ComplaintID DESC";
 
-// Get Total Count Of Complaints
-$countQuery = "SELECT COUNT(*) AS total FROM complaint";
-$countResult = $conn->query($countQuery);
-$totalRow = $countResult->fetch_assoc();
-$totalRecords = $totalRow['total'];
+$stmt = sqlsrv_query($conn, $sql);
 
-$totalPages = ceil($totalRecords / $limit);
-
-// Call Stored Procedure
-$stmt = $conn->prepare("CALL GetComplaints(?, ?)");
-$stmt->bind_param("ii", $start, $limit);
-$stmt->execute();
-$result = $stmt->get_result();
-
-// Fetch Rows and Build an Array
-$complaints = [];
-
-while ($row = $result->fetch_assoc()) {
-    $complaints[] = [
-        "ComplaintID"         => $row["ComplaintID"],
-        "CustomerID"          => $row["CustomerID"],
-        "EmployeeID"          => $row["EmployeeID"],
-        "Complaint_date"      => $row["Complaint_date"],
-        "Description"         => $row["Description"],
-        "Status_of_Complaint" => $row["Status_of_Complaint"]
-    ];
+if ($stmt === false) {
+    die(print_r(sqlsrv_errors(), true));
 }
 
-// Return JSON Back to Frontend
-echo json_encode([
-    "data"          => $complaints,
-    "currentPage"   => $page,
-    "totalPages"    => $totalPages,
-    "totalRecords"  => $totalRecords
-]);
+$complaints = array(); // FIXED: Use a consistent name
+while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+    $complaints[] = $row; // FIXED: Add to the correct array
+}
 
-// Close DB
-$conn->close();
+header('Content-Type: application/json');
+echo json_encode($complaints); // FIXED: Output the correct array
 ?>

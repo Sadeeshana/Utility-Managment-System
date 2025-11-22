@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login UI</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -33,10 +32,9 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
 
-    
     .left {
       width: 45%;
-      background: #0a3a55;
+      background: #0A3D62;
       padding: 20px;
       display: flex;
       justify-content: center;
@@ -46,10 +44,10 @@
     }
 
     .left img {
-    width: auto;
-    height: 360px;
-    border-radius: 10px;
-    object-fit: contain;
+      width: auto;
+      height: 360px;
+      border-radius: 10px;
+      object-fit: contain;
     }
 
     .left p {
@@ -59,7 +57,6 @@
       opacity: 0.8;
     }
 
-    
     .right {
       width: 55%;
       padding: 50px;
@@ -90,7 +87,7 @@
     .input-group input {
       padding: 12px;
       border-radius: 8px;
-      border: 1px solid #c9d3dd;
+      border: 1px solid #0A3D62;
       font-size: 14px;
       outline: none;
       transition: 0.2s;
@@ -98,18 +95,6 @@
 
     .input-group input:focus {
       border-color: #0a3a55;
-    }
-
-    .forgot {
-      margin-top: 10px;
-      text-align: right;
-    }
-
-    .forgot a {
-      color: #0a3a55;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 500;
     }
 
     .btn {
@@ -133,7 +118,6 @@
       background: #e3e6ea;
       color: #333;
     }
-
   </style>
 </head>
 <body>
@@ -141,8 +125,8 @@
   <div class="container">
 
     <div class="left">
-      <img src="C:\Users\deshd\Desktop\LoginPage\billing_image.png.jpg" alt="Billing Illustration" />
-      
+      <img src="billing_image.png" alt="Billing Illustration" />
+      <p>Manage your billing and customer data easily.</p>
     </div>
 
     <div class="right">
@@ -150,18 +134,33 @@
       <small>Please enter login details below</small>
 
       <div class="input-group">
-        <label>Employee ID</label>
-        <input type="text" placeholder="Enter the Employee ID" />
+        <label for="employeeId">Employee ID</label>
+        <input type="text" id="employeeId" placeholder="Enter the Employee ID" />
       </div>
 
-  
-  
-
-      <button class="btn btn-primary">Sign In</button>
-      <button class="btn btn-secondary">Register Now</button>
+      <button class="btn btn-primary" onclick="validateLogin()">Sign In</button>
+      <button class="btn btn-secondary" onclick="registerNow()">Register Now</button>
     </div>
 
   </div>
+
+  <script>
+    function validateLogin() {
+      const empId = document.getElementById('employeeId').value.trim();
+      if(empId === "") {
+        alert("Please enter your Employee ID!");
+      } else {
+        alert("Login successful!");
+        // Redirect to dashboard
+        window.location.href = 'Dashbaord.html';
+      }
+    }
+
+    function registerNow() {
+      alert("Redirecting to registration page...");
+      window.location.href = 'Customer_registration.html';
+    }
+  </script>
 
 </body>
 </html>

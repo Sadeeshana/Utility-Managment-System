@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault(); // Prevent default submission
 
             // reqired fields
-            const requiredFields = ['complaintId', 'employeeId', 'customerId', 'complaintDate', 'description', 'status'];
+            const requiredFields = [ 'employeeId', 'customerId', 'complaintDate', 'description'];
             let isValid = true;
 
             // Reset borders

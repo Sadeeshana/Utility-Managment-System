@@ -16,16 +16,16 @@
         <p>Utility management</p>
       </div>
       <div class="menu">
-        <a href="#"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+        <a href="Dashbaord.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
         <a href="#"><i class="fa-solid fa-users"></i> Customers</a>
         <a href="Billing_Management.html"><i class="fa-solid fa-file-invoice-dollar"></i> Billings</a>
-        <a href="#"><i class="fa-solid fa-chart-bar"></i> Reports</a>
+        <a href="Genaratereports.html"><i class="fa-solid fa-chart-bar"></i> Reports</a>
         <a href="complaint_management.html" class="active"><i class="fa-solid fa-triangle-exclamation"></i> Complaints</a>
       </div>
     </div>
     <div class="bottom-menu">
-      <a id="settings"><i class="fa-solid fa-gear"></i> Settings</a>
-      <a id="logout"><i class="fa-solid fa-right-from-bracket"></i> Log out</a>
+      <a href="#" id="settings"><i class="fa-solid fa-gear"></i> Settings</a>
+      <a href="#" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Log out</a>
     </div>
   </div>
 
@@ -52,22 +52,39 @@
           <th>Complaint Date</th>
           <th>Description</th>
           <th>Status of Complaint</th>
+          <th>Edit</th> <!-- Added edit column -->
         </tr>
       </thead>
       <tbody>
-       
+
+        <!-- 5 Static Complaints Added -->
+        <tr>
+          <td>C001</td><td>CU101</td><td>EMP12</td><td>2025-01-10</td><td>Water leakage</td><td>Pending</td>
+          <td><a class="edit-btn" href="edit_complaint.html?complaintID=C001">Edit</a></td></tr>
+        <tr>
+          <td>C002</td><td>CU105</td><td>EMP09</td><td>2025-02-02</td><td>Meter not working</td><td>In Progress</td>
+          <td><a class="edit-btn" href="edit_complaint.html?complaintID=C002">Edit</a></td></tr>
+        <tr>
+          <td>C003</td><td>CU110</td><td>EMP03</td><td>2025-01-28</td><td>No supply</td><td>Resolved</td>
+          <td><a class="edit-btn" href="edit_complaint.html?complaintID=C003">Edit</a></td></tr>
+        <tr>
+          <td>C004</td><td>CU120</td><td>EMP15</td><td>2025-02-12</td><td>High bill issue</td><td>Pending</td>
+          <td><a class="edit-btn" href="edit_complaint.html?complaintID=C004">Edit</a></td></tr>
+        <tr>
+          <td>C005</td><td>CU130</td><td>EMP07</td><td>2025-02-15</td><td>Wrong meter reading</td><td>In Progress</td>
+          <td><a class="edit-btn" href="edit_complaint.html?complaintID=C005">Edit</a></td></tr>
       </tbody>
     </table>
 
     <div class="pagination">
-      <span>Showing 1 to 5 of 50 results</span>
+      <span>Showing 1 to 5 of 100 results</span>
       <div class="pages">
-        <button class="active">1</button>
+         <button class="active">1</button>
         <button>2</button>
         <button>3</button>
         <button>4</button>
         <button>5</button>
-        <span>...</span>
+        <span>.......</span>
       </div>
     </div>
   </div>

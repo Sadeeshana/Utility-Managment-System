@@ -27,8 +27,8 @@
         </div>
 
         <div class="form-group">
-          <label>Total Bill</label>
-          <input type="number" id="totalBill" value="1500.00">
+          <label for="totalBill">Total Bill</label>
+          <input type="number" id="totalBill" name="TotalBill" title="Total bill amount" placeholder="1500.00" value="1500.00">
         </div>
       </div>
 
@@ -39,46 +39,46 @@
         </div>
 
         <div class="form-group">
-          <label>Amount to Pay</label>
-          <input type="number" id="amountToPay" value="1500.00">
-        </div>
+            <label for="amountToPay">Amount to Pay</label>
+            <input type="number" id="amountToPay" name="AmountToPay" title="Amount to pay" placeholder="1500.00" value="1500.00">
+          </div>
       </div>
 
       <div class="row">
         <div class="form-group">
-          <label>Meter ID</label>
+          <label for="meterId">Meter ID</label>
           <input type="text" id="meterId" placeholder="Enter your Meter ID" name="MeterID">
         </div>
 
         <div class="form-group">
-          <label>Amount Given</label>
-          <input type="number" id="amountGiven" value="2000.00">
+          <label for="amountGiven">Amount Given</label>
+          <input type="number" id="amountGiven" name="AmountGiven" title="Amount given by the customer" placeholder="2000.00" value="2000.00">
         </div>
       </div>
 
       <div class="row">
         <div class="form-group">
-          <label>Billing Date</label>
-          <input type="date" id="billingDate" name="BillingDate">
+          <label for="billingDate">Billing Date</label>
+          <input type="date" id="billingDate" name="BillingDate" title="Select billing date" placeholder="YYYY-MM-DD">
         </div>
 
         <div class="form-group">
           <label>Change</label>
-          <input type="text" id="change" readonly>
+          <input type="text" id="change" name="Change" title="Change" placeholder="0.00" readonly>
         </div>
       </div>
 
       <div class="row">
         <div class="form-group">
-          <label>Due Date</label>
-          <input type="date" id="dueDate" name="DueDate">
+          <label for="dueDate">Due Date</label>
+          <input type="date" id="dueDate" name="DueDate" title="Select due date" placeholder="YYYY-MM-DD">
         </div>
       </div>
 
       <div class="row">
         <div class="form-group">
-          <label>Payment</label>
-          <input type="text" id="Pay" name="payment">
+          <label for="Pay">Payment</label>
+          <input type="text" id="Pay" name="payment" title="Payment method (e.g. Cash, Card)" placeholder="Enter payment method">
         </div>
       </div>
 

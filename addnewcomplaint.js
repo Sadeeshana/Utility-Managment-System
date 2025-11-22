@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         complaintForm.addEventListener('submit', async function(e) {
             e.preventDefault(); // Prevent default submission
 
-            // REQUIRED FIELD IDs
+            // reqired fields
             const requiredFields = ['complaintId', 'employeeId', 'customerId', 'complaintDate', 'description', 'status'];
             let isValid = true;
 
@@ -31,14 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // ✅ Show success alert immediately
+            //  Show success alert 
             alert('You have added a complaint successfully!');
 
             // Prepare form data
             const formData = new FormData(this);
 
             try {
-                // Send to PHP backend (optional)
+                // Send to PHP backend
                 const response = await fetch("Php/AddComplaint.php", {
                     method: "POST",
                     body: formData
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Clear form
                 this.reset();
 
-                // Optional: redirect after 1 second
+                // redirect
                 setTimeout(() => {
                     window.location.href = "Complaint_Management.html";
                 }, 1000);

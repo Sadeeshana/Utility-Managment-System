@@ -1,5 +1,5 @@
 body {
-    font-family: "IBM Plex Sans", sans-serif;
+    font-family: "IBM Plex Sans";
     background: #F5F6FA;
     margin: 0;
     padding: 0;
@@ -12,19 +12,6 @@ body {
     padding: 15px;
     background: #ffffff;
     box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-}
-
-.back-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #ffffff;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    cursor: pointer;
-    margin-right: 15px;
 }
 
 h2 {
@@ -76,7 +63,7 @@ textarea {
     resize: none;
 }
 
-/* Add Complaint Button */
+/* Complaint Button */
 .add-btn {
     width: 180px;
     padding: 12px;

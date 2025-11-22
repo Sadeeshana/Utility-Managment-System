@@ -71,10 +71,12 @@ document.getElementById('logout').addEventListener('click', () => {
   alert('🚪 Logging out...');
 });
 
-// Clickable Add new Complaint button
+
 document.getElementById('addComplaintBtn').addEventListener('click', () => {
-  alert('📝 Opening Add New Complaint Form...');
+  // Redirect to new complaint page
+  window.location.href = 'addnewcomplaint.html'; 
 });
+
 
 
 });

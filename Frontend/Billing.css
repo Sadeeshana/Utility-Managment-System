@@ -1,13 +1,13 @@
 body {
   font-family: "IBM Plex Sans";
-  background-color: #F5F6FA;
+  background-color: white;
   margin: 0;
   padding: 0;
 }
 
 /* Header Bar */
 .header {
-  background-color: #ffffff;
+  background-color: #0A3D62;
   color: #000;
   display: flex;
   align-items: center;
@@ -23,33 +23,11 @@ body {
   font-weight: 600;
 }
 
-.header-icons {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
 .material-icons {
   vertical-align: middle;
   cursor: pointer;
 }
 
-.back-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  background-color: #f0f0f0;
-  border: 1px solid #000;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.back-btn:hover {
-  background-color: #e0e0e0;
-}
 
 /* Layout */
 .container {
@@ -62,15 +40,14 @@ body {
 }
 
 .section {
-  background: #fff;
+  background:  #e0f2f8;
   flex: 1;
-  border: 2px solid #0A3D62;
-  border-radius: 12px;
   padding: 20px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 h2{
   align-items: center;
+  color: white;
 }
 
 h3 {
@@ -86,7 +63,7 @@ h3 {
   display: flex;
   align-items: center;
   border-radius: 8px;
-  background: #fff;
+  background: #F5F6FA;
   margin-top: 8px;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
@@ -99,7 +76,7 @@ h3 {
   font-size: 14px;
   font-family: inherit;
   border-radius: 8px;
-  background: #fff;
+  background: #F5F6FA;
   transition: box-shadow 0.3s, border 0.3s;
 }
 
@@ -121,21 +98,21 @@ input[type="text"], input[type="number"], select {
   padding: 8px;
   margin: 6px 0;
   border-radius: 30px;
-  border: 1px solid #ccc;
+  border: 30px ;
   font-size: 14px;
   box-sizing: border-box;
   font-family: inherit;
+  background: #F5F6FA;
 }
 
 input[type="text"]:focus, input[type="number"]:focus, select:focus {
-  border-color: #E58E26;
+  
   outline: none;
 }
 
 /* Results Box */
 .results {
-  background: #ffffff;
-  border: 2px solid #E58E26;
+  background: #F5F6FA;
   border-radius: 30px;
   padding: 20px;
   margin: 10px 0;
@@ -177,8 +154,8 @@ input[type="text"]:focus, input[type="number"]:focus, select:focus {
 }
 
 .highlight-box {
-  border: 2px solid #E58E26;
-  background: white;
+  
+  background: #F5F6FA;
   padding: 10px;
   border-radius: 30px;
   width: fit-content;
@@ -194,7 +171,7 @@ input[type="text"]:focus, input[type="number"]:focus, select:focus {
 
 .payment-methods button {
   flex: 1;
-  background-color: #e0e0e0;
+  background-color: #F5F6FA;
   color: #333;
   border: none;
   border-radius: 30px;
@@ -204,12 +181,12 @@ input[type="text"]:focus, input[type="number"]:focus, select:focus {
 }
 
 .payment-methods button.active {
-  background-color: #0A3D62;
+  background-color: #E58E26;
   color: white;
 }
 
 .process-btn {
-  background-color: #0A3D62;
+  background-color: #E58E26;
   color: white;
   border: none;
   padding: 10px;
@@ -221,7 +198,7 @@ input[type="text"]:focus, input[type="number"]:focus, select:focus {
 }
 
 .process-btn:hover {
-  background-color: #082c48;
+  background-color: #E58E26;
 }
 
 .receipt-options {

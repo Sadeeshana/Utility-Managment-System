@@ -67,7 +67,7 @@ h3 {
   position: relative;
   display: flex;
   align-items: center;
-  border-radius: 8px;
+  border-radius: 10px;
   background: #F5F6FA;
   margin-top: 8px;
   transition: border-color 0.3s, box-shadow 0.3s;
@@ -79,7 +79,7 @@ h3 {
   width: 100%;
   padding: 10px 40px 10px 10px;
   font-size: 14px;
-  font-family: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'IBM Plex Sans';
   border-radius: 10px;
   background: #F5F6FA;
   transition: box-shadow 0.3s, border 0.3s;

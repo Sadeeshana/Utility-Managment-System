@@ -20,7 +20,7 @@ body {
 .header h2 {
   margin: 0;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 100;
 }
 
 .material-icons {
@@ -74,8 +74,8 @@ h3 {
   width: 100%;
   padding: 10px 40px 10px 10px;
   font-size: 14px;
-  font-family: inherit;
-  border-radius: 8px;
+  font-family: "IBM Plex Sans";
+  border-radius: 10px;
   background: #F5F6FA;
   transition: box-shadow 0.3s, border 0.3s;
 }
@@ -97,11 +97,11 @@ input[type="text"], input[type="number"], select {
   width: 100%;
   padding: 8px;
   margin: 6px 0;
-  border-radius: 30px;
+  border-radius: 10px;
   border: 30px ;
   font-size: 14px;
   box-sizing: border-box;
-  font-family: inherit;
+  font-family: "IBM Plex Sans";
   background: #F5F6FA;
 }
 
@@ -113,7 +113,7 @@ input[type="text"]:focus, input[type="number"]:focus, select:focus {
 /* Results Box */
 .results {
   background: #F5F6FA;
-  border-radius: 30px;
+  border-radius: 10px;
   padding: 20px;
   margin: 10px 0;
 }
@@ -123,7 +123,7 @@ input[type="text"]:focus, input[type="number"]:focus, select:focus {
   background-color: #ffe5e5;
   color: #b30000;
   font-weight: 600;
-  border-radius: 30px;
+  border-radius: 10px;
   text-align: left;
   padding: 10px;
   margin: 15px 0;
@@ -150,14 +150,14 @@ input[type="text"]:focus, input[type="number"]:focus, select:focus {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-weight: 500;
+  font-weight: 100;
 }
 
 .highlight-box {
   
   background: #F5F6FA;
   padding: 10px;
-  border-radius: 30px;
+  border-radius: 10px;
   width: fit-content;
   margin-top: 10px;
 }

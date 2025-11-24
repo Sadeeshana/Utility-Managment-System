@@ -1,0 +1,110 @@
+
+<!DOCTPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content=""width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="dashbord-container">
+            <aside class="sidebar">
+                <i class="fas fa-user-circle"></i>
+                <div class="ädmin-text">Admin Panel</div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li class="nav-item"><a href="#"><i class="fas fa-tachometer-alt"</li> Dashboard</a></li>
+                    <li class="nav-item"><a href="#"><i class="fas fa-users"</li> Customers</a></li>
+                    <li class="nav-item active"><a href="#"><i class="fas fa-receipt"</li> Bilings</a></li>       
+                    <li class="nav-item"><a href="#"><i class="fas fa-chart-bar"</li> Reports</a></li>
+                    <li class="nav-item"><a href="#"><i class="fas fa-exclamation-triangle"</li> Complaints</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="nav-item"><a href="#"><i class="fass fa-cog"></i> Settings</a></div>
+                <div class="nav-item"><a href="#"><i class="fass fa-sign-out-alt"></i> Log out</a></div>
+                </div>
+            </aside>
+
+            <main class="main-content">
+                <header class="content-header">
+                    <div class="page-title">Payment History</div>
+                    <div class="page-subtitle">View,manage and track customer payment history</div>
+                    <button class="add-button"><i class="fas fa-plus"></i> Add new Bill history</button>
+                </header>
+
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="search ID,Customer or keyword......">
+                </div>
+                
+                <div class="table-container">
+                    <table id="paymentTable">
+                        <thead>
+                            <tr>
+                                <th>Bill ID</th>
+                                <th>Customer Name</th>
+                                <th>Account ID</th>
+                                <th>Due Date</th>
+                                <th>Bill Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>INV-2025-10-01</td>
+                                <td>Safiya</td>
+                                <td>CC-111320</td>
+                                <td>2025.10.04</td>
+                                <td>2025.11.25</td>
+                        </tr>
+                        <tr>
+                            <td>INV-2025-10-03</td>
+                            <td>Pasindu</td>
+                            <td>CC-111320</td>
+                            <td>2025.12.10</td>
+                            <td>2025.11.23</td>
+                        </tr>
+                        <tr>
+                            <td>INV-2025-09-01</td>
+                            <td>Diluka</td>
+                            <td>CC-111320</td>
+                            <td>2025.12.08</td>
+                            <td>2025.11.28</td>
+                            </tr>
+                        <tr>
+                            <td>INV-2025-07-01</td>
+                            <td>Randima</td>
+                            <td>CC-111320</td>
+                            <td>2025.12.06</td>
+                            <td>2025.11.28</td>
+                        </tr>
+                        <tr>
+                            <td>INV-2025-07-01</td>
+                            <td>Randima</td>
+                            <td>CC-111320</td>
+                            <td>2025.12.06</td>
+                            <td>2025.11.28</td>
+                        </tr>
+                        </tbody>
+                </table>
+            </div>
+
+            <div class="table-footer">
+                <span>Showing 1 to 5 of 50 results</span>
+                <div class="pagination">
+                    <a href="#">&lt;</a>
+                    <a href="#" class="active">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">......</a>
+                    <a href="#">&gt;</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,28 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Utility Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <style>
+
         /* --- CSS Styles --- */
         
         /* --- Variables --- */
         :root {
-            --dark-blue: #1c2736;
-            --medium-blue: #233140;
+            --dark-blue: #0A3D62;
+            --medium-blue:#0A3D62;
             --light-blue: #3d5a73;
             --text-dark: #a9b7c8;
-            --active-color: #f7f7f7;
-            --card-bg: #ffffff;
+            --active-color: #F5F6FA;
+            --card-bg: white;
             --card-shadow: rgba(0, 0, 0, 0.1);
 
             /* Utility Colors for icons/charts */
-            --color-electricity: #ffc107; /* Orange/Yellow */
-            --color-water: #2196f3; /* Blue */
-            --color-gas: #f44336; /* Red */
+            --color-electricity: #ffc107; 
+            --color-water: #2196f3; 
+            --color-gas: #f44336; 
         }
 
         * {
@@ -42,61 +34,155 @@
             min-height: 100vh;
         }
 
-        /* --- Sidebar Styling --- */
+        /* Sidebar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #F5F6FA;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+        
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        
         .sidebar {
-            width: 250px;
-            background-color: var(--dark-blue);
-            color: var(--text-dark);
+            width: 300px;
+            background-color: #0A3D62;
+            color: white;
+            padding: 0px;
             display: flex;
             flex-direction: column;
-            padding: 20px 0;
+            justify-content: space-between;
+            
+        }
+        
+        .sidebar h2 {
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .sidebar h2 p {
+            font-size: 8px;
+            font-weight: normal;
+            color: #FFFFFF;
+            text-align: center;
+            margin-top: -8px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .sidebar h2 img {
+            width: 40px;
+            height: 40px;
+            margin-left: 20px;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+            gap: 50px; 
+        }
+        
+        .sidebar ul li {
+            padding: 15px 25px;
+            margin: 25px 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px; 
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-weight: normal;
+            font-size: 15px;
+        }
+        
+        .sidebar ul li img {
+            width: 20px;
+            height: 20px;
+            margin-left: 30px;
+        }
+        
+        .sidebar ul li .Dashboard-Icon  {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .sidebar ul li .Customers-Icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .sidebar ul li .Billings-Icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .sidebar ul li .Reports-Icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .sidebar ul li .Complaints-Icon {
+            width: 40px;
+            height: 40px;
         }
 
-        .sidebar-header {
-            padding: 0 20px 20px 20px;
-            color: var(--active-color);
-            border-bottom: 1px solid var(--medium-blue);
+        .sidebar ul li:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px 10px 20px;
+        }
+        
+        .sidebar ul li:active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .sidebar ul li.active {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-left: 4px solid #ffffff;
+            padding-left: 11px;
+        }
+
+        .logout-btn {
+            width: 90%;
+            background-color: #E58E26;
+            color: #FFFFFF;
+            border: none;
+            padding: 12px 8px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: .5px;
+            display: inline-block;
+            transition: background-color .25s ease;
+            margin-left: 15px;
+            margin-bottom: 30px;
+        }
+
+        .logout-btn:hover { background-color: #CC7E22; }
+        .logout-btn:active { background-color: #F5B96A; }
+
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+        
+        .main-content h1 {
             margin-bottom: 20px;
         }
 
-        .sidebar-nav ul,
-        .sidebar-footer ul {
-            list-style: none;
-        }
-
-        .sidebar-nav li a,
-        .sidebar-footer li a {
-            display: block;
-            padding: 15px 20px;
-            text-decoration: none;
-            color: var(--text-dark);
-            transition: background-color 0.2s, color 0.2s;
-        }
-
-        .sidebar-nav li a i,
-        .sidebar-footer li a i {
-            margin-right: 10px;
-            width: 20px;
-            text-align: center;
-        }
-
-        .sidebar-nav li.active a {
-            background-color: var(--medium-blue);
-            color: var(--active-color);
-            border-left: 4px solid var(--text-dark); /* Subtle accent */
-        }
-
-        .sidebar-nav li:not(.active) a:hover,
-        .sidebar-footer li a:hover {
-            background-color: var(--light-blue);
-            color: var(--active-color);
-        }
-
-        .sidebar-footer {
-            margin-top: auto; /* Pushes the footer to the bottom */
-            padding-top: 20px;
-            border-top: 1px solid var(--medium-blue);
-        }
 
         /* --- Main Content --- */
         .main-content {
@@ -367,119 +453,3 @@
         .legend-item.electricity::before {
             background-color: var(--color-electricity);
         }
-    </style>
-</head>
-<body>
-    <div class="dashboard-container">
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <h2>Utilities</h2>
-            </div>
-            <nav class="sidebar-nav">
-                <ul>
-                    <li class="active"><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-                    <li><a href="#"><i class="fas fa-wallet"></i> Payments</a></li>
-                    <li><a href="#"><i class="fas fa-history"></i> History</a></li>
-                    <li><a href="#"><i class="fas fa-file-alt"></i> Utilities Reports</a></li>
-                    <li><a href="#"><i class="fas fa-file-invoice"></i> Meter Readings</a></li>
-                    <li><a href="#"><i class="fas fa-question-circle"></i> Help Information</a></li>
-                </ul>
-            </nav>
-            <div class="sidebar-footer">
-                <ul>
-                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
-                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
-                </ul>
-            </div>
-        </aside>
-
-        <main class="main-content">
-            <header class="main-header">
-                <h1>Dashboard</h1>
-                <div class="header-right">
-                    <i class="fas fa-search"></i>
-                    <i class="fas fa-bell"></i>
-                    <div class="user-profile">
-                        <span>John Doe</span>
-                        <div class="user-avatar"><i class="fas fa-user"></i></div>
-                    </div>
-                </div>
-            </header>
-
-            <section class="location-widget">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Main Road, Colombo</span>
-                <i class="fas fa-chevron-down"></i>
-            </section>
-
-            <div class="dashboard-grid">
-                <section class="meter-readings-row">
-                    <div class="section-header">
-                        <h3>Meter Readings</h3>
-                        <span class="date-range">2 Nov - 7 Nov</span>
-                    </div>
-                    <div class="cards-container">
-                        <div class="card card-electricity">
-                            <div class="icon-box"><i class="fas fa-lightbulb"></i></div>
-                            <p>Electricity</p>
-                        </div>
-                        <div class="card card-water">
-                            <div class="icon-box"><i class="fas fa-tint"></i></div>
-                            <p>Water</p>
-                        </div>
-                        <div class="card card-gas">
-                            <div class="icon-box"><i class="fas fa-gas-pump"></i></div>
-                            <p>Gas</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="charts-row">
-                    <div class="chart-box electricity-usage">
-                        <h3>Electricity Usage</h3>
-                        <div class="chart-placeholder"></div>
-                    </div>
-
-                    <div class="chart-box monthly-expenses">
-                        <h3>Monthly Expenses</h3>
-                        <div class="donut-chart-wrapper">
-                            <div class="donut-chart"></div>
-                            <div class="chart-center-text">
-                                <p>MONTHLY</p>
-                                <p>EXPENSES</p>
-                                <h4>$250</h4>
-                            </div>
-                        </div>
-                        <div class="expense-legend">
-                            <span class="legend-item water">Water</span>
-                            <span class="legend-item gas">Gas</span>
-                            <span class="legend-item electricity">Electricity</span>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </main>
-    </div>
-
-    <script>
-        // --- JavaScript Code ---
-        document.addEventListener('DOMContentLoaded', () => {
-            // Basic interaction for sidebar (e.g., changing the active state)
-            const navLinks = document.querySelectorAll('.sidebar-nav ul li');
-            
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    // Remove active class from all
-                    navLinks.forEach(item => item.classList.remove('active'));
-                    // Add active class to the clicked item
-                    e.currentTarget.classList.add('active');
-                });
-            });
-
-            // Note: For live charts, you would integrate a library like Chart.js here.
-            
-            console.log("Dashboard loaded successfully.");
-        });
-    </script>
-</body>
-</html>

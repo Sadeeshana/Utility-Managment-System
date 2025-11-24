@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utility Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+    
+    
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div>
+                <h2>
+                    <img src="/images/A1.png" alt="Admin-Icon">
+                    Admin Panel
+                    <p>UTILITY MANAGEMENT SYSTEM</p>
+                </h2>
+                <ul>
+                    <li><a href="Dashbaord.html"><img src="/images/S1.png" class="Dashboard-Icon" alt="Dashboard-Icon"> &nbsp;&nbsp;&nbsp;Dashboard</a></li>
+                    <li><a href="Customermanagement.html"><img src="/images/S2.png" class="Customers-Icon" alt="Customers-Icon"> &nbsp;&nbsp;&nbsp;Customers</a></li>
+                    <li><a href="Billing_Management.html"><img src="/images/S3.png" class="Billings-Icon" alt="Billings-Icon"> &nbsp;&nbsp;&nbsp;Billings</a></li>
+                    <li><a href="Genaratereports.html"><img src="/images/S4.png" class="Reports-Icon" alt="Reports-Icon"> &nbsp;&nbsp;&nbsp;Reports</a></li>
+                    <li><a href="complaint_management.html"><img src="/images/S5.png" class="Complaints-Icon" alt="Complaints-Icon"> &nbsp;&nbsp;&nbsp;Complaints</a></li>
+                </ul>
+            </div>
+            <div class="logout-section">
+                <button class="logout-btn" type="button">Log out</button>
+            </div>
+        </div>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Dashboard</h1>
+                <div class="header-right">
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-bell"></i>
+                    <div class="user-profile">
+                        <span>John Doe</span>
+                        <div class="user-avatar"><i class="fas fa-user"></i></div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="location-widget">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Main Road, Colombo</span>
+                <i class="fas fa-chevron-down"></i>
+            </section>
+
+            <div class="dashboard-grid">
+                <section class="meter-readings-row">
+                    <div class="section-header">
+                        <h3>Meter Readings</h3>
+                        <span class="date-range">2 Nov - 7 Nov</span>
+                    </div>
+                    <div class="cards-container">
+                        <div class="card card-electricity">
+                            <div class="icon-box"><i class="fas fa-lightbulb"></i></div>
+                            <p>Electricity</p>
+                        </div>
+                        <div class="card card-water">
+                            <div class="icon-box"><i class="fas fa-tint"></i></div>
+                            <p>Water</p>
+                        </div>
+                        <div class="card card-gas">
+                            <div class="icon-box"><i class="fas fa-gas-pump"></i></div>
+                            <p>Gas</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="charts-row">
+                    <div class="chart-box electricity-usage">
+                        <h3>Electricity Usage</h3>
+                        <div class="chart-placeholder"></div>
+                    </div>
+
+                    <div class="chart-box monthly-expenses">
+                        <h3>Monthly Expenses</h3>
+                        <div class="donut-chart-wrapper">
+                            <div class="donut-chart"></div>
+                            <div class="chart-center-text">
+                                <p>MONTHLY</p>
+                                <p>EXPENSES</p>
+                                <h4>$250</h4>
+                            </div>
+                        </div>
+                        <div class="expense-legend">
+                            <span class="legend-item water">Water</span>
+                            <span class="legend-item gas">Gas</span>
+                            <span class="legend-item electricity">Electricity</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="dashboard.js"></script>
+
+    
+</body>
+</html>

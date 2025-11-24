@@ -85,7 +85,9 @@ textarea {
     cursor: pointer;
     display: block;
     margin: 25px auto 0;
-    font-weight: 200;
+    font-weight: 600;
+    font-family: 'IBM Plex Sans';
+    
 }
 
 .add-btn:hover {

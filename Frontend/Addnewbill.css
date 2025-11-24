@@ -52,9 +52,11 @@ label {
     font-weight: 600;
     margin-bottom: 5px;
     font-family: 'IBM Plex Sans';
+    font-size: 17px;
 }
 
 input {
+    background-color: #F5F6FA;
     padding: 10px;
     border-radius: 10px;
     border: 1px ;

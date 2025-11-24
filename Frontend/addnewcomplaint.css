@@ -48,6 +48,8 @@ h2 {
 label {
     font-weight: 600;
     margin-bottom: 5px;
+    font-family: 'IBM Plex Sans';
+    font-size: 17px;
 }
 
 input, textarea, select {
@@ -55,6 +57,9 @@ input, textarea, select {
     border-radius: 10px;
     border: 1px ;
     outline: none;
+    font-size: 15px;
+    background-color: #f9fafb;
+    font-family: 'IBM Plex Sans';
     font-size: 15px;
 }
 

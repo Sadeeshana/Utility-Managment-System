@@ -92,6 +92,8 @@ label {
   font-weight: 600;
   margin-top: 10px;
   color: black;
+  font-family: 'IBM Plex Sans';
+  font-size: 17px;
 }
 
 input {

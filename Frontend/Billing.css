@@ -180,6 +180,7 @@ input[type="text"]:focus, input[type="number"]:focus, select:focus {
   color: #333;
   border: none;
   border-radius: 30px;
+  font-family: 'IBM Plex Sans';
   padding: 10px 0;
   font-weight: 500;
   cursor: pointer;

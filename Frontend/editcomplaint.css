@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
 body {
     font-family: "IBM Plex Sans";
     background: white;
@@ -57,7 +59,8 @@ input, textarea, select {
     outline: none;
     font-size: 14px;
     font-family: 'IBM Plex Sans';
-    background-color: #F5F6FA;
+    background-color: #F5F6FA
+    ;
     
 
 }
@@ -83,6 +86,8 @@ textarea {
     cursor: pointer;
     display: block;
     margin: 25px auto 0;
+    font-family: 'IBM Plex Sans';
+    font-weight: 600;
 }
 
 .add-btn:hover {

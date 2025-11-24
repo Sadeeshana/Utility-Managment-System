@@ -16,7 +16,7 @@ html, body {
 
 /* Right form panel */
 .form-container {
-  width: 520px;
+  width: 600px;
   max-width: 92%;
   margin: auto;
   align-self: center;
@@ -31,6 +31,7 @@ html, body {
 .welcome-text {
   text-align: left;
   margin-bottom: 18px;
+  font-family: "IBM Plex Sans";
 }
 
 .welcome-text h1 {
@@ -64,9 +65,11 @@ html, body {
 
 label {
   display: block;
-  font-size: 12px;
-  color: #6b7785;
+  font-size: 17px;
+  color: black;
   margin-bottom: 6px;
+  font-family: "IBM Plex Sans";
+  font-weight: 600;
 }
 
 input[type="text"],
@@ -75,9 +78,9 @@ input[type="tel"],
 input[type="password"] {
   width: 100%;
   padding: 12px 14px;
-  border: 1px solid #e6eef3;
+  border: 1px;
   border-radius: 18px;
-  background: #ffffff;
+  background: #F5F6FA;
   color: #22313f;
   font-size: 14px;
 }
@@ -93,18 +96,21 @@ input:focus {
 }
 
 .btn {
-  display: inline-block;
-  width: 100%;
+  display: block;
+  width: 75%;
+  max-width: 420px;
+  margin: 12px auto 0;
   padding: 12px 16px;
   border-radius: 22px;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 15px;
   cursor: pointer;
   border: none;
+  text-align: center;
 }
 
 .btn-register {
-  background: #07364d;
+  background: #E58E26;
   color: #fff;
   margin-top: 12px;
 }
@@ -112,7 +118,7 @@ input:focus {
 .btn-register:hover { opacity: 0.95; }
 
 .btn-back {
-  background: #ff9933;
+  background: #E58E26;
   color: #fff;
   margin-top: 12px;
 }

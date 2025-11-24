@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Billing/Payments</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="Billing.css">
+</head>
+
+<body>
+  <div class="header">
+    <div class="back-btn" onclick="goBack()"><span class="material-icons">arrow_back</span></div>
+    <h2>Billing/Payments</h2>
+    <div class="header-icons">
+      <span class="material-icons">search</span>
+      <span class="material-icons">person</span>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Customer Lookup -->
+    <div class="section">
+      <h3>Customer & Bill Lookup</h3>
+
+      <div class="input-with-icon">
+        <input type="text" id="searchInput" placeholder="Account Number, Name, Address">
+        <span class="material-icons">search</span>
+      </div>
+
+      <div class="results">
+        <strong>Results:</strong><br>
+        John Doe<br>
+        Main Road, Colombo
+      </div>
+
+      <label for="utilityType">Utility Type:</label>
+      <select id="utilityType">
+        <option>Water</option>
+        <option selected>Electricity</option>
+        <option>Gas</option>
+      </select>
+    </div>
+
+    <!-- Bill Info -->
+    <div class="section">
+      <h3>Account & Bill Information</h3>
+      <p class="profile-name"><span class="material-icons">person</span> John Doe</p>
+
+      <div class="highlight-box"><strong>Total Amount:</strong> Rs.1500.00</div>
+      <p><strong>Due Date:</strong> Nov 02, 2025</p>
+
+      <div class="warning">
+        <span class="material-icons">warning</span>
+        Disconnection warning!
+      </div>
+
+      <table class="bill-table">
+        <tr><th>Bill Date</th><th>Due Date</th><th>Amount</th></tr>
+        <tr><td>Oct 25</td><td>Nov 02</td><td>Rs.1500</td></tr>
+        <tr><td>Sep 26</td><td>Oct 02</td><td>Rs.2200</td></tr>
+        <tr><td>Aug 25</td><td>Sep 02</td><td>Rs.3200</td></tr>
+        <tr><td>Jul 25</td><td>Aug 02</td><td>Rs.4500</td></tr>
+      </table>
+
+      <p><strong>Last Payment:</strong> Oct 01, 2025</p>
+    </div>
+
+    <!-- Payment -->
+    <div class="section">
+      <h3>Payment</h3>
+      <p>Select the payment method:</p>
+      <div class="payment-methods">
+        <button id="cardBtn" class="active">Card</button>
+        <button id="cashBtn">Cash</button>
+      </div>
+
+      <label for="amountToPay">Amount to pay</label>
+      <input type="number" id="amountToPay" value="" min="0" step="0.01">
+
+      <label for="amountGiven">Amount given</label>
+      <input type="number" id="amountGiven" value="" min="0" step="0.01">
+
+      <label for="change">Change</label>
+      <input type="text" id="change" readonly value="">
+
+      <div class="receipt-options">
+        <label><input type="radio" name="receiptOption" value="print"> Print Receipt</label>
+        <label><input type="radio" name="receiptOption" value="email"> Email Receipt</label>
+        <label><input type="radio" name="receiptOption" value="sms"> SMS Receipt</label>
+      </div>
+
+      <button class="process-btn" id="processPayment">Process Payment</button>
+    </div>
+  </div>
+
+  <script src="Billing.js"></script>
+</body>
+</html>
+

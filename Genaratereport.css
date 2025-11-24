@@ -1,0 +1,173 @@
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    background-color: #f0f4f8; 
+    color: #1a202c; 
+}
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+.sidebar {
+    width: 300px;
+    background-color: #0a2d4d; 
+    color: white;
+    padding: 10px;
+    flex-shrink: 0; 
+}
+
+.sidebar-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+.nav-button {
+    display: block;
+    width: 100%;
+    padding: 18px 25px;
+    background-color: transparent;
+    border: 1px solid #3e6b98; 
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: left;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.nav-button:hover,
+.nav-button.active {
+    background-color: #1b4975; 
+    border-color: #1b4975;
+}
+
+
+.main-content {
+    flex-grow: 1; 
+    padding: 40px;
+    overflow-y: auto; 
+}
+
+.main-header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #0a2d4d;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.main-header p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.content-body {
+    display: flex;
+    gap: 30px; 
+}
+
+.card {
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.configure-card {
+    flex-basis: 60%; 
+    background-color: #ffffff; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.configure-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: 0;
+}
+
+.configure-card p {
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.recent-reports-card {
+    flex-basis: 40%; 
+    background-color: #0a2d4d; 
+    color: white;
+}
+
+.recent-reports-card h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 0;
+    border-bottom: 1px solid #3e6b98; 
+    padding-bottom: 10px;
+}
+
+/*Colors for Calendar*/
+.calendar-cell.today{
+    background-color: #0a2d4d;
+    color: white;
+    border-radius: 50%;
+}
+
+.calendar-cell.date{
+    cursor: pointer;
+}
+.calendar-cell.date:not(.today):hover{
+    background-color: #a0c9e8;
+    border-radius: 50% ;
+}
+
+.calender-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-cell {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Report type tabs */
+.report-type-tabs {
+    display: inline-flex;
+    gap: 0;
+    background: #e6f0f7;
+    border: 1px solid #bcd3e6;
+    border-radius: 999px;
+    padding: 4px;
+}
+.tab-button {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: #0a2d4d;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .18s ease, color .18s ease, box-shadow .18s ease, transform .06s ease;
+}
+.tab-button:hover { background: #d6e8f6; }
+.tab-button:active { transform: translateY(1px); }
+.tab-button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(32,149,243,.35);
+}
+.tab-button.active {
+    background: #0a2d4d;
+    color: #fff;
+    box-shadow: 0 6px 14px rgba(10,45,77,.25);
+}

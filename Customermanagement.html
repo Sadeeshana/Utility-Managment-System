@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Utility Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --dark-blue: #284457; /* Sidebar background */
+            --mid-blue: #375b75; /* Nav item background */
+            --light-blue: #40c4ff; /* Table/Main Content background shade */
+            --text-light: #ffffff;
+            --text-dark: #333;
+            --active-bg: #4c8aaf; /* Active nav item */
+            --table-header-bg: #d9d9d9;
+            --row-active-bg: #66d9ff; /* Blue shade for table rows */
+        }
+
+        /* Global Reset and Body Styling */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+        }
+
+        /* Dashboard Layout (Flexbox) */
+        .dashboard-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 280px;
+            background-color: var(--dark-blue);
+            color: var(--text-light);
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-shrink: 0; /* Prevent sidebar from shrinking */
+        }
+
+        .admin-header {
+            display: flex;
+            align-items: center;
+            padding: 0 20px 20px;
+            border-bottom: 1px solid var(--mid-blue);
+            margin-bottom: 20px;
+        }
+
+        .admin-header i {
+            font-size: 30px;
+            margin-right: 10px;
+        }
+
+        .admin-header h3 {
+            font-size: 18px;
+            margin-bottom: 2px;
+        }
+
+        .admin-header p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Navigation Items */
+        .sidebar-nav {
+            flex-grow: 1;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: var(--text-light);
+            transition: background-color 0.2s;
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .nav-item i {
+            width: 25px;
+            margin-right: 15px;
+            text-align: center;
+        }
+
+        .nav-item:hover:not(.active) {
+            background-color: var(--mid-blue);
+        }
+
+        .nav-item.active {
+            background-color: var(--active-bg);
+            border-left: 5px solid var(--light-blue);
+            padding-left: 15px; /* Adjust padding due to border */
+        }
+
+        .sidebar-footer {
+            padding-top: 20px;
+            border-top: 1px solid var(--mid-blue);
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex-grow: 1;
+            padding: 40px;
+            background-color: var(--text-light);
+        }
+
+        .content-header {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+            position: relative;
+        }
+
+        .content-header h2 {
+            font-size: 28px;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+        }
+
+        .content-header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .add-customer-btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: var(--light-blue);
+            color: var(--dark-blue);
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+        
+        .add-customer-btn i {
+            margin-right: 8px;
+        }
+
+        .add-customer-btn:hover {
+            background-color: #00bfff;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px 15px;
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 100%; /* Take full width of the content area */
+        }
+
+        .search-bar i {
+            color: #999;
+            margin-right: 10px;
+        }
+
+        .search-bar input {
+            border: none;
+            flex-grow: 1;
+            font-size: 16px;
+            outline: none;
+        }
+
+        /* Customer Table Styling */
+        .customer-table-container {
+            background-color: var(--row-active-bg);
+            border-radius: 5px;
+            overflow-x: auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* To achieve the fading row color effect */
+            background: linear-gradient(to bottom, 
+                var(--table-header-bg) 0px, 
+                var(--table-header-bg) 50px, 
+                #a3e2ff 50px, 
+                #a3e2ff 100%,
+                #d3f2ff 100%,
+                #d3f2ff 100%
+            );
+        }
+        
+        /* Adjusting for the visual fade in the image */
+        .customer-table tr {
+            background-color: rgba(255, 255, 255, 0.5); /* Transparent white for rows over the blue background */
+        }
+        
+        /* Specific row colors to match the screenshot */
+        .customer-table tbody tr:nth-child(odd) {
+            background-color: #c4efff; /* A lighter blue/cyan for row 1 and 3 */
+        }
+        .customer-table tbody tr:nth-child(even) {
+            background-color: #a3e2ff; /* A slightly darker blue/cyan for row 2 and 4 */
+        }
+        
+        .customer-table thead tr {
+             background-color: var(--table-header-bg);
+        }
+
+
+        .customer-table {
+            width: 100%;
+            border-collapse: collapse;
+            /* Reset the background-color for the actual table to show the container background */
+            background-color: transparent; 
+        }
+
+        .customer-table th {
+            background-color: var(--table-header-bg);
+            color: var(--text-dark);
+            padding: 15px 20px;
+            text-align: left;
+            font-size: 14px;
+            font-weight: bold;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .customer-table td {
+            padding: 15px 20px;
+            /* Remove default border-bottom to let the row background color show through */
+            border-bottom: none; 
+            color: var(--dark-blue);
+            font-weight: 500;
+        }
+        
+        /* Re-adding a visual separator for the bottom of the table data */
+        .customer-table tbody tr:last-child {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+
+        .customer-table a {
+            color: var(--dark-blue);
+            text-decoration: underline;
+        }
+
+        .customer-table td.actions i {
+            margin-right: 15px;
+            cursor: pointer;
+            font-size: 16px;
+            color: var(--dark-blue);
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .customer-table td.actions i:hover {
+            opacity: 1;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0 0 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .page-controls {
+            display: flex;
+            align-items: center;
+        }
+
+        .page-controls i {
+            cursor: pointer;
+            padding: 5px 10px;
+            color: var(--dark-blue);
+            font-size: 12px;
+        }
+
+        .page-number {
+            padding: 5px 10px;
+            margin: 0 3px;
+            cursor: pointer;
+            color: var(--text-dark);
+            font-weight: bold;
+        }
+
+        .page-number.active {
+            background-color: #e0e0e0;
+            color: var(--text-dark);
+            border-radius: 3px;
+        }
+
+        /* --- RESPONSIVE STYLES --- */
+
+        /* Medium screens (Tablets) */
+        @media (max-width: 992px) {
+            .sidebar {
+                width: 220px;
+            }
+
+            .main-content {
+                padding: 30px;
+            }
+
+            .content-header h2 {
+                font-size: 24px;
+            }
+
+            .add-customer-btn {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+
+        /* Small screens (Mobile) */
+        @media (max-width: 768px) {
+            .dashboard-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                padding-bottom: 10px;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .content-header {
+                position: static;
+                text-align: center;
+            }
+
+            .add-customer-btn {
+                position: static;
+                width: 100%;
+                margin-top: 15px;
+                justify-content: center;
+            }
+
+            .pagination {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="admin-header">
+                <i class="fas fa-user-circle"></i>
+                <div>
+                    <h3>Admin Panel</h3>
+                    <p>Utility management</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item">
+                    <i class="fas fa-th-large"></i> Dashboard
+                </a>
+                <a href="#" class="nav-item active">
+                    <i class="fas fa-users"></i> Customers
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-file-invoice"></i> Billings
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-chart-bar"></i> Reports
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="#" class="nav-item settings">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+                <a href="#" class="nav-item logout">
+                    <i class="fas fa-sign-out-alt"></i> Log Out
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="content-header">
+                <h2>Customer Management</h2>
+                <p>Manage customer accounts, view details, and perform actions</p>
+                <button class="add-customer-btn">
+                    <i class="fas fa-plus"></i> Add New Customer
+                </button>
+            </header>
+
+            <div class="customer-list-section">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search by name, email, or account number..." id="searchInput">
+                </div>
+
+                <div class="customer-table-container">
+                    <table class="customer-table">
+                        <thead>
+                            <tr>
+                                <th>Customer Name</th>
+                                <th>Account ID</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customerTableBody">
+                            </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination">
+                    <span id="paginationInfo">Showing 1 to 5 of 50 results</span>
+                    <div class="page-controls">
+                        <i class="fas fa-chevron-left"></i>
+                        <span class="page-number active">1</span>
+                        <span class="page-number">2</span>
+                        <span class="page-number">3</span>
+                        <span class="page-number">4</span>
+                        <span class="page-number">5</span>
+                        <span>...</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // --- JAVASCRIPT ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Sample Data (Simulating a database fetch)
+            const customerData = [
+                { name: "Eleanor Pena", id: "ACC-001254", email: "eleanor.p@example.com", status: "Active" },
+                { name: "Arthur", id: "ACC-001254", email: "eauthr.p@example.com", status: "Active" },
+                { name: "harry", id: "ACC-001254", email: "harry.p@example.com", status: "Active" },
+                { name: "goliath", id: "ACC-001254", email: "goali.p@example.com", status: "Active" },
+                { name: "Jane Doe", id: "ACC-001255", email: "jane.d@example.com", status: "Active" },
+            ];
+
+            const tableBody = document.getElementById('customerTableBody');
+            const searchInput = document.getElementById('searchInput');
+            
+            // Function to render the table rows
+            function renderTable(data) {
+                tableBody.innerHTML = ''; // Clear existing rows
+                data.forEach((customer, index) => {
+                    const row = document.createElement('tr');
+                    // Use index to apply the correct visual background color from CSS
+                    row.className = index % 2 === 0 ? 'odd-row' : 'even-row'; 
+                    
+                    row.innerHTML = `
+                        <td>${customer.name}</td>
+                        <td>${customer.id}</td>
+                        <td><a href="mailto:${customer.email}">${customer.email}</a></td>
+                        <td>${customer.status}</td>
+                        <td class="actions">
+                            <i class="fas fa-eye" title="View Details" data-id="${customer.id}"></i>
+                            <i class="fas fa-edit" title="Edit Customer" data-id="${customer.id}"></i>
+                            <i class="fas fa-trash-alt" title="Delete Customer" data-id="${customer.id}"></i>
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            }
+
+            // Initial render
+            renderTable(customerData);
+
+
+            // 2. Search Functionality
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                const filteredData = customerData.filter(customer =>
+                    customer.name.toLowerCase().includes(searchTerm) ||
+                    customer.id.toLowerCase().includes(searchTerm) ||
+                    customer.email.toLowerCase().includes(searchTerm)
+                );
+                renderTable(filteredData);
+            });
+
+
+            // 3. Actions (View, Edit, Delete) - Delegation
+            tableBody.addEventListener('click', (e) => {
+                if (e.target.tagName === 'I') {
+                    const action = e.target.title.split(' ')[0]; // e.g., "View", "Edit", "Delete"
+                    const customerId = e.target.dataset.id;
+                    
+                    // Simple interaction feedback
+                    console.log(`${action} action triggered for Customer ID: ${customerId}`);
+                    alert(`${action} customer with ID: ${customerId}`);
+                }
+            });
+
+            // 4. "Add New Customer" Button Handler
+            document.querySelector('.add-customer-btn').addEventListener('click', () => {
+                window.location.href = 'addnewcustomer.html';
+            });
+        });
+    </script>
+</body>
+</html>

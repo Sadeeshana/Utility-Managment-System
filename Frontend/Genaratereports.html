@@ -8,19 +8,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-    <div class="app-container">
-<!--Navigation bar-->
-        <nav class="sidebar">
-            <h2 class="sidebar-title">Managers Reports & Analytics</h2>
-
-            <div class="nav-menu">
-                <button class="nav-button active" onclick="window.location.href='Genaratereport.html'">Full Reports (PDF)</button>
-                <button class="nav-button" onclick="window.location.href='Topconsumer.html'">Top consumers by utility</button>
-                <button class="nav-button" onclick="window.location.href='Unpaidbills.html'">Unpaid bills</button>
-                <button class="nav-button" onclick="window.location.href='UtilityUsageAnalytics.html'">Useages of utility</button>
+    <div class="container">
+        <div class="sidebar">
+            <div>
+                <h2>
+                    <img src="/Images/A1.png" alt="Admin-Icon">
+                    Admin Panel
+                    <p>UTILITY MANAGEMENT SYSTEM</p>
+                </h2>
+                <ul>
+                    <li><a href="Dashbaord.html"><img src="/Images/S1.png" class="Dashboard-Icon" alt="Dashboard-Icon"> &nbsp;&nbsp;&nbsp;Dashboard</a></li>
+                    <li><a href="Customermanagement.html"><img src="/Images/S2.png" class="Customers-Icon" alt="Customers-Icon"> &nbsp;&nbsp;&nbsp;Customers</a></li>
+                    <li><a href="Billing_Management.html"><img src="/Images/S3.png" class="Billings-Icon" alt="Billings-Icon"> &nbsp;&nbsp;&nbsp;Billings</a></li>
+                    <li><a href="Genaratereports.html"><img src="/Images/S4.png" class="Reports-Icon" alt="Reports-Icon"> &nbsp;&nbsp;&nbsp;Reports</a></li>
+                    <li><a href="complaint_management.html"><img src="/Images/S5.png" class="Complaints-Icon" alt="Complaints-Icon"> &nbsp;&nbsp;&nbsp;Complaints</a></li>
+                </ul>
             </div>
-        </nav>
+            <div class="logout-section">
+                <button class="logout-btn" type="button">Log out</button>
+            </div>
+        </div>
+    
 <!--main part-->
         <main class="main-content">
             <header class="main-header">

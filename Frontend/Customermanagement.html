@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Utility Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
@@ -37,77 +38,155 @@
             min-height: 100vh;
         }
 
-        /* Sidebar Styling */
+        /* Sidebar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #F5F6FA;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+        
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        
         .sidebar {
-            width: 280px;
-            background-color: var(--dark-blue);
-            color: var(--text-light);
-            padding: 20px 0;
+            width: 300px;
+            background-color: #0A3D62;
+            color: white;
+            padding: 0px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            flex-shrink: 0; /* Prevent sidebar from shrinking */
+            
         }
-
-        .admin-header {
+        
+        .sidebar h2 {
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .sidebar h2 p {
+            font-size: 8px;
+            font-weight: normal;
+            color: #FFFFFF;
+            text-align: center;
+            margin-top: -8px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .sidebar h2 img {
+            width: 40px;
+            height: 40px;
+            margin-left: 20px;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+            gap: 50px; 
+        }
+        
+        .sidebar ul li {
+            padding: 15px 25px;
+            margin: 25px 0;
+            cursor: pointer;
             display: flex;
             align-items: center;
-            padding: 0 20px 20px;
-            border-bottom: 1px solid var(--mid-blue);
+            gap: 10px; 
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-weight: normal;
+            font-size: 15px;
+        }
+        
+        .sidebar ul li img {
+            width: 20px;
+            height: 20px;
+            margin-left: 30px;
+        }
+        
+        .sidebar ul li .Dashboard-Icon  {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .sidebar ul li .Customers-Icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .sidebar ul li .Billings-Icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .sidebar ul li .Reports-Icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .sidebar ul li .Complaints-Icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .sidebar ul li:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px 10px 20px;
+        }
+        
+        .sidebar ul li:active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .sidebar ul li.active {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-left: 4px solid #ffffff;
+            padding-left: 11px;
+        }
+
+        .logout-btn {
+            width: 90%;
+            background-color: #E58E26;
+            color: #FFFFFF;
+            border: none;
+            padding: 12px 8px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: .5px;
+            display: inline-block;
+            transition: background-color .25s ease;
+            margin-left: 15px;
+            margin-bottom: 30px;
+        }
+
+        .logout-btn:hover { background-color: #CC7E22; }
+        .logout-btn:active { background-color: #F5B96A; }
+
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+        
+        .main-content h1 {
             margin-bottom: 20px;
         }
 
-        .admin-header i {
-            font-size: 30px;
-            margin-right: 10px;
-        }
-
-        .admin-header h3 {
-            font-size: 18px;
-            margin-bottom: 2px;
-        }
-
-        .admin-header p {
-            font-size: 14px;
-            opacity: 0.8;
-        }
-
-        /* Navigation Items */
-        .sidebar-nav {
-            flex-grow: 1;
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            padding: 15px 20px;
-            text-decoration: none;
-            color: var(--text-light);
-            transition: background-color 0.2s;
-            font-size: 16px;
-            margin: 5px 0;
-        }
-
-        .nav-item i {
-            width: 25px;
-            margin-right: 15px;
-            text-align: center;
-        }
-
-        .nav-item:hover:not(.active) {
-            background-color: var(--mid-blue);
-        }
-
-        .nav-item.active {
-            background-color: var(--active-bg);
-            border-left: 5px solid var(--light-blue);
-            padding-left: 15px; /* Adjust padding due to border */
-        }
-
-        .sidebar-footer {
-            padding-top: 20px;
-            border-top: 1px solid var(--mid-blue);
-        }
 
         /* Main Content Area */
         .main-content {
@@ -362,40 +441,26 @@
 </head>
 <body>
 
-    <div class="dashboard-container">
-        <aside class="sidebar">
-            <div class="admin-header">
-                <i class="fas fa-user-circle"></i>
-                <div>
-                    <h3>Admin Panel</h3>
-                    <p>Utility management</p>
-                </div>
+    <div class="container">
+        <div class="sidebar">
+            <div>
+                <h2>
+                    <img src="/images/A1.png" alt="Admin-Icon">
+                    Admin Panel
+                    <p>UTILITY MANAGEMENT SYSTEM</p>
+                </h2>
+                <ul>
+                    <li><a href="Dashbaord.html"><img src="/images/S1.png" class="Dashboard-Icon" alt="Dashboard-Icon"> &nbsp;&nbsp;&nbsp;Dashboard</a></li>
+                    <li><a href="Customermanagement.html"><img src="/images/S2.png" class="Customers-Icon" alt="Customers-Icon"> &nbsp;&nbsp;&nbsp;Customers</a></li>
+                    <li><a href="Billing_Management.html"><img src="/images/S3.png" class="Billings-Icon" alt="Billings-Icon"> &nbsp;&nbsp;&nbsp;Billings</a></li>
+                    <li><a href="Genaratereports.html"><img src="/images/S4.png" class="Reports-Icon" alt="Reports-Icon"> &nbsp;&nbsp;&nbsp;Reports</a></li>
+                    <li><a href="complaint_management.html"><img src="/images/S5.png" class="Complaints-Icon" alt="Complaints-Icon"> &nbsp;&nbsp;&nbsp;Complaints</a></li>
+                </ul>
             </div>
-
-            <nav class="sidebar-nav">
-                <a href="#" class="nav-item">
-                    <i class="fas fa-th-large"></i> Dashboard
-                </a>
-                <a href="#" class="nav-item active">
-                    <i class="fas fa-users"></i> Customers
-                </a>
-                <a href="#" class="nav-item">
-                    <i class="fas fa-file-invoice"></i> Billings
-                </a>
-                <a href="#" class="nav-item">
-                    <i class="fas fa-chart-bar"></i> Reports
-                </a>
-            </nav>
-
-            <div class="sidebar-footer">
-                <a href="#" class="nav-item settings">
-                    <i class="fas fa-cog"></i> Settings
-                </a>
-                <a href="#" class="nav-item logout">
-                    <i class="fas fa-sign-out-alt"></i> Log Out
-                </a>
+            <div class="logout-section">
+                <button class="logout-btn" type="button">Log out</button>
             </div>
-        </aside>
+        </div>
 
         <main class="main-content">
             <header class="content-header">

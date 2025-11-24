@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
 body {
   margin: 0;
   font-family:"IBM Plex Sans" ;
-  background-color: #f5f6fa;
+  background-color: white;
   color: #333;
 }
 
@@ -95,11 +97,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-weight: 600;
 }
 
 .header h1 {
   font-size: 20px;
   margin: 0;
+  font-weight: 600;
 }
 
 .header p {
@@ -109,12 +113,13 @@ body {
 }
 
 .add-btn {
-  background-color: #82ccdd;
-  color: #000;
+  background-color: #E58E26;
+  color: white;
   border: none;
   padding: 10px 20px;
-  border-radius: 6px;
-  font-weight: 600;
+  border-radius: 30px;
+  font-weight: 200;
+  font-size: 15px;
   cursor: pointer;
   transition: background 0.3s;
   text-decoration: none; 
@@ -125,7 +130,7 @@ body {
 
 
 .add-btn:hover {
-  background-color: #a1d9e3;
+  background-color: #E58E26;
 }
 
 /* Search bar */
@@ -161,20 +166,20 @@ body {
 table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #b9e1e9;
+  background-color: #e0f2f8;
   border-radius: 8px;
   overflow: hidden;
 }
 
 thead {
-  background-color: #e5f3f6;
+  background-color: #e0f2f8;
   font-weight: 600;
 }
 
 th, td {
   text-align: left;
   padding: 12px 16px;
-  border-bottom: 1px solid #a3cfd6;
+  border-bottom: 1px solid #e0f2f8;
 }
 
 th {
@@ -197,11 +202,11 @@ tr:last-child td {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #555;
+  color: black;
 }
 
 .pagination span {
-  color: #555;
+  color: black;
 }
 
 .pagination .pages {
@@ -221,9 +226,9 @@ tr:last-child td {
 .pagination .pages button.active {
   font-weight: bold;
   text-decoration: underline;
-  color: #004e6f;
+  color: #e0f2f8;
 }
 
 .pagination .pages button:hover {
-  color: #004e6f;
+  color: #e0f2f8;
 }

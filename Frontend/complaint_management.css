@@ -155,8 +155,8 @@
             margin-bottom: 30px;
         }
 
-        .logout-btn:hover { background-color: #CC7E22; }
-        .logout-btn:active { background-color: #F5B96A; }
+        .logout-btn:hover { background-color: #E58E26; }
+        .logout-btn:active { background-color: #E58E26; }
 
         .main-content {
             flex: 1;
@@ -208,11 +208,19 @@
   font-weight: 200;
   cursor: pointer;
   transition: background 0.3s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .add-btn:hover {
   background-color: #E58E26;
 }
+
+
+.add-btn:link, .add-btn:visited { text-decoration: none; color: white; }
+.add-btn:hover { text-decoration: none; }
 
 /* Search bar */
 .search-bar {

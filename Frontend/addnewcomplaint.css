@@ -85,6 +85,7 @@ textarea {
     cursor: pointer;
     display: block;
     margin: 25px auto 0;
+    font-weight: 200;
 }
 
 .add-btn:hover {

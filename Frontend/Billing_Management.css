@@ -75,13 +75,13 @@
             font-size: 15px;
         }
 
-        /* Make links inside the sidebar behave like full-row nav items */
+        /*nav bar*/
         .sidebar ul li a {
           display: flex;
           align-items: center;
           gap: 10px;
           width: 100%;
-          padding: 0; /* keep li padding for now */
+          padding: 0; 
           color: inherit;
           text-decoration: none;
           box-sizing: border-box;
@@ -206,7 +206,7 @@
   border: none;
   padding: 10px 20px;
   border-radius: 30px;
-  font-weight: 200;
+  font-weight: 600;
   font-size: 15px;
   cursor: pointer;
   transition: background 0.3s;

@@ -162,6 +162,8 @@
 .header h1 {
   font-size: 20px;
   margin: 0;
+  font-family: 'IBM Plex Sans';
+  font-weight: 600;
 }
 
 .header p {
@@ -171,18 +173,18 @@
 }
 
 .add-btn {
-  background-color: #8cd3de;
-  color: #000;
+  background-color: #E58E26;
+  color: white;
   border: none;
   padding: 10px 20px;
-  border-radius: 6px;
-  font-weight: 600;
+  border-radius: 30px;
+  font-weight: 200;
   cursor: pointer;
   transition: background 0.3s;
 }
 
 .add-btn:hover {
-  background-color: #82ccdd;
+  background-color: #E58E26;
 }
 
 /* Search bar */
@@ -194,15 +196,15 @@
 .search-bar input {
   width: 93%;
   padding: 10px 40px;
-  border-radius: 6px;
-  border: 2px solid #2f3640; 
-  font-size: 14px;
+  border-radius: 10px;
+  border: 2px solid #ccc; 
+  font-size: 15px;
   transition: border-color 0.3s;
   outline: none;
 }
 
 .search-bar input:focus {
-  border-color: #82ccdd; 
+  border-color:none; 
 }
 
 .search-bar i {
@@ -218,7 +220,7 @@
 table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #b9e1e9;
+  background-color: #e0f2f8;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -231,16 +233,16 @@ thead {
 th, td {
   text-align: left;
   padding: 12px 16px;
-  border-bottom: 1px solid #a3cfd6;
+  border-bottom: 1px solid #e0f2f8;
 }
 
 th {
-  font-size: 14px;
+  font-size: 15px;
   color: #333;
 }
 
 td {
-  font-size: 14px;
+  font-size: 15px;
 }
 
 tr:last-child td {
@@ -250,7 +252,7 @@ tr:last-child td {
 /* Pagination */
 .pagination {
   margin-top: 10px;
-  font-size: 14px;
+  font-size: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -271,7 +273,7 @@ tr:last-child td {
   border: none;
   color: #0077aa;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
   transition: color 0.2s, font-weight 0.2s;
 }
 

@@ -31,7 +31,7 @@ if (isset($_POST['employeeId'])) {
     }
 
     sqlsrv_free_stmt($stmt);
-}
+}s
 
 function goBack($message) {
     echo "<script>

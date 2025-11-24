@@ -1,28 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
     const get = id => document.getElementById(id);
-
     const complaintForm = get('complaintForm');
 
     if (complaintForm) {
         complaintForm.addEventListener('submit', async function(e) {
-            e.preventDefault(); // Prevent default submission
+            e.preventDefault(); 
 
-            // reqired fields
-            const requiredFields = [ 'employeeId', 'customerId', 'complaintDate', 'description'];
+            // 1. VALIDATION
+            const requiredFields = ['employeeId', 'customerId', 'complaintDate', 'description'];
             let isValid = true;
 
-            // Reset borders
-            requiredFields.forEach(id => {
-                const el = get(id);
-                if (el) el.style.borderColor = '#ccc';
-            });
-
-            // Check for empty fields
             requiredFields.forEach(id => {
                 const el = get(id);
                 if (!el || el.value.trim() === '') {
                     if (el) el.style.borderColor = 'red';
                     isValid = false;
+                } else {
+                    el.style.borderColor = '#ccc';
                 }
             });
 
@@ -31,36 +25,37 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            //  Show success alert 
-            alert('You have added a complaint successfully!');
-
-            // Prepare form data
+            // 2. SEND DATA
             const formData = new FormData(this);
 
             try {
-                // Send to PHP backend
-                const response = await fetch("Php/AddComplaint.php", {
+                // FIXED PATH: Adjust this path if your PHP file is in a specific folder
+                // Example: /Utility/Backend/AddComplaint.php
+                const response = await fetch('/Utility/Backend/Addcomplaint.php', { 
                     method: "POST",
                     body: formData
                 });
 
                 const data = await response.text();
 
-                // Optional: check PHP response
-                if (!data.toLowerCase().includes("successful")) {
-                    console.warn("PHP message:", data);
+                // 3. CHECK RESPONSE
+                if (data.includes("successfully")) {
+                    alert('You have added a complaint successfully!');
+                    this.reset();
+                    
+                    // Redirect
+                    setTimeout(() => {
+                        window.location.href = "Complaint_Management.html"; 
+                    }, 1000);
+                } else {
+                    // Show the actual error from PHP
+                    alert("Failed to add complaint. \nServer says: " + data);
+                    console.error("PHP Error:", data);
                 }
-
-                // Clear form
-                this.reset();
-
-                // redirect
-                setTimeout(() => {
-                    window.location.href = "Complaint_Management.html";
-                }, 1000);
 
             } catch (error) {
                 console.error("Error submitting complaint:", error);
+                alert("Network Error. Check console.");
             }
         });
     }

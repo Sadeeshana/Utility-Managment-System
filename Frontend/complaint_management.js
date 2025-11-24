@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- 1. FETCH DATA FROM PHP ---
     function loadComplaints() {
         // Make sure this path is correct based on where your JS file is
-        fetch('Php/Complaint.php') 
+        fetch('/Utility/Backend/Complaint.php') 
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -26,6 +26,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         <td>${comp.Complaint_date}</td>
                         <td>${comp.Description}</td>
                         <td>${comp.Status_of_Complaint}</td>
+                        <td>
+                <a href="editcomplant.html?id=${comp.ComplaintID}" class="edit-link">
+                    Edit
+                </a>
+            </td>
                     </tr>
                 `;
                 tableBody.innerHTML += row;

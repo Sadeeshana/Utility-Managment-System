@@ -23,7 +23,7 @@ if (isset($_POST['employeeId'])) {
     if (sqlsrv_has_rows($stmt)) {
         // Success -> Go to Dashboard
         $_SESSION['logged_in_id'] = $empID;
-        header("Location: /Utility/dashbaord.html"); 
+        header("Location: /Frontend/Dashbaord.html"); 
         exit();
     } else {
         

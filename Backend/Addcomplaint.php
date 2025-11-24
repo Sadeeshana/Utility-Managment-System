@@ -2,21 +2,25 @@
 include 'database.php';
 
 //Names in html form
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
 $EmployeeID = $_POST['EmployeeID'];
 $CustomerID = $_POST['CustomerID'];
-$Date = $_POST['Complaint Date'];
+$Date = $_POST['ComplaintDate'];
 $Status = $_POST['Status'];
 $Description = $_POST['Description'];
 
 
-$sql = "EXEC ComplaintProcedure ?,?,?,?,?,?";
+$sql = "EXEC ComplaintProcedure ?,?,?,?,?";
  // Prepare the parameters array
 $params =[
     $EmployeeID,
     $CustomerID,
     $Date,
-    $Status,
-    $Description
+    $Description,
+    $Status
+    
 
 ];
 
@@ -34,7 +38,7 @@ if($stmt){
 
 
 
-
+}
 
 
 ?>

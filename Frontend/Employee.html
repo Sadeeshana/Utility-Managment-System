@@ -6,59 +6,59 @@
     <title>Employee Registration</title>
     <link rel="stylesheet" href="employee.css">
 </head>
-    <body>
-        <div class="container">
-            <div class="form-container">
-                <div class="welcome-text">
-                    <h1>Welcome!</h1>
-                    <p>Employee Registration</p>
-                </div>            
-            <div class="registration-image">
-            </div>
-             
-        <form id="ëmployeeRegistrationForm">
-            <div class ="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" title="Username" placeholder="Choose a username" required>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="welcome-text">
+                <h1>Welcome!</h1>
+                <p>Employee Registration</p>
             </div>
 
-            <div class="form-row">
+            <form id="employeeRegistrationForm">
+
+                <!-- Employee Name -->
                 <div class="form-group">
-                    <label for="firstName">First Name</label>
-                    <input type="text" id="firstName" name="firstName" placeholder="Enter Your First Name" required>
+                    <label for="employeeName">Employee Name</label>
+                    <input type="text" id="employeeName" name="employeeName" placeholder="Enter Employee Name" required>
                 </div>
 
-                    <div class="form-group">
-                        <label for="lastName">Last Name</label>
-                        <input type="text" id="lastName" name="lastName" placeholder="Enter Your Last Name" required>                    
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="employeeId">Employee ID</label>
-                <input type="text" id="employeeId" name="employeeId" placeholder="Enter Your Employee ID Number" required>
-            </div>
-
-            <div class="form-group">
-                <label for="ContactNumber">Contact Number</label>
-                <input type="tel" id="contactNumber" name="contactnumber" placeholder="Enter Your Contact Number"  pattern="[0-9]{10}"required>
-            </div> 
-
+                <!-- Employee ID -->
                 <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter Your Email" required>
-            </div>
+                    <label for="employeeId">Employee ID</label>
+                    <input type="text" id="employeeId" name="employeeId" placeholder="Enter Employee ID Number" required>
+                </div>
 
-             <div class="form-group">
-                <label for="jobRole">Job Role</label>
-                <input type="text" id="jobRole" name="jobRole" placeholder="Enter Your Job Role" required>
-            </div>
+                <!-- Contact Number -->
+                <div class="form-group">
+                    <label for="contactNumber">Contact Number</label>
+                    <input type="tel" id="contactNumber" name="contactNumber" placeholder="Enter Contact Number" pattern="[0-9]{10}" required>
+                </div>
 
-            <button type="button" class="btn btn-back" onclick="window.location.href='LoginPage.html'">Back to Login</button>
-            <button type="submit" class="btn btn-register" onclick="window.location.href='Dashbaord.html'">Register Now</button>
-        </form>
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter Email" required>
+                </div>
+
+                <!-- Job Role -->
+                <div class="form-group">
+                    <label for="jobRole">Job Role</label>
+                    <input type="text" id="jobRole" name="jobRole" placeholder="Enter Job Role" required>
+                </div>
+
+                <!-- Buttons -->
+                <button type="button" class="btn btn-back" onclick="window.location.href='LoginPage.html'">
+                    Back to Login
+                </button>
+
+                <button type="submit" class="btn btn-register">
+                    Register Now
+                </button>
+            </form>
         </div>
-      </div>
-          <script src="ëmployee.js"></script>  
-    </body>
-    </html>
-    
+    </div>
+
+    <script src="employee.js"></script>
+</body>
+</html>

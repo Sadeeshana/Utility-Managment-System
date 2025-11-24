@@ -1,0 +1,219 @@
+/* Basic Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial,sans-serif;
+    
+}
+
+:root {
+
+    --primary-blue: #0A3258; /*Dark Blue for Sidebar */
+    --accent-blue: #3A7FBB;  /* Main Table/Row Color */
+    --light-gray: #f4f4f4;
+    --dark-text: #333;
+    --light-text: #ffffff;
+}
+
+body {
+    background-color: var(--light-gray);
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- 1. Sidebar Styling --- */
+.sidebar {
+    width: 250px;
+    background-color: var(--primary-blue);
+    color: var(--light-text);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    justify-content: space-between;
+}
+
+.sidebar-header . fas {
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+
+.admin-text {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.utility-text {
+    font-size: 0.8em;
+    opacity:0.7;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.nav-item a, .sidebar-footer .nav-item a {
+    display: block;
+    padding: 15px 20px;
+    color: var(--light-text);
+    text-decoration: none;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.nav-item a:hover, .nav-item.active a {
+    background-color: var(--accent-blue);
+}
+
+.nav-item .fas {
+    margin-right: 10px;
+    width: 20px; /* Align icons */
+}
+
+/* Sidebar Footer */
+.sidebbar-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 10px;
+}
+
+/* --- 2. Main Content Styling --- */
+.main-content {
+    flex-grow: 1;
+    padding: 30px;  
+}
+
+/* content Header */
+.content-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative; /* For the absolute position of the button */
+}
+
+.page-title {
+    font-size: 1.8m;
+    font-weight: bold;
+    color: var(--dark-text);
+}
+
+.page-subtitle {
+    font-size: 0.9em;
+    color: #666;
+    margin-left: 10px;
+}
+
+.add-button {
+    background-color: var(--accent-blue);
+    color: var(--light-text);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    position: aboslute; /* Place button to the far right */
+}
+
+.add-button .fas {
+    margin-right: 5px;
+}
+
+/* Search Bar */
+.search-container {
+    background-color: var(--light-text);
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.search-container .fas {
+    color:#999;
+    margin-right: 10px;
+}
+
+#searchInput {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    font-size: 1em;
+    padding: 5px 0;
+}
+
+/* Table Styling */
+.table-container {
+    background-color: var(--light-text);
+    border: radius 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+#paymentTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#paymentTable thead tr {
+    background-color: #e0e0e0; /* Gray header background */
+    color: var(--dark-text);
+    text-align: left;
+}
+
+#paymentTable tbody tr {
+    background-color: var(--accent-blue);
+    color: var(--light-text);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+#paymentTable tbody tr:hover {
+    background-color: #2a6a9b; /* Slightly darker on hover */
+}
+
+#paymentTable td {
+    padding: 15px;
+    font-size: 0.9em;
+}
+
+#paymentTable td a {
+    color: var(--light-text);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Table Footer / Pagination */
+.table-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.pagination a {
+    color: #666;
+    padding: 8px 12px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.pagination a.active {
+    background-color: #ddd;
+    font-weight: bold;
+}

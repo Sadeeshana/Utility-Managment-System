@@ -127,6 +127,10 @@ input:focus {
   background-color: #E58E26;
 }
 
+.add-customer-btn {
+    text-decoration: none; 
+}
+
 /* Responsive */
 @media (max-width: 850px) {
   .container {

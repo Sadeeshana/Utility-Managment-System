@@ -8,26 +8,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="sidebar">
-            <div>
-                <h2>
-                    <img src="/Images/A1.png" alt="Admin-Icon">
-                    Admin Panel
-                    <p>UTILITY MANAGEMENT SYSTEM</p>
-                </h2>
-                <ul>
-                    <li><a href="Dashbaord.html"><img src="/Images/S1.png" class="Dashboard-Icon" alt="Dashboard-Icon"> &nbsp;&nbsp;&nbsp;Dashboard</a></li>
-                    <li><a href="Customermanagement.html"><img src="/Images/S2.png" class="Customers-Icon" alt="Customers-Icon"> &nbsp;&nbsp;&nbsp;Customers</a></li>
-                    <li><a href="Billing_Management.html"><img src="/Images/S3.png" class="Billings-Icon" alt="Billings-Icon"> &nbsp;&nbsp;&nbsp;Billings</a></li>
-                    <li><a href="Genaratereports.html"><img src="/Images/S4.png" class="Reports-Icon" alt="Reports-Icon"> &nbsp;&nbsp;&nbsp;Reports</a></li>
-                    <li><a href="complaint_management.html"><img src="/Images/S5.png" class="Complaints-Icon" alt="Complaints-Icon"> &nbsp;&nbsp;&nbsp;Complaints</a></li>
-                </ul>
+    <div class="page">
+    
+     <!--Navigation bar-->
+        <nav class="sidebar">
+            <h2 class="sidebar-title">Managers Reports & Analytics</h2>
+
+            <div class="nav-menu">
+                <button class="nav-button" onclick="window.location.href='Genaratereports.html'">Full Reports (PDF)</button>
+                <button class="nav-button active">Top Consumers by Utility</button>
+                <button class="nav-button" onclick="window.location.href='Unpaidbills.html'">Unpaid Bills</button>
+                <button class="nav-button" >Usage of Utility</button>
             </div>
-            <div class="logout-section">
-                <button class="logout-btn" type="button">Log out</button>
-            </div>
-        </div>
+        </nav>
     
 <!--main part-->
         <main class="main-content">
@@ -39,40 +32,34 @@
             <div class="content-body">
                 
                 <section class="card configure-card">
-                    <h3>Configure your report</h3>
-                    <p>Choose the type of report and the period it should cover.</p>
-                    <label class="config-label">Report Type</label>
-                    <div class="report-type-tabs">
-                        <button class="tab-button">Daily</button>
-                        <button class="tab-button">Weekly</button>
-                        <button class="tab-button">Monthly</button>
-                    </div>
+  <h3>Select your report</h3>
+  <p>Choose the type of report and the period it should cover.</p>
 
-                    <label class="config-label">Select Month</label>
-                    <div class="calendar-widget">
-                        <div class ="calender-header">
-                            <button class="calender-nav" id="prev-month">&lt;</button>
-                            <div class="calender-title">
-                                <strong id="calender-month-year">Month Year</strong>
-                            </div>
-                            <button class="calender-nav" id="next-month">&gt;</button>
+<!-- Utility Selection -->
+  <label for="utility">Select Utility:</label>
+  <select id="utility" name="utility" class="report-select">
+    <option value="electricity">Electricity</option>
+    <option value="water">Water</option>
+    <option value="gas">Gas</option>
+  </select>
 
-                        </div>
+  <!-- Report Period Selection -->
+  <label for="report-period">Select Period:</label>
+  <select id="report-period" name="report-period" class="report-select">
+    <option value="daily">Daily</option>
+    <option value="monthly">Monthly</option>
+    <option value="yearly">Yearly</option>
+  </select>
 
-                        <div class="calender-grid " id="calendar-days">
-                            <div class="calendar-cell day-name">Sun</div>
-                            <div class="calendar-cell day-name">Mon</div>
-                            <div class="calendar-cell day-name">Tue</div>
-                            <div class="calendar-cell day-name">Wed</div>
-                            <div class="calendar-cell day-name">Thu</div>
-                            <div class="calendar-cell day-name">Fri</div>
-                            <div class="calendar-cell day-name">Sat</div>
-                        </div>
+  <!-- Report Type Selection -->
+  <label for="report-type">Report Type:</label>
+  <select id="report-type" name="report-type" class="report-select">
+    <option value="summary">Summary Report</option>
+    <option value="detailed">Detailed Report</option>
+  </select>
 
-                    </div>
-
-
-                    </section>
+  <button class="generate-btn">Generate Report</button>
+</section>
 
                 <aside class="card recent-reports-card">
                     <h4>Recently Generated Reports</h4>

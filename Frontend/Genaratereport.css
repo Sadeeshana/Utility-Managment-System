@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
+
 body {
-    font-family: 'Poppins', Arial, sans-serif;
+    font-family: "IBM Plex Sans'";
     margin: 0;
-    background-color: #f0f4f8; 
-    color: #1a202c; 
+    background-color: white; 
+    color: white; 
 }
 
 .app-container {
@@ -10,154 +13,70 @@ body {
     min-height: 100vh;
 }
 
-/* Sidebar */
- * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            background-color: #F5F6FA;
-            font-family: 'IBM Plex Sans', sans-serif;
-        }
-        
-        .container {
-            display: flex;
-            height: 100vh;
-        }
-        
-        .sidebar {
-            width: 300px;
-            background-color: #0A3D62;
-            color: white;
-            padding: 0px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            
-        }
-        
-        .sidebar h2 {
-            margin-bottom: 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .sidebar h2 p {
-            font-size: 8px;
-            font-weight: normal;
-            color: #FFFFFF;
-            text-align: center;
-            margin-top: -8px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            width: 90%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .sidebar h2 img {
-            width: 40px;
-            height: 40px;
-            margin-left: 20px;
-        }
-        
-        .sidebar ul {
-            list-style: none;
-            gap: 50px; 
-        }
-        
-        .sidebar ul li {
-            padding: 15px 25px;
-            margin: 25px 0;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px; 
-            border-radius: 5px;
-            transition: all 0.3s;
-            font-weight: normal;
-            font-size: 15px;
-        }
-        
-        .sidebar ul li img {
-            width: 20px;
-            height: 20px;
-            margin-left: 30px;
-        }
-        
-        .sidebar ul li .Dashboard-Icon  {
-            width: 40px;
-            height: 40px;
-        }
-        
-        .sidebar ul li .Customers-Icon {
-            width: 40px;
-            height: 40px;
-        }
-        
-        .sidebar ul li .Billings-Icon {
-            width: 40px;
-            height: 40px;
-        }
-        
-        .sidebar ul li .Reports-Icon {
-            width: 40px;
-            height: 40px;
-        }
-        
-        .sidebar ul li .Complaints-Icon {
-            width: 40px;
-            height: 40px;
-        }
+.sidebar {
+    width: 300px;
+    background-color: #0a2d4d; 
+    color: white;
+    padding: 10px;
+    flex-shrink: 0; 
+}
 
-        .sidebar ul li:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 10px 20px 10px 20px;
-        }
-        
-        .sidebar ul li:active {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-        
-        .sidebar ul li.active {
-            background-color: rgba(255, 255, 255, 0.15);
-            border-left: 4px solid #ffffff;
-            padding-left: 11px;
-        }
+.sidebar-title {
+    font-size: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-family: "IBM Plex Sans";
+    font-weight: 600;
+}
 
-        .logout-btn {
-            width: 90%;
-            background-color: #E58E26;
-            color: #FFFFFF;
-            border: none;
-            padding: 12px 8px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: .5px;
-            display: inline-block;
-            transition: background-color .25s ease;
-            margin-left: 15px;
-            margin-bottom: 30px;
-        }
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+    font-family: "IBM Plex Sans";
+    font-weight: 600;
+    font-size: 15px;
+}
 
-        .logout-btn:hover { background-color: #CC7E22; }
-        .logout-btn:active { background-color: #F5B96A; }
+.nav-button {
+    display: block;
+    width: 100%;
+    padding: 18px 25px;
+    background-color: transparent;
+    border: 1px solid #3e6b98; 
+    color: white;
+    font-family: "IBM Plex Sans";
+    font-size: 15px;
+    font-weight: 600;
+    text-align: left;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-        .main-content {
-            flex: 1;
-            padding: 30px;
-            overflow-y: auto;
-        }
-        
-        .main-content h1 {
-            margin-bottom: 20px;
-        }
+.nav-button:hover,
+.nav-button.active {
+    background-color: #1b4975; 
+    border-color: #1b4975;
+}
+
+/* Reset and base styling */
+
+html,body{
+  height: 100%;
+}
+
+body{
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--panel-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+.page{
+  display: flex;
+  min-height: 100vh;   
+}
 
 /* Main Content */
 
@@ -165,18 +84,21 @@ body {
     flex-grow: 1; 
     padding: 40px;
     overflow-y: auto; 
+    background-color: white;
 }
 
 .main-header h1 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #0a2d4d;
+    font-family: "IBM Plex Sans";
+    font-size: 30px;
+    font-weight: 600;
+    color: black;
     margin-top: 0;
     margin-bottom: 8px;
 }
 
 .main-header p {
-    font-size: 1.1rem;
+    font-family: "IBM Plex Sans";
+    font-size: 15px;
     color: #555;
     margin-bottom: 30px;
 }
@@ -189,93 +111,93 @@ body {
 .card {
     border-radius: 10px;
     padding: 25px;
+
 }
 
 .configure-card {
-    flex-basis: 60%; 
-    background-color: #ffffff; 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+background: #e0f2f8;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+max-width: 400px;
+margin: 20px auto;
+font-family: "IBM Plex Sans";
 }
+
 
 .configure-card h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-top: 0;
+font-size: 25px;
+font-weight: 600;
+font-family: "IBM Plex Sans";
+margin-bottom: 10px;
+color: black;
 }
 
+
 .configure-card p {
-    color: #555;
-    margin-bottom: 25px;
+color: #666;
+margin-bottom: 20px;
+}
+
+
+.report-select {
+width: 100%;
+padding: 12px;
+border-radius: 10px;
+border: 1px ;
+margin-bottom: 15px;
+font-size: 15px;
+font-family: "IBM Plex Sans";
+transition: 0.3s ease;
+background-color: #F5F6FA;
+}
+
+
+.report-select:focus {
+border-color: none;
+box-shadow: 0 0 8px rgba(108, 92, 231, 0.3);
+outline: none;
+}
+
+
+.generate-btn {
+width: 100%;
+padding: 12px;
+background: #E58E26;
+color: white;
+border: none;
+border-radius: 10px;
+font-size: 15px;
+font-family: "IBM Plex Sans";
+font-weight: 600;
+cursor: pointer;
+transition: 0.3s ease;
+}
+
+
+.generate-btn:hover {
+transform: translateY(-2px);
+box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 .recent-reports-card {
-    flex-basis: 40%; 
-    background-color: #0a2d4d; 
-    color: white;
+flex-basis: 40%; 
+background: #e0f2f8;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+max-width: 400px;
+margin: 20px auto;
+font-family: "IBM Plex Sans";
 }
 
 .recent-reports-card h4 {
-    font-size: 1.1rem;
+    font-size: 20px;
     font-weight: 600;
     margin-top: 0;
-    border-bottom: 1px solid #3e6b98; 
+    border-bottom: 1px solid #e0f2f8; 
     padding-bottom: 10px;
 }
 
-/*Colors for Calendar*/
-.calendar-cell.today{
-    background-color: #0a2d4d;
-    color: white;
-    border-radius: 50%;
-}
 
-.calendar-cell.date{
-    cursor: pointer;
-}
-.calendar-cell.date:not(.today):hover{
-    background-color: #a0c9e8;
-    border-radius: 50% ;
-}
 
-.calender-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-}
-
-.calendar-cell {
-    padding: 10px;
-    text-align: center;
-}
-
-/* Report type tabs */
-.report-type-tabs {
-    display: inline-flex;
-    gap: 0;
-    background: #e6f0f7;
-    border: 1px solid #bcd3e6;
-    border-radius: 999px;
-    padding: 4px;
-}
-.tab-button {
-    appearance: none;
-    border: 0;
-    background: transparent;
-    color: #0a2d4d;
-    padding: 10px 18px;
-    border-radius: 999px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background .18s ease, color .18s ease, box-shadow .18s ease, transform .06s ease;
-}
-.tab-button:hover { background: #d6e8f6; }
-.tab-button:active { transform: translateY(1px); }
-.tab-button:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(32,149,243,.35);
-}
-.tab-button.active {
-    background: #0a2d4d;
-    color: #fff;
-    box-shadow: 0 6px 14px rgba(10,45,77,.25);
-}

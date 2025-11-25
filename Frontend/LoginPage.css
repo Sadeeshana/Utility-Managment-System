@@ -1,13 +1,14 @@
-
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+  
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
+      font-family: "IBM Plex Sans";
     }
 
     body {
-      background: #f2f4f7;
+      background: white;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -17,9 +18,9 @@
     .container {
       width: 900px;
       height: 550px;
-      background: #ffffff;
+      background: #e0f2f8;
       display: flex;
-      border-radius: 15px;
+      border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
@@ -45,7 +46,10 @@
     .left p {
       margin-top: 15px;
       text-align: center;
-      font-size: 13px;
+      font-size: 15px;
+      font-family: "IBM Plex Sans";
+      font-weight: 600;
+      color: white;
       opacity: 0.8;
     }
 
@@ -55,13 +59,16 @@
     }
 
     .right h2 {
-      font-size: 32px;
-      font-weight: 700;
-      color: #1d2a3b;
+      font-size: 30px;
+      font-family: "IBM Plex Sans";
+      font-weight: 600;
+      color: black;
     }
 
     .right small {
       color: #7b8a97;
+      font-size: 15px;
+      font-family: "IBM Plex Sans";
     }
 
     .input-group {
@@ -71,22 +78,24 @@
     }
 
     .input-group label {
-      font-size: 14px;
+      font-size: 15px;
+      font-family: "IBM Plex Sans";
       margin-bottom: 5px;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     .input-group input {
       padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #0A3D62;
-      font-size: 14px;
+      border-radius: 10px;
+      border: 1px ;
+      font-size: 15px;
       outline: none;
       transition: 0.2s;
+      background-color: #F5F6FA;
     }
 
     .input-group input:focus {
-      border-color: #0a3a55;
+      border-color: none;
     }
 
     .btn {
@@ -94,20 +103,17 @@
       width: 100%;
       padding: 12px;
       border: none;
-      border-radius: 8px;
-      font-size: 16px;
+      border-radius: 10px;
+      font-family: "IBM Plex Sans";
+      font-size: 15px;
       cursor: pointer;
       font-weight: 600;
     }
 
     .btn-primary {
-      background: #07385a;
+      background: #E58E26;
       color: white;
     }
 
-    .btn-secondary {
-      margin-top: 15px;
-      background: #e3e6ea;
-      color: #333;
-    }
+    
   

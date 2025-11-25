@@ -1,9 +1,9 @@
-
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
     * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "IBM Plex Sans";
 }
 
 body {
@@ -99,22 +99,27 @@ body {
 }
 
 .header h1 {
-  font-size: 26px;
+  font-size: 20px;
+  font-family: "IBM Plex Sans";
+  font-weight: 600;
 }
 
 .header p {
   font-size: 13px;
   color: gray;
+  font-family: "IBM Plex Sans";
 }
 /* register new meter button  */
 .add-btn {
-  background-color: #82ccdd;
-  color: black;
+  background-color: #E58E26;
+  color: white;
   padding: 10px 18px;
   border: none;
-  border-radius: 20px;
+  border-radius: 30px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
+  font-family: "IBM Plex Sans";
+  font-size: 15px;
 }
 
 .filters {
@@ -126,9 +131,12 @@ body {
 .filters input,
 .filters select {
   padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
+  background-color: #F5F6FA;
+  border: 1px ;
+  border-radius: 10px;
   outline: none;
+  font-size: 15px;
+  font-family: "IBM Plex Sans";
 }
 
 .filters input {
@@ -137,24 +145,35 @@ body {
 /*table  */
 table {
   width: 100%;
-  background: #f5f6fa;
+  background: #e0f2f8;
   border-collapse: collapse;
   border-radius: 10px;
   overflow: hidden;
 }
 
-th, td {
+th{
   padding: 14px;
   text-align: left;
-  font-size: 14px;
+  font-size: 16px;
+  font-family: "IBM Plex Sans";
+  font-weight: 600;
+
+} 
+
+td {
+  padding: 14px;
+  text-align: left;
+  font-size: 15px;
+  font-family: "IBM Plex Sans";
+  font-weight: 400;
 }
 
 th {
-  background-color: #f2f4f8;
+  background-color: #e0f2f8;
 }
 
 tr:nth-child(even) {
-  background-color: #f9fbfc;
+  background-color: #e0f2f8;
 }
 
 a {
@@ -163,22 +182,40 @@ a {
 }
 
 .pagination {
+  margin-top: 10px;
+  font-size: 14px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 15px;
-  gap: 10px;
-}
-
-.pagination button {
-  border: none;
-  background: #f5f6fa;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
+  color: black;
 }
 
 .pagination span {
-  font-size: 14px;
-  color: gray;
+  color: black;
+}
+
+.pagination .pages {
+  display: flex;
+  gap: 8px;
+}
+
+.pagination .pages button {
+  background: none;
+  border: none;
+  color: #0077aa;
+  cursor: pointer;
+  font-size: 10px;
+  transition: color 0.2s, font-weight 0.2s;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.pagination .pages button.active {
+  font-weight: 700;
+  background-color: #e0f2f8;
+  color:#07506a ;
+}
+
+.pagination .pages button:hover {
+  color: #07506a;
 }

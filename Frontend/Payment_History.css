@@ -166,6 +166,7 @@ body {
 .search-bar {
     position: relative;
     margin: 20px 0;
+    border-radius: 10px;
 }
 
 .search-bar input {

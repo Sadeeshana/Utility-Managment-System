@@ -42,13 +42,14 @@
         }
         
         body {
-            background-color: #F5F6FA;
-            font-family: 'IBM Plex Sans', sans-serif;
+            background-color: white;
+            font-family: 'IBM Plex Sans';
         }
         
         .container {
             display: flex;
             height: 100vh;
+            background-color: white;
         }
         
         .sidebar {
@@ -105,6 +106,24 @@
             transition: all 0.3s;
             font-weight: normal;
             font-size: 15px;
+        }
+        
+        .sidebar ul li a,
+        .sidebar ul li a:link,
+        .sidebar ul li a:visited {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          width: 100%;
+          padding: 0; 
+          color: inherit !important;
+          text-decoration: none !important;
+          box-sizing: border-box;
+        }
+
+        .sidebar ul li a:focus {
+          outline: 2px solid rgba(255,255,255,0.18);
+          outline-offset: 2px;
         }
         
         .sidebar ul li img {
@@ -170,8 +189,8 @@
             margin-bottom: 30px;
         }
 
-        .logout-btn:hover { background-color: #CC7E22; }
-        .logout-btn:active { background-color: #F5B96A; }
+        .logout-btn:hover { background-color: #E58E26; }
+        .logout-btn:active { background-color: #E58E26; }
 
         .main-content {
             flex: 1;
@@ -182,7 +201,6 @@
         .main-content h1 {
             margin-bottom: 20px;
         }
-
 
         /* --- Main Content --- */
         .main-content {

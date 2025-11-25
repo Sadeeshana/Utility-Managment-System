@@ -1,5 +1,6 @@
-
-        /* --- CSS STYLES --- */
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+       
+       /* --- CSS STYLES --- */
         :root {
             --dark-blue: #0A3D62; /* Sidebar background */
             --mid-blue: #0A3D62; /* Nav item background */
@@ -31,75 +32,171 @@
         }
 
         /* --- 1. Sidebar Styling (Repeated for consistency) --- */
+       * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: white;
+            font-family: 'IBM Plex Sans';
+        }
+        
+        .container {
+            display: flex;
+            height: 100vh;
+            background-color: white;
+        }
+        
         .sidebar {
-            width: 280px;
-            background-color: var(--dark-blue);
-            color: var(--text-light);
-            padding: 20px 0;
+            width: 300px;
+            background-color: #0A3D62;
+            color: white;
+            padding: 0px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            flex-shrink: 0;
+            
         }
-
-        .admin-header {
+        
+        .sidebar h2 {
+            margin-bottom: 50px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            padding: 0 20px 20px;
-            border-bottom: 1px solid #4c8aaf;
-            margin-bottom: 20px;
+            gap: 8px;
         }
-
-        .admin-header i {
-            font-size: 30px;
-            margin-right: 10px;
-        }
-
-        .admin-header h3 {
-            font-size: 18px;
-            margin-bottom: 2px;
-        }
-
-        .admin-header p {
-            font-size: 14px;
-            opacity: 0.8;
-        }
-
-        .sidebar-nav {
-            flex-grow: 1;
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            padding: 15px 20px;
-            text-decoration: none;
-            color: var(--text-light);
-            transition: background-color 0.2s;
-            font-size: 16px;
-            margin: 5px 0;
-        }
-
-        .nav-item i {
-            width: 25px;
-            margin-right: 15px;
+        
+        .sidebar h2 p {
+            font-size: 8px;
+            font-weight: normal;
+            color: #FFFFFF;
             text-align: center;
+            margin-top: -8px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .sidebar h2 img {
+            width: 40px;
+            height: 40px;
+            margin-left: 20px;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+            gap: 50px; 
+        }
+        
+        .sidebar ul li {
+            padding: 15px 25px;
+            margin: 25px 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px; 
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-weight: normal;
+            font-size: 15px;
+        }
+        
+        .sidebar ul li a,
+        .sidebar ul li a:link,
+        .sidebar ul li a:visited {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          width: 100%;
+          padding: 0; 
+          color: inherit !important;
+          text-decoration: none !important;
+          box-sizing: border-box;
         }
 
-        .nav-item:hover {
-            background-color: var(--mid-blue);
+        .sidebar ul li a:focus {
+          outline: 2px solid rgba(255,255,255,0.18);
+          outline-offset: 2px;
+        }
+        
+        .sidebar ul li img {
+            width: 20px;
+            height: 20px;
+            margin-left: 30px;
+        }
+        
+        .sidebar ul li .Dashboard-Icon  {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .sidebar ul li .Customers-Icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .sidebar ul li .Billings-Icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .sidebar ul li .Reports-Icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .sidebar ul li .Complaints-Icon {
+            width: 40px;
+            height: 40px;
         }
 
-        /* Setting 'Customers' as active for this page */
-        .nav-item.active {
-            background-color: var(--active-bg);
-            border-left: 5px solid var(--light-blue);
-            padding-left: 15px;
+        .sidebar ul li:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px 10px 20px;
+        }
+        
+        .sidebar ul li:active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .sidebar ul li.active {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-left: 4px solid #ffffff;
+            padding-left: 11px;
         }
 
-        .sidebar-footer {
-            padding-top: 20px;
-            border-top: 1px solid var(--mid-blue);
+        .logout-btn {
+            width: 90%;
+            background-color: #E58E26;
+            color: #FFFFFF;
+            border: none;
+            padding: 12px 8px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: .5px;
+            display: inline-block;
+            transition: background-color .25s ease;
+            margin-left: 15px;
+            margin-bottom: 30px;
+        }
+
+        .logout-btn:hover { background-color: #E58E26; }
+        .logout-btn:active { background-color: #E58E26; }
+
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+        
+        .main-content h1 {
+            margin-bottom: 20px;
         }
         
         /* --- 2. Main Content and Form Styling --- */

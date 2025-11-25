@@ -1,314 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
 
-        /* --- CSS STYLES --- */
-        :root {
-            --dark-blue: #0A3D62; /* Sidebar background */
-            --mid-blue: #0A3D62; /* Nav item background */
-            --light-blue: #0A3D62; /* Primary/Active color */
-            --text-light: #ffffff;
-            --text-dark: #333;
-            --active-bg: #4c8aaf; /* Active nav item background */
-            --input-border: #0A3D62;
-            --button-blue: #0A3D62;
-            --button-gray: white;
-        }
+/* Global Reset and Body Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'IBM Plex Sans';
+}
 
-        /* Global Reset and Body Styling */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
+body {
+    background-color: white;
+}
 
-        body {
-            background-color: white;
-        }
+/* Dashboard Layout (Flexbox) */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
 
-        /* Dashboard Layout (Flexbox) */
-        .dashboard-container {
-            display: flex;
-            min-height: 100vh;
-        }
+/* --- Sidebar Styling --- */
+.sidebar {
+    width: 280px;
+    background-color: #0A3D62;
+    color: #ffffff;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
 
-        /* --- 1. Sidebar Styling (Repeated for consistency) --- */
-        .sidebar {
-            width: 280px;
-            background-color: var(--dark-blue);
-            color: var(--text-light);
-            padding: 20px 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            flex-shrink: 0;
-        }
+.admin-header {
+    display: flex;
+    align-items: center;
+    padding: 0 20px 20px;
+    border-bottom: 1px solid #4c8aaf;
+    margin-bottom: 20px;
+}
 
-        .admin-header {
-            display: flex;
-            align-items: center;
-            padding: 0 20px 20px;
-            border-bottom: 1px solid #4c8aaf;
-            margin-bottom: 20px;
-        }
+.admin-header i {
+    font-size: 30px;
+    margin-right: 10px;
+}
 
-        .admin-header i {
-            font-size: 30px;
-            margin-right: 10px;
-        }
+.admin-header h3 {
+    font-size: 18px;
+    margin-bottom: 2px;
+}
 
-        .admin-header h3 {
-            font-size: 18px;
-            margin-bottom: 2px;
-        }
+.admin-header p {
+    font-size: 14px;
+    opacity: 0.8;
+}
 
-        .admin-header p {
-            font-size: 14px;
-            opacity: 0.8;
-        }
+.sidebar-nav {
+    flex-grow: 1;
+}
 
-        .sidebar-nav {
-            flex-grow: 1;
-        }
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #ffffff;
+    transition: background-color 0.2s;
+    font-size: 16px;
+    margin: 5px 0;
+}
 
-        .nav-item {
-            display: flex;
-            align-items: center;
-            padding: 15px 20px;
-            text-decoration: none;
-            color: var(--text-light);
-            transition: background-color 0.2s;
-            font-size: 16px;
-            margin: 5px 0;
-        }
+.nav-item i {
+    width: 25px;
+    margin-right: 15px;
+    text-align: center;
+}
 
-        .nav-item i {
-            width: 25px;
-            margin-right: 15px;
-            text-align: center;
-        }
+.nav-item:hover {
+    background-color: #0A3D62;
+}
 
-        .nav-item:hover {
-            background-color: var(--mid-blue);
-        }
+.nav-item.active {
+    background-color: #4c8aaf;
+    border-left: 5px solid #0A3D62;
+    padding-left: 15px;
+}
 
-        /* Setting 'Customers' as active for this page */
-        .nav-item.active {
-            background-color: var(--active-bg);
-            border-left: 5px solid var(--light-blue);
-            padding-left: 15px;
-        }
+.sidebar-footer {
+    padding-top: 20px;
+    border-top: 1px solid #0A3D62;
+}
 
-        .sidebar-footer {
-            padding-top: 20px;
-            border-top: 1px solid var(--mid-blue);
-        }
-        
-        /* --- 2. Main Content and Form Styling --- */
-        .main-content {
-            flex-grow: 1;
-            padding: 40px;
-            background-color: var(--text-light);
-        }
+/* --- Main Content --- */
+.main-content {
+    flex-grow: 1;
+    padding: 40px;
+    background-color: white;
+}
 
-        .content-header h2 {
-            font-size: 28px;
-            color: var(--text-dark);
-        }
+.content-header h2 {
+    font-size: 25px;
+    color: black;
+    font-weight: 600;
+}
 
-        .content-header p {
-            color: black;
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
+.content-header p {
+    color: grey;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
 
-        /* Search Bars */
-        .search-container {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
+/* --- Form Sections --- */
+.form-section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
 
-        .search-field {
-            display: flex;
-            align-items: center;
-            border: 1px solid var(--input-border);
-            border-radius: 5px;
-            padding: 8px 15px;
-            width: 50%;
-            background-color: white;
-        }
+.form-section:last-of-type {
+    border-bottom: none;
+}
 
-        .search-field i {
-            color: black;
-            margin-right: 10px;
-        }
+.form-section h3 {
+    font-size: 20px;
+    color: black;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
 
-        .search-field input {
-            border: none;
-            flex-grow: 1;
-            font-size: 16px;
-            outline: none;
-            background-color: white;
-        }
+/* Grid Layout  */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
 
-        /* Form Sections */
-        .form-section {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid white;
-        }
-        
-        .form-section:last-of-type {
-            border-bottom: none;
-        }
+.form-grid.single-column {
+    grid-template-columns: 1fr;
+}
 
-        .form-section h3 {
-            font-size: 20px;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-        }
-        
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        
-        .form-grid.single-column {
-            grid-template-columns: 1fr;
-        }
+/* Input Fields */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
 
-        /* Add margin between address lines */
-        .form-grid.single-column + .form-grid {
-            margin-top: 20px;
-        }
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .form-group.full-width {
-            grid-column: 1 / -1;
-        }
+.form-group label {
+    font-size: 16px;
+    color: black;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
 
-        .form-group label {
-            font-size: 14px;
-            color: black;
-            margin-bottom: 5px;
-        }
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    width: 100%;
+    background-color: #F5F6FA;
+    outline: none;
+}
 
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group input[type="date"] {
-            padding: 10px;
-            border: 1px solid var(--input-border);
-            border-radius: 5px;
-            font-size: 16px;
-            width: 100%;
-            transition: border-color 0.2s;
-        }
-        
-        .form-group input:focus {
-            border-color: #82ccdd;
-            outline: none;
-        }
-        
-        /* Utility Services Section */
-        .utility-checkboxes {
-            display: flex;
-            gap: 25px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-        
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-        }
-        
-        .checkbox-group input[type="checkbox"] {
-            /* Hide default checkbox */
-            position: absolute;
-            opacity: 0;
-            cursor: pointer;
-            height: 0;
-            width: 0;
-        }
+/* Form Footer Buttons */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding-top: 20px;
+}
 
-        /* Custom Checkbox/Label Styling */
-        .checkbox-label {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            font-size: 16px;
-            padding: 8px 15px;
-            border: 1px solid var(--input-border);
-            border-radius: 5px;
-            transition: background-color 0.2s, border-color 0.2s;
-            
-        }
-        
-        .checkmark {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            margin-right: 8px;
-            border: 1px solid var(--dark-blue);
-            border-radius: 3px;
-            background-color: var(--text-light);
-            text-align: center;
-            line-height: 14px;
-            color: var(--text-light);
-            transition: all 0.2s;
-        }
-        
-        /* State when checked */
-        .checkbox-group input:checked ~ .checkbox-label {
-            background-color: #e0f7fa; /* Light cyan background */
-            border-color: var(--light-blue);
-        }
+.form-actions button {
+    padding: 10px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
 
-        .checkbox-group input:checked ~ .checkbox-label .checkmark {
-            background-color: var(--light-blue);
-            border-color: var(--light-blue);
-        }
-        
-        .checkbox-group input:checked ~ .checkbox-label .checkmark:after {
-            content: "\f00c"; /* Font Awesome checkmark icon */
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            font-size: 10px;
-        }
+#cancelButton {
+    background-color: #E58E26;
+    color:white;
+    border: 1px ;
+    border-radius: 30px;
+}
 
-        /* Form Footer Actions */
-        .form-actions {
-            display: flex;
-            justify-content: flex-end;
-            gap: 15px;
-            padding-top: 20px;
-        }
+#createButton {
+    background-color: #E58E26;
+    color: #ffffff;
+    border-radius: 30px;
+}
 
-        .form-actions button {
-            padding: 10px 25px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: opacity 0.2s;
-            font-weight: bold;
-        }
-
-        .form-actions button:hover {
-            opacity: 0.9;
-        }
-
-        #cancelButton {
-            background-color: var(--button-gray);
-            color: var(--text-dark);
-            border: 1px solid black;
-        }
-
-        #createButton {
-            background-color: var(--light-blue);
-            color: var(--text-light);
-        }
+.form-actions button:hover {
+    opacity: 0.9;
+}

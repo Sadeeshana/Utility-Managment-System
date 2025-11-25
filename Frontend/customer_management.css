@@ -1,33 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
 
-        /* --- CSS STYLES --- */
-        :root {
-            --dark-blue: #284457; /* Sidebar background */
-            --mid-blue: #375b75; /* Nav item background */
-            --light-blue: #40c4ff; /* Table/Main Content background shade */
-            --text-light: #ffffff;
-            --text-dark: #333;
-            --active-bg: #4c8aaf; /* Active nav item */
-            --table-header-bg: #d9d9d9;
-            --row-active-bg: #66d9ff; /* Blue shade for table rows */
-        }
 
-        /* Global Reset and Body Styling */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
+/* Global Reset and Body Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'IBM Plex Sans';
+}
 
-        body {
-            background-color: #f4f4f4;
-        }
+body {
+    background-color: white;
+}
 
-        /* Dashboard Layout (Flexbox) */
-        .dashboard-container {
-            display: flex;
-            min-height: 100vh;
-        }
+/* Dashboard Layout (Flexbox) */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
 
         /* Sidebar */
        * {
@@ -204,245 +194,187 @@
             background-color: var(--text-light);
         }
 
-        .content-header {
-            margin-bottom: 30px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
-            position: relative;
-        }
+.content-header {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    position: relative;
+}
 
-        .content-header h2 {
-            font-size: 28px;
-            margin-bottom: 5px;
-            color: var(--text-dark);
-        }
+.content-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'IBM Plex Sans';
+    margin-bottom: 5px;
+    color: black;
+}
 
-        .content-header p {
-            color: #666;
-            font-size: 16px;
-        }
+.content-header p {
+    color: grey;
+    font-size: 14px;
+    font-family: "IBM Plex Sans";
+}
 
-        .add-customer-btn {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background-color: var(--light-blue);
-            color: var(--dark-blue);
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            display: flex;
-            align-items: center;
-            font-weight: bold;
-        }
-        
-        .add-customer-btn i {
-            margin-right: 8px;
-        }
+.add-customer-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #E58E26;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 15px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-family: "IBM Plex Sans";
+}
 
-        .add-customer-btn:hover {
-            background-color: #00bfff;
-        }
+.add-customer-btn i {
+    margin-right: 8px;
+}
 
-        /* Search Bar */
-        .search-bar {
-            display: flex;
-            align-items: center;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px 15px;
-            margin-bottom: 30px;
-            width: 100%;
-            max-width: 100%; /* Take full width of the content area */
-        }
+.add-customer-btn:hover {
+    background-color: #E58E26;
+}
 
-        .search-bar i {
-            color: #999;
-            margin-right: 10px;
-        }
+/* Search Bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 100%;
+    background-color: #F5F6FA;
+    font-family: "IBM Plex Sans";
+}
 
-        .search-bar input {
-            border: none;
-            flex-grow: 1;
-            font-size: 16px;
-            outline: none;
-        }
+.search-bar i {
+    color: #999;
+    margin-right: 10px;
+}
 
-        /* Customer Table Styling */
-        .customer-table-container {
-            background-color: var(--row-active-bg);
-            border-radius: 5px;
-            overflow-x: auto;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            /* To achieve the fading row color effect */
-            background: linear-gradient(to bottom, 
-                var(--table-header-bg) 0px, 
-                var(--table-header-bg) 50px, 
-                #a3e2ff 50px, 
-                #a3e2ff 100%,
-                #d3f2ff 100%,
-                #d3f2ff 100%
-            );
-        }
-        
-        /* Adjusting for the visual fade in the image */
-        .customer-table tr {
-            background-color: rgba(255, 255, 255, 0.5); /* Transparent white for rows over the blue background */
-        }
-        
-        /* Specific row colors to match the screenshot */
-        .customer-table tbody tr:nth-child(odd) {
-            background-color: #c4efff; /* A lighter blue/cyan for row 1 and 3 */
-        }
-        .customer-table tbody tr:nth-child(even) {
-            background-color: #a3e2ff; /* A slightly darker blue/cyan for row 2 and 4 */
-        }
-        
-        .customer-table thead tr {
-             background-color: var(--table-header-bg);
-        }
+.search-bar input {
+    border: none;
+    flex-grow: 1;
+    font-size: 15px;
+    outline: none;
+    background-color: #F5F6FA;
+    font-family: "IBM Plex Sans";
+    border-radius: 10px;
+}
 
+/* Customer Table Container */
+.customer-table-container {
+    background-color: #e0f2f8;
+    border-radius: 10px;
+    overflow-x: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: #e0f2f8;
+}
 
-        .customer-table {
-            width: 100%;
-            border-collapse: collapse;
-            /* Reset the background-color for the actual table to show the container background */
-            background-color: transparent; 
-        }
+/* Table Styling */
+.customer-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #e0f2f8;
+}
 
-        .customer-table th {
-            background-color: var(--table-header-bg);
-            color: var(--text-dark);
-            padding: 15px 20px;
-            text-align: left;
-            font-size: 14px;
-            font-weight: bold;
-            border-bottom: 1px solid #ccc;
-        }
+.customer-table thead tr {
+    background-color: #e0f2f8;
+}
 
-        .customer-table td {
-            padding: 15px 20px;
-            /* Remove default border-bottom to let the row background color show through */
-            border-bottom: none; 
-            color: var(--dark-blue);
-            font-weight: 500;
-        }
-        
-        /* Re-adding a visual separator for the bottom of the table data */
-        .customer-table tbody tr:last-child {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
+.customer-table th {
+    background-color: #e0f2f8;
+    color: black;
+    padding: 15px 20px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 1px ;
+    font-family: "IBM Plex Sans";
+}
 
+.customer-table tr {
+    background-color: rgba(255, 255, 255, 0.5);
+}
 
-        .customer-table a {
-            color: var(--dark-blue);
-            text-decoration: underline;
-        }
+.customer-table tbody tr:nth-child(odd) {
+    background-color: #e0f2f8;
+}
 
-        .customer-table td.actions i {
-            margin-right: 15px;
-            cursor: pointer;
-            font-size: 16px;
-            color: var(--dark-blue);
-            opacity: 0.8;
-            transition: opacity 0.2s;
-        }
+.customer-table tbody tr:nth-child(even) {
+    background-color: #e0f2f8;
+}
 
-        .customer-table td.actions i:hover {
-            opacity: 1;
-        }
+.customer-table td {
+    padding: 15px 20px;
+    border-bottom: none;
+    color: #e0f2f8;
+    font-weight: 500;
+}
 
-        /* Pagination */
-        .pagination {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0 0 0;
-            color: #666;
-            font-size: 14px;
-        }
+.customer-table tbody tr:last-child {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
 
-        .page-controls {
-            display: flex;
-            align-items: center;
-        }
+.customer-table a {
+    color: #284457;
+    text-decoration: underline;
+}
 
-        .page-controls i {
-            cursor: pointer;
-            padding: 5px 10px;
-            color: var(--dark-blue);
-            font-size: 12px;
-        }
+.customer-table td.actions i {
+    margin-right: 15px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #e0f2f8;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
 
-        .page-number {
-            padding: 5px 10px;
-            margin: 0 3px;
-            cursor: pointer;
-            color: var(--text-dark);
-            font-weight: bold;
-        }
+.customer-table td.actions i:hover {
+    opacity: 1;
+}
 
-        .page-number.active {
-            background-color: #e0e0e0;
-            color: var(--text-dark);
-            border-radius: 3px;
-        }
+.pagination {
+  margin-top: 10px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #555;
+}
 
-        /* --- RESPONSIVE STYLES --- */
+.pagination span {
+  color: #555;
+}
 
-        /* Medium screens (Tablets) */
-        @media (max-width: 992px) {
-            .sidebar {
-                width: 220px;
-            }
+.pagination .pages {
+  display: flex;
+  gap: 8px;
+}
 
-            .main-content {
-                padding: 30px;
-            }
+.pagination .pages button {
+  background: none;
+  border: none;
+  color: #0077aa;
+  cursor: pointer;
+  font-size: 14px;
+  transition: color 0.2s, font-weight 0.2s;
+}
 
-            .content-header h2 {
-                font-size: 24px;
-            }
+.pagination .pages button.active {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #004e6f;
+}
 
-            .add-customer-btn {
-                padding: 8px 16px;
-                font-size: 14px;
-            }
-        }
-
-        /* Small screens (Mobile) */
-        @media (max-width: 768px) {
-            .dashboard-container {
-                flex-direction: column;
-            }
-
-            .sidebar {
-                width: 100%;
-                height: auto;
-                padding-bottom: 10px;
-            }
-
-            .main-content {
-                padding: 20px;
-            }
-
-            .content-header {
-                position: static;
-                text-align: center;
-            }
-
-            .add-customer-btn {
-                position: static;
-                width: 100%;
-                margin-top: 15px;
-                justify-content: center;
-            }
-
-            .pagination {
-                flex-direction: column;
-                gap: 15px;
-            }
-        }
+.pagination .pages button:hover {
+  color: #004e6f;
+}

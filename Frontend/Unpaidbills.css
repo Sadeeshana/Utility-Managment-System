@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
 body {
-    font-family: 'Poppins', Arial, sans-serif;
+    font-family: 'IBM Plex Sans';
     margin: 0;
-    background-color: #f0f4f8; 
+    background-color: white; 
     color: #1a202c; 
 }
 
@@ -9,7 +11,6 @@ body {
     display: flex;
     min-height: 100vh;
 }
-
 
 .sidebar {
     width: 300px;
@@ -20,15 +21,20 @@ body {
 }
 
 .sidebar-title {
-    font-size: 1.6rem;
-    font-weight: 600;
+    font-size: 20px;
     margin-bottom: 40px;
+    text-align: center;
+    font-family: "IBM Plex Sans";
+    font-weight: 600;
 }
 
 .nav-menu {
     display: flex;
     flex-direction: column;
     gap: 15px; 
+    font-family: "IBM Plex Sans";
+    font-weight: 600;
+    font-size: 15px;
 }
 
 .nav-button {
@@ -38,10 +44,11 @@ body {
     background-color: transparent;
     border: 1px solid #3e6b98; 
     color: white;
-    font-size: 1rem;
-    font-weight: 500;
+    font-family: "IBM Plex Sans";
+    font-size: 15px;
+    font-weight: 600;
     text-align: left;
-    border-radius: 12px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -52,10 +59,13 @@ body {
     border-color: #1b4975;
 }
 
+
 .main-content {
   flex: 1;
   padding: 28px;
-  background: #f0f4f8;
+  background: white;
+  font-family: 'IBM Plex Sans';
+  font-weight: 600;
 }
 
 /* Stats cards */
@@ -66,22 +76,22 @@ body {
   margin: 8px 0 24px;
 }
 .stat-card {
-  background: #0b3d5c;
-  color: #fff;
-  border-radius: 12px;
+  background: #e0f2f8;
+  color: black;
+  border-radius: 10px;
   padding: 18px 22px;
   box-shadow: 0 6px 18px rgba(0,0,0,.12);
   border: 1px solid rgba(255,255,255,.12);
 }
 .stat-title { font-weight: 600; opacity: .95; margin-bottom: 8px; }
-.stat-value { font-size: 28px; font-weight: 700; }
+.stat-value { font-size: 28px; font-weight: 600; }
 
 /* Controls */
 .controls {
-  background: #0a2d4d;
-  color: #fff;
+  background: #e0f2f8;
+  color: black;
   padding: 14px;
-  border-radius: 12px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -92,11 +102,13 @@ body {
 .search-input {
   width: 300px;
   height: 40px;
-  border-radius: 8px;
-  background: white;
-  border: 1px solid rgba(255,255,255,.25);
-  color: #fff;
+  border-radius: 10px;
+  background: #F5F6FA;
+  border: none;
   padding: 0 12px;
+  font-size: 15px;
+  font-family: 'IBM Plex Sans';
+  color: black;
 }
 .control-group { display: flex; gap: 10px; }
 
@@ -105,10 +117,10 @@ body {
 .chip {
   display: inline-flex; align-items: center; gap: 8px;
   height: 40px; padding: 0 12px;
-  background: white;
+  background: #F5F6FA;
     color:black;
-  border: 1px solid rgba(255,255,255,.25);
-  border-radius: 10px; cursor: pointer;
+  border: 1px ;
+  border-radius: 10px; 
 }
 
 .chev { opacity: .9; }
@@ -116,7 +128,7 @@ body {
 /* Menus */
 .menu {
   position: absolute; top: calc(100% + 6px); left: 0; min-width: 180px;
-  background: #0b3d5c; color: #fff;
+  background: #F5F6FA; color: black;
   border: 1px solid rgba(255,255,255,.2);
   border-radius: 10px; padding: 6px 0; z-index: 10;
   box-shadow: 0 8px 18px rgba(0,0,0,.25);
@@ -124,24 +136,31 @@ body {
   transition: opacity .15s ease, transform .15s ease, visibility 0s linear .15s;
 }
 .dropdown.open .menu { visibility: visible; opacity: 1; transform: translateY(0); transition-delay: 0s; }
-.menu-item { padding: 10px 12px; cursor: pointer; user-select: none; }
+.menu-item { padding: 10px 12px; cursor: pointer }
 .menu-item:hover { background: rgba(255,255,255,.08); }
 .menu-item[aria-selected="true"] { background: rgba(255,255,255,.12); }
 
-.export { background: white; }
+.export { background: #F5F6FA;
+font-size: 15px;
+font-family: "IBM Sans Plex";
+color: black; }
 
 
 /* Table */
 .list-card {
-  background: #0b3d5c; color: #fff;
-  border-radius: 12px; overflow: hidden;
+  background: #e0f2f8; color: black;
+  border-radius: 10px; overflow: hidden;
   box-shadow: 0 6px 18px rgba(0,0,0,.12);
+  font-size: 15px;
+  
+  color: black;
+  font-family: 'IBM Plex Sans';
 }
 .table-wrap { overflow-x: auto; }
 .bills-table { width: 100%; border-collapse: collapse; }
 .bills-table thead th {
-  background: #0d4e73; text-align: left; padding: 14px 16px;
-  font-weight: 600; white-space: nowrap;
+  background: #e0f2f8; text-align: left; padding: 14px 16px;
+  font-weight: 600; white-space: nowrap; font-size: 15px; font-family: "IBM Plex Sans";
 }
 .bills-table tbody td {
   padding: 14px 16px; border-top: 1px solid rgba(255,255,255,.15);
@@ -149,8 +168,8 @@ body {
 .bills-table tbody tr:hover { background: rgba(255,255,255,.05); }
 
 .tag {
-  display: inline-block; padding: 6px 10px; border-radius: 20px;
-  font-size: .85rem; background: rgba(255,255,255,.12);
+  display: inline-block; padding: 6px 10px; border-radius: 10px;
+  font-size: 15px; background: rgba(255,255,255,.12);
 }
 .tag-elec { background: rgba(255,255,255,.12); }
 .tag-gas { background: rgba(255,255,255,.12); }
@@ -159,17 +178,39 @@ body {
 .actions { white-space: nowrap; }
 .actions .icon-more { margin-left: 8px; }
 
-/* Footer */
-.list-footer {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 12px 16px; border-top: 1px solid rgba(255,255,255,.15);
+.pagination {
+  margin-top: 10px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #555;
 }
-.count { opacity: .95; }
-.pager { display: flex; gap: 6px; }
-.btn.small {
-  background: transparent; color: #fff;
-  border: 1px solid rgba(255,255,255,.35);
-  border-radius: 6px; padding: 6px 10px; cursor: pointer;
+
+.pagination span {
+  color: #555;
 }
-.btn.small[disabled] { opacity: .6; cursor: default; }
-.btn.small.current { background: #11608f; border-color: #11608f; }
+
+.pagination .pages {
+  display: flex;
+  gap: 8px;
+}
+
+.pagination .pages button {
+  background: none;
+  border: none;
+  color: #0077aa;
+  cursor: pointer;
+  font-size: 14px;
+  transition: color 0.2s, font-weight 0.2s;
+}
+
+.pagination .pages button.active {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #004e6f;
+}
+
+.pagination .pages button:hover {
+  color: #004e6f;
+}

@@ -212,6 +212,8 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  font-size: 15px;
+  font-family: "IBM Plex Sans";
 }
 
 .add-btn:hover {

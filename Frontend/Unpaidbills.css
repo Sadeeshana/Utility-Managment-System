@@ -184,7 +184,8 @@ color: black; }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #555;
+  color: #333;
+  font-weight: 400;
 }
 
 .pagination span {

@@ -82,6 +82,7 @@ body {
     overflow-y: auto;
     background-color: white;
     font-family: "IBM Plex Sans";
+    font-size: 15px;
 }
 
 /* Table card */

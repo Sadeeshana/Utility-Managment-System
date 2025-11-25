@@ -107,6 +107,24 @@
             font-size: 15px;
         }
         
+        .sidebar ul li a,
+        .sidebar ul li a:link,
+        .sidebar ul li a:visited {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          width: 100%;
+          padding: 0; 
+          color: inherit !important;
+          text-decoration: none !important;
+          box-sizing: border-box;
+        }
+
+        .sidebar ul li a:focus {
+          outline: 2px solid rgba(255,255,255,0.18);
+          outline-offset: 2px;
+        }
+        
         .sidebar ul li img {
             width: 20px;
             height: 20px;
@@ -170,8 +188,8 @@
             margin-bottom: 30px;
         }
 
-        .logout-btn:hover { background-color: #CC7E22; }
-        .logout-btn:active { background-color: #F5B96A; }
+        .logout-btn:hover { background-color: #E58E26; }
+        .logout-btn:active { background-color: #E58E26; }
 
         .main-content {
             flex: 1;

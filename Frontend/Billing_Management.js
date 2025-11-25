@@ -22,15 +22,15 @@ buttons.forEach(btn => {
 });
 
 document.getElementById('settings').addEventListener('click', () => {
-    alert('⚙️ Redirecting to Settings Page...');
+    alert('Redirecting to Settings Page...');
 });
 
 document.getElementById('logout').addEventListener('click', () => {
-    alert('🚪 Logging out...');
+    alert('Logging out...');
 });
 
 document.getElementById('addBillBtn').addEventListener('click', () => {
-    alert('🧾 Opening Add New Bill Form...');
+    alert('Opening Add New Bill Form...');
 }); 
 
 

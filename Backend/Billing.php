@@ -8,7 +8,7 @@ $sql = "SELECT
             CustomerID, 
             MeterID, 
             FORMAT(BillingDate, 'yyyy/MM/dd') as BillingDate, 
-            FORMAT(DueDate, 'yyyy/MM/dd') as DueDate 
+            FORMAT(DueDate, 'yyyy/MM/dd') as DueDate, 
             Payment_Status  
         FROM Bills
         ORDER BY BillID DESC";

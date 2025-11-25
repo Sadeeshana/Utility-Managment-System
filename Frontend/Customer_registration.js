@@ -41,7 +41,7 @@ document.getElementById("registerForm").addEventListener("submit", function(even
 
     // Redirect 
     setTimeout(() => {
-        window.location.href = "Dashbaord.html";
+        window.location.href = "Dashboard.html";
     }, 2000);
 });
 

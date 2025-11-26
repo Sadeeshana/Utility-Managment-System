@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'IBM Plex Sans';
+}
+
+body {
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'IBM Plex Sans';
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  display: flex;
+  background: #e0f2f8;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Left Panel */
+.left-panel {
+  flex: 1;
+  background-color: #0f3558;
+  color: white;
+  text-align: center;
+  padding: 50px 30px;
+}
+
+.left-panel h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.left-panel img {
+  width: 80%;
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+
+.left-panel p {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
+.back-btn {
+  background-color: #E58E26;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.back-btn:hover {
+  background-color: #E58E26;
+}
+
+/* Right Panel */
+.right-panel {
+  flex: 1;
+  padding: 50px;
+}
+
+.right-panel h1 {
+  font-size: 30px;
+  color: black;
+}
+
+.subtitle {
+  color: #64748b;
+  margin-bottom: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-top: 10px;
+  color: black;
+  font-family: 'IBM Plex Sans';
+  font-size: 17px;
+}
+
+input {
+  margin-top: 6px;
+  padding: 12px;
+  border: 1.5px;
+  border-radius: 10px;
+  outline: none;
+  transition: 0.2s;
+  background-color: #F5F6FA;
+}
+
+input:focus {
+  border-color: none;
+}
+
+.register-btn {
+  margin-top: 25px;
+  background-color: #E58E26;
+  color: white;
+  border: none;
+  padding: 14px 0;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.register-btn:hover {
+  background-color: #E58E26;
+}
+
+.add-customer-btn {
+    text-decoration: none; 
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+  .container {
+    flex-direction: column;
+  }
+  .left-panel {
+    border-radius: 16px 16px 0 0;
+  }
+}

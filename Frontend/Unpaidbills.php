@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unpaid bills</title>
+    <link rel="stylesheet" href="Unpaidbills.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="app-container">
+<!--Navigation bar-->
+        <nav class="sidebar">
+            <h2 class="sidebar-title">Managers Reports & Analytics</h2>
+
+            <div class="nav-menu">
+                <button class="nav-button" >Full Reports (PDF)</button>
+                <button class="nav-button">Top Consumers by Utility</button>
+                <button class="nav-button active" >Unpaid Bills</button>
+                <button class="nav-button">Usage of Utility</button>
+            </div>
+        </nav>
+ <!--Topics-->
+ <main class="main-content">
+   <header>
+     <h1><center>Unpaid Bills</center></h1>
+     <p><center>View, manage and act on all outstanding utility bills</center></p>
+   </header>
+
+   <!-- Top stats -->
+   <section class="stats">
+     <div class="stat-card">
+       <div class="stat-title">Total Amount Overdue</div>
+      
+     </div>
+     <div class="stat-card">
+       <div class="stat-title">Number Of Overdue Bills</div>
+       
+     </div>
+     <div class="stat-card">
+       <div class="stat-title">Average Days Overdue</div>
+       
+     </div>
+   </section>
+
+   <!-- Filters -->
+   <section class="controls">
+     <div class="search-wrap">
+       <input type="text" class="search-input" placeholder="Search by name , account">
+     </div>
+
+     <div class="control-group">
+       <div class="dropdown" id="f-utility">
+         <button class="chip" aria-haspopup="listbox" aria-expanded="false">
+           <span class="chip-label">Utility : All</span><span class="chev">▾</span>
+         </button>
+         <ul class="menu" role="listbox">
+           <li class="menu-item" data-value="all" aria-selected="true">All</li>
+           <li class="menu-item" data-value="electricity">Electricity</li>
+           <li class="menu-item" data-value="gas">Gas</li>
+           <li class="menu-item" data-value="water">Water</li>
+         </ul>
+       </div>
+
+       <div class="dropdown" id="f-status">
+         <button class="chip" aria-haspopup="listbox" aria-expanded="false">
+           <span class="chip-label">Status : Overdue</span><span class="chev">▾</span>
+         </button>
+         <ul class="menu" role="listbox">
+           <li class="menu-item" data-value="overdue" aria-selected="true">Overdue</li>
+           <li class="menu-item" data-value="all">All</li>
+         </ul>
+       </div>
+
+       <div class="dropdown" id="f-due">
+         <button class="chip" aria-haspopup="listbox" aria-expanded="false">
+           <span class="chip-label">Due date</span><span class="chev">▾</span>
+         </button>
+         <ul class="menu" role="listbox">
+           <li class="menu-item" data-value="soonest" aria-selected="true">Soonest first</li>
+           <li class="menu-item" data-value="latest">Latest first</li>
+         </ul>
+       </div>
+
+       <button class="chip export" id="export-csv">Export CSV ⬇</button>
+     </div>
+   </section>
+
+   <!-- Table -->
+   <section class="list-card">
+     <div class="table-wrap">
+       <table class="bills-table">
+         <thead>
+           <tr>
+             <th style="width:44px;"><input type="checkbox" aria-label="Select all"></th>
+             <th>Bill ID</th>
+             <th>Customer ID</th>
+             <th>Meter ID</th>
+             <th>Billing Date</th>
+             <th>Due Date</th>
+             <th>Payment Status</th>
+           </tr>
+         </thead>
+         
+       </table>
+     </div>
+
+     <div class="pagination">
+      <span>Showing 1 to 5 of 100 results</span>
+      <div class="pages">
+         <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <span>.......</span>
+      </div>
+    </div>
+  </div>
+   </section>
+ </main>
+    </div>
+    <script src="Unpaidbills.js"></script>
+</body>
+</html>

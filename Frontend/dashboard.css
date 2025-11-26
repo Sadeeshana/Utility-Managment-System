@@ -1,0 +1,346 @@
+/* --- CSS Styles --- */
+
+/* --- Variables --- */
+:root {
+    --dark-blue: #0A3D62;
+    --medium-blue:#0A3D62;
+    --light-blue: #3d5a73;
+    --text-dark: #a9b7c8;
+    --text-muted: #7f8c8d;
+    --active-color: #F5F6FA;
+    --card-bg: white;
+    --card-shadow: rgba(0, 0, 0, 0.05);
+
+    /* Utility Colors for icons/charts */
+    --color-electricity: #ffc107; 
+    --color-water: #2196f3; /* Used for customers blue */
+    --color-gas: #f44336;   /* Used for complaints red */
+    --color-green: #4CAF50; /* New for billings */
+    --color-purple: #9C27B0; /* New for reports */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'IBM Plex Sans';
+}
+
+body {
+    background-color: white;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    background-color: white;
+}
+
+/*SIDEBAR */
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: white;
+            font-family: 'IBM Plex Sans';
+        }
+        
+        .container {
+            display: flex;
+            height: 100vh;
+            background-color: white;
+        }
+        
+        .sidebar {
+            width: 300px;
+            background-color: #0A3D62;
+            color: white;
+            padding: 0px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            
+        }
+        
+        .sidebar h2 {
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .sidebar h2 p {
+            font-size: 8px;
+            font-weight: normal;
+            color: #FFFFFF;
+            text-align: center;
+            margin-top: -8px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .sidebar h2 img {
+            width: 40px;
+            height: 40px;
+            margin-left: 20px;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+            gap: 50px; 
+        }
+        
+        .sidebar ul li {
+            padding: 15px 25px;
+            margin: 25px 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px; 
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-weight: normal;
+            font-size: 15px;
+        }
+        
+        .sidebar ul li a,
+        .sidebar ul li a:link,
+        .sidebar ul li a:visited {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          width: 100%;
+          padding: 0; 
+          color: inherit !important;
+          text-decoration: none !important;
+          box-sizing: border-box;
+        }
+
+        .sidebar ul li a:focus {
+          outline: 2px solid rgba(255,255,255,0.18);
+          outline-offset: 2px;
+        }
+        
+        .sidebar ul li img {
+            width: 20px;
+            height: 20px;
+            margin-left: 30px;
+        }
+        
+        .sidebar ul li .Dashboard-Icon  {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .sidebar ul li .Customers-Icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .sidebar ul li .Billings-Icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .sidebar ul li .Reports-Icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .sidebar ul li .Complaints-Icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .sidebar ul li:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px 10px 20px;
+        }
+        
+        .sidebar ul li:active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .sidebar ul li.active {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-left: 4px solid #ffffff;
+            padding-left: 11px;
+        }
+
+        .logout-btn {
+            width: 90%;
+            background-color: #E58E26;
+            color: #FFFFFF;
+            border: none;
+            padding: 12px 8px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: .5px;
+            display: inline-block;
+            transition: background-color .25s ease;
+            margin-left: 15px;
+            margin-bottom: 30px;
+        }
+
+        .logout-btn:hover { background-color: #E58E26; }
+        .logout-btn:active { background-color: #E58E26; }
+
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+        
+        .main-content h1 {
+            margin-bottom: 20px;
+        }
+
+/* --- Main Content --- */
+.main-content {
+    flex-grow: 1;
+    padding: 30px;
+    background-color: white;
+    overflow-y: auto;
+}
+
+/* Header */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.main-header h1 {
+    color:black;
+    font-weight: 600;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    color: var(--dark-blue);
+}
+
+.header-right i {
+    margin-left: 25px;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: var(--light-blue);
+}
+
+
+
+/* Location Widget */
+.location-widget {
+    background-color: var(--card-bg);
+    padding: 12px 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px var(--card-shadow);
+    margin-bottom: 40px;
+    display: inline-flex;
+    align-items: center;
+    color: var(--dark-blue);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.location-widget i.fa-map-marker-alt {
+    margin-right: 12px;
+    color: var(--color-gas);
+}
+
+.location-widget span {
+    margin-right: 20px;
+}
+
+.location-widget i.fa-chevron-down {
+    font-size: 0.8em;
+    color: var(--text-muted);
+}
+
+/* --- DASHBOARD GRID STYLES --- */
+
+.dashboard-grid.summary-grid {
+    display: grid;
+    /* Create a 2x2 grid */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    
+    /* Added margin-top to push the grid down from the header */
+    margin-top: 50px; 
+}
+
+.summary-card {
+    background-color: #F5F6FA;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.3s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-icon-bg {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Icon Background Colors */
+.card-icon-bg.blue {
+    background-color: var(--color-water); 
+}
+
+.card-icon-bg.green {
+    background-color: var(--color-green);
+}
+
+.card-icon-bg.red {
+    background-color: var(--color-gas); 
+}
+
+.card-icon-bg.purple {
+    background-color: var(--color-purple);
+}
+
+.summary-card h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+.summary-card h2 {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--dark-blue);
+}
+
+/* Responsive adjustment */
+@media (max-width: 900px) {
+    .dashboard-grid.summary-grid {
+        grid-template-columns: 1fr; 
+    }
+}

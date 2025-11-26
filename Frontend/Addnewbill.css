@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'IBM Plex Sans';
+    background: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: #0A3D62;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+
+
+h2 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 20px;
+    color: white;
+    font-family: 'IBM Plex Sans';
+}
+
+/* Form Container */
+.container {
+    background: #e0f2f8;
+    width: 75%;
+    margin: 25px auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.08);
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.form-group {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-family: 'IBM Plex Sans';
+    font-size: 17px;
+}
+
+input {
+    background-color: #F5F6FA;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px ;
+    outline: none;
+    font-size: 15px;
+    font-family: 'IBM Plex Sans';
+}
+
+input:focus {
+    border-color: #0A3D62;
+}
+
+/* Add Bill Button */
+.add-btn {
+    width: 180px;
+    padding: 12px;
+    background: #E58E26;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    display: block;
+    margin: 25px auto 0;
+    font-family: 'IBM Plex Sans';
+}
+
+.add-btn:hover {
+    background: #E58E26;
+}
+
+.add-backbtn{
+    width: 180px;
+    padding: 12px;
+    background: #E58E26;
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    display: block;
+    margin: 25px auto 0;
+    font-weight: 600;
+    font-family: 'IBM Plex Sans';
+    
+}
+
+.add-backbtn:hover {
+    background: #E58E26;
+}

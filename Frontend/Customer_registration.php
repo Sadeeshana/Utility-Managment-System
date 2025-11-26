@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Registration</title>
+  <link rel="stylesheet" href="Customer_registration.css">
+</head>
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <h2>Customer Registration</h2>
+      <img src="/images/Rectangle 6.png" alt="Bill Illustration">
+      <p>Easily manage and monitor your electricity, water, and gas services all in one smart platform...</p>
+      <button class="back-btn">Back to Login</button>
+    </div>
+
+    <div class="right-panel">
+      <h1>Welcome!</h1>
+      <p class="subtitle">Please fill below information to register</p>
+
+      <form id="registerForm" method="post">
+        <label>Customer ID</label>
+        <input type="int" name="CustomerID" placeholder="Enter any ID" required >
+
+        <label> Name</label>
+        <input type="text" name="Customer_Name" placeholder="Enter Your First Name" required>
+
+        <label>Address</label>
+        <input type="text" name="Address" placeholder="Enter Your your Address" required>
+
+        <label>Email</label>
+        <input type="text" name="Email" placeholder="Enter Your Email address" required>
+
+        <label>Customer Type</label>
+        <input type="text" name="Customer_Type" placeholder="Enter the company name" required>
+
+        
+
+        <button type="submit" class="register-btn" id="submit">Register Now</button>
+      </form>
+      <div id="responseMessage"></div>
+    </div>
+  </div>
+
+ 
+  <script src="Customer_registration.js"></script>
+
+</body>
+</html>

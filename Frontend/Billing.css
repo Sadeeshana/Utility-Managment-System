@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
+
+body {
+  font-family: 'IBM Plex Sans';
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Bar */
+.header {
+  background-color: #0A3D62;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+    padding: 15px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: 'IBM Plex Sans';
+}
+
+.material-icons {
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+
+/* Layout */
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section {
+  background:  #e0f2f8;
+  flex: 1;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+h2{
+  align-items: center;
+  color: white;
+}
+
+h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+/* Search Input */
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  background: #F5F6FA;
+  margin-top: 8px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-with-icon input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  font-size: 14px;
+  font-family: 'IBM Plex Sans';
+  border-radius: 10px;
+  background: #F5F6FA;
+  transition: box-shadow 0.3s, border 0.3s;
+}
+
+.input-with-icon input.typing {
+  border: 2px solid #E58E26;
+  box-shadow: 0 0 4px #E58E26;
+}
+
+.input-with-icon .material-icons {
+  position: absolute;
+  right: 10px;
+  color: #000;
+  cursor: pointer;
+}
+
+/* Inputs */
+input[type="text"], input[type="number"], select {
+  width: 100%;
+  padding: 8px;
+  margin: 6px 0;
+  border-radius: 10px;
+  border: 1px ;
+  font-size: 14px;
+  box-sizing: border-box;
+  font-family: 'IBM Plex Sans';
+  background: #F5F6FA;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, select:focus {
+  
+  outline: none;
+}
+
+/* Results Box */
+.results {
+  background: #F5F6FA;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px 0;
+}
+
+/* Warning */
+.warning {
+  background-color: #ffe5e5;
+  color: #b30000;
+  font-weight: 600;
+  border-radius: 10px;
+  text-align: left;
+  padding: 10px;
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Table */
+.bill-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.bill-table th, .bill-table td {
+  padding: 6px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.profile-name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 100;
+}
+
+.highlight-box {
+  
+  background: #F5F6FA;
+  padding: 10px;
+  border-radius: 10px;
+  width: fit-content;
+  margin-top: 10px;
+}
+
+/* Payment */
+.payment-methods {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.payment-methods button {
+  flex: 1;
+  background-color: #F5F6FA;
+  color: #333;
+  border: none;
+  border-radius: 30px;
+  font-family: 'IBM Plex Sans';
+  padding: 10px 0;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.payment-methods button.active {
+  background-color: #E58E26;
+  color: white;
+}
+
+.process-btn {
+  background-color: #E58E26;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 15px;
+  font-family: 'IBM Plex Sans';
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.process-btn:hover {
+  background-color: #E58E26;
+}
+
+.receipt-options {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  gap: 5px;
+}
+
+.receipt-options label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+}

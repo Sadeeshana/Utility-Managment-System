@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment History</title>
+
+<link rel="stylesheet" href="Payment_History.css">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+  <div class="container">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div>
+                <h2>
+                    <img src="/images/A1.png" alt="Admin-Icon">
+                    Admin Panel
+                    <p>UTILITY MANAGEMENT SYSTEM</p>
+                </h2>
+
+                <ul>
+                    <li><a href="dashboard.html"><img src="/images/S1.png"> &nbsp;Dashboard</a></li>
+                    <li><a href="Customermanagement.html"><img src="/images/S2.png"> &nbsp;Customers</a></li>
+                    <li><a href="Billing_Management.html"><img src="/images/S3.png"> &nbsp;Billings</a></li>
+                    <li><a href="Genaratereports.html"><img src="/images/S4.png"> &nbsp;Reports</a></li>
+                    <li><a href="complaint_management.html"><img src="/images/S5.png"> &nbsp;Complaints</a></li>
+                </ul>
+            </div>
+
+            <div class="logout-section">
+                <button onclick="window.location.href='/Frontend/LoginPage.html'" class="logout-btn" type="button">Log out</button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main">
+
+            <div class="header">
+                <div>
+                    <h1>Payment History</h1>
+                    <p>View, manage and track customer payment activity.</p>
+                </div>
+
+                <a href="Billing.html" class="add-btn" id="addPaymentBtn">
+                    <i class="fa-solid fa-plus"></i> Add New Payment
+                </a>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="search" placeholder="Search bill ID, customer or keyword...">
+            </div>
+
+            <!-- Table -->
+            <table id="paymentTable">
+                <thead>
+                    <tr>
+                        <th>Bill ID</th>
+                        <th>Customer Name</th>
+                        <th>Account ID</th>
+                        <th>Due Date</th>
+                        <th>Bill Date</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>INV-2025-10-01</td>
+                        <td>Safiya</td>
+                        <td>CC-111320</td>
+                        <td>2025.10.04</td>
+                        <td>2025.11.25</td>
+                    </tr>
+                    <tr>
+                        <td>INV-2025-10-03</td>
+                        <td>Pasindu</td>
+                        <td>CC-111320</td>
+                        <td>2025.12.10</td>
+                        <td>2025.11.23</td>
+                    </tr>
+                    <tr>
+                        <td>INV-2025-09-01</td>
+                        <td>Diluka</td>
+                        <td>CC-111320</td>
+                        <td>2025.12.08</td>
+                        <td>2025.11.28</td>
+                    </tr>
+                    <tr>
+                        <td>INV-2025-07-01</td>
+                        <td>Randima</td>
+                        <td>CC-111320</td>
+                        <td>2025.12.06</td>
+                        <td>2025.11.28</td>
+                    </tr>
+                    <tr>
+                        <td>INV-2025-07-01</td>
+                        <td>Randima</td>
+                        <td>CC-111320</td>
+                        <td>2025.12.06</td>
+                        <td>2025.11.28</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <span>Showing 1 to 5 of 50 results</span>
+
+                <div class="pages">
+                    <button class="active">1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button>4</button>
+                    <button>5</button>
+                    <span>...</span>
+                </div>
+            </div>
+
+        </div>
+  </div>
+
+<script src="Payment_History.js"></script>
+</body>
+</html>

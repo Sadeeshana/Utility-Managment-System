@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Bill</title>
+
+  <link rel="stylesheet" href="Addnewbill.css">
+</head>
+
+<body>
+
+  <!-- Header with Back Button -->
+  <div class="header">
+    
+    <h2>Add New Bill</h2>
+  </div>
+
+  <div class="container">
+
+    <form id="billForm" method="post">
+
+      <div class="row">
+        <div class="form-group">
+          <label>Bill ID</label>
+          <input type="text" id="billId" placeholder="Enter your Bill ID" name="BillID">
+        </div>
+
+        <div class="form-group">
+          <label for="totalBill">Total Bill</label>
+          <input type="number" id="totalBill" name="TotalBill" title="Total bill amount" placeholder="1500.00" value="1500.00">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label>Customer ID</label>
+          <input type="text" id="customerId" placeholder="Enter your Customer ID" name="CustomerID">
+        </div>
+
+        <div class="form-group">
+            <label for="amountToPay">Amount to Pay</label>
+            <input type="number" id="amountToPay" name="AmountToPay" title="Amount to pay" placeholder="1500.00" value="1500.00">
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="meterId">Meter ID</label>
+          <input type="text" id="meterId" placeholder="Enter your Meter ID" name="MeterID">
+        </div>
+
+        <div class="form-group">
+          <label for="amountGiven">Amount Given</label>
+          <input type="number" id="amountGiven" name="AmountGiven" title="Amount given by the customer" placeholder="2000.00" value="2000.00">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="billingDate">Billing Date</label>
+          <input type="date" id="billingDate" name="BillingDate" title="Select billing date" placeholder="YYYY-MM-DD">
+        </div>
+
+        <div class="form-group">
+          <label>Change</label>
+          <input type="text" id="change" name="Change" title="Change" placeholder="0.00" readonly>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="dueDate">Due Date</label>
+          <input type="date" id="dueDate" name="DueDate" title="Select due date" placeholder="YYYY-MM-DD">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="Pay">Payment</label>
+          <input type="text" id="Pay" name="payment" title="Payment method (e.g. Cash, Card)" placeholder="Enter payment method">
+        </div>
+      </div>
+
+      <button type="submit" id="addBillBtn" class="add-btn">Add New Bill</button>
+      <button type="button" id="addBackBtn" class="add-backbtn">Back</button>
+
+    </form>
+
+  </div>
+
+  <script src="Addnewbill.js"></script>
+
+</body>
+</html>

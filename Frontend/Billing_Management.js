@@ -1,6 +1,10 @@
-
+// 1. Search Logic
 function filterTable() {
-    let filter = document.getElementById('search').value.toLowerCase();
+    let searchInput = document.getElementById('search');
+    if (!searchInput) return; 
+
+    let filter = searchInput.value.toLowerCase();
+    // Selector for your existing HTML structure
     let rows = document.querySelectorAll('#billingTable tbody tr');
 
     rows.forEach(row => {
@@ -9,45 +13,63 @@ function filterTable() {
     });
 }
 
-document.getElementById('search').addEventListener('input', filterTable);
-
-
+// 2. Event Listeners (With Safety Checks)
+const searchInput = document.getElementById('search');
+if (searchInput) {
+    searchInput.addEventListener('input', filterTable);
+}
 
 const buttons = document.querySelectorAll('.pagination .pages button');
-buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+if (buttons.length > 0) {
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
     });
-});
+}
 
-document.getElementById('settings').addEventListener('click', () => {
-    alert('Redirecting to Settings Page...');
-});
+const settingsBtn = document.getElementById('settings');
+if (settingsBtn) {
+    settingsBtn.addEventListener('click', () => {
+        alert('Redirecting to Settings Page...');
+    });
+}
 
-document.getElementById('logout').addEventListener('click', () => {
-    alert('Logging out...');
-});
+const logoutBtn = document.getElementById('logout');
+if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+        alert('Logging out...');
+    });
+}
 
-document.getElementById('addBillBtn').addEventListener('click', () => {
-    alert('Opening Add New Bill Form...');
-}); 
+const addBillBtn = document.getElementById('addBillBtn');
+if (addBillBtn) {
+    addBillBtn.addEventListener('click', () => {
+        alert('Opening Add New Bill Form...');
+    });
+}
 
-
+// 3. Load Bills Function
 function loadBills() {
-    fetch('Php/Billing.php') 
+    fetch('../Backend/Billing.php') 
         .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
+            if (!response.ok) throw new Error('Network response was not ok');
             return response.json();
         })
         .then(data => {
+            // BOSS: This selects the table body without needing an ID change
             const tableBody = document.querySelector('#billingTable tbody');
+
+            // Safety Check: If it can't find the table, it stops here without crashing
+            if (!tableBody) {
+                console.error("Error: Could not find '#billingTable tbody'");
+                return;
+            }
+
             tableBody.innerHTML = ''; 
 
             data.forEach(bill => {
-                
                 const row = `
                     <tr>
                         <td>${bill.BillID}</td>
@@ -61,12 +83,13 @@ function loadBills() {
                 tableBody.innerHTML += row;
             });
 
-            filterTable(); 
+            if (typeof filterTable === "function") {
+                filterTable();
+            }
         })
         .catch(error => console.error('Error loading bills:', error));
 }
 
-
+// 4. Run
 loadBills();
-
 setInterval(loadBills, 3000);

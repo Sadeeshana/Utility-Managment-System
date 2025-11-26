@@ -68,7 +68,7 @@
 
 
   function loadCustomers() {
-    fetch('Php/CustomerMan.php') 
+    fetch('../Backend/CustomerMan.php') 
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');

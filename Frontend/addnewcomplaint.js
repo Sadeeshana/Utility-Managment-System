@@ -2,6 +2,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const get = id => document.getElementById(id);
     const complaintForm = get('complaintForm');
 
+    // BACK BUTTON (NO VALIDATION)
+    
+    const backBtn = get('addBackBtn');
+    if (backBtn) {
+        backBtn.addEventListener('click', function (e) {
+            e.preventDefault(); // stop form submit
+            window.location.href = "complaint_management.html"; // redirect
+        });
+    }
+
+    
+    // FORM SUBMIT HANDLER
+    
     if (complaintForm) {
         complaintForm.addEventListener('submit', async function(e) {
             e.preventDefault(); 
@@ -29,8 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(this);
 
             try {
-                // FIXED PATH: Adjust this path if your PHP file is in a specific folder
-                // Example: /Utility/Backend/AddComplaint.php
                 const response = await fetch('/Utility/Backend/Addcomplaint.php', { 
                     method: "POST",
                     body: formData
@@ -43,13 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     alert('You have added a complaint successfully!');
                     this.reset();
                     
-                    // Redirect
                     setTimeout(() => {
                         window.location.href = "Complaint_Management.html"; 
                     }, 1000);
                 } else {
-                    // Show the actual error from PHP
-                    alert("Failed to add complaint. \nServer says: " + data);
+                    alert("Failed to add complaint.\nServer says: " + data);
                     console.error("PHP Error:", data);
                 }
 

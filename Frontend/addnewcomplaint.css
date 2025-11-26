@@ -93,3 +93,23 @@ textarea {
 .add-btn:hover {
     background: #E58E26;
 }
+
+.add-backbtn{
+    width: 180px;
+    padding: 12px;
+    background: #E58E26;
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    display: block;
+    margin: 25px auto 0;
+    font-weight: 600;
+    font-family: 'IBM Plex Sans';
+    
+}
+
+.add-backbtn:hover {
+    background: #E58E26;
+}

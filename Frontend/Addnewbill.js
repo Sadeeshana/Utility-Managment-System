@@ -8,6 +8,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const billForm = get('billForm');
     // REMOVED: const messageDiv = get('responseMessage');
 
+    // BACK BUTTON (NO VALIDATION)
+    
+    const backBtn = get('addBackBtn');
+    if (backBtn) {
+        backBtn.addEventListener('click', function (e) {
+            e.preventDefault(); // stop form submit
+            window.location.href = "Billing_Management.html"; // redirect
+        });
+    }
+
     // --- 1. Change Calculation Logic ---
     function calculateChange() {
         const amountToPay = parseFloat(amountToPayEl && amountToPayEl.value) || 0;

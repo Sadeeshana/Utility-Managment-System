@@ -6,6 +6,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     const complaintID = urlParams.get('id');
     const complaintForm = get('complaintForm');
 
+    // BACK BUTTON (NO VALIDATION)
+    
+    const backBtn = get('addBackBtn');
+    if (backBtn) {
+        backBtn.addEventListener('click', function (e) {
+            e.preventDefault(); // stop form submit
+            window.location.href = "complaint_management.html"; // redirect
+        });
+    }
+
     // --- PART 1: SUBMIT FORM (UPDATE) ---
     if (complaintForm) {
         complaintForm.addEventListener('submit', async function(e) {

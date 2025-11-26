@@ -10,6 +10,24 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.setAttribute('aria-expanded', String(open));
     };
 
+    const navButtons = document.querySelectorAll('.nav-button');
+
+    if (navButtons.length > 0) {
+        
+        const paths = [
+            "Genaratereports.html",
+            "Topconsumer.html",
+            "Unpaidbills.html",
+            "UtilityUsageAnalytics.html"
+        ];
+
+        navButtons.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                window.location.href = paths[index];
+            });
+        });
+    }
+
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
       setOpen(!dd.classList.contains('open'));

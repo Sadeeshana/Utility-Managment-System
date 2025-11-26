@@ -14,6 +14,24 @@
         menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
     });
 
+    const navButtons = document.querySelectorAll('.nav-button');
+
+    if (navButtons.length > 0) {
+        
+        const paths = [
+            "Genaratereports.html",
+            "Topconsumer.html",
+            "Unpaidbills.html",
+            "UtilityUsageAnalytics.html"
+        ];
+
+        navButtons.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                window.location.href = paths[index];
+            });
+        });
+    }
+
     // Select Dropdown Option
     menu.querySelectorAll('li').forEach(li => {
         li.addEventListener('click', (ev) => {

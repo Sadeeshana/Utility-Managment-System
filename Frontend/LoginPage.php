@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login UI</title>
   
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="LoginPage.css">
 </head>
 <body>
@@ -22,7 +21,7 @@
       
       <h2>Welcome Back!</h2>
       <small>Please enter login details below</small>
-<form action="LoginPage.html" method="post">
+<form action="../Backend/login.php" method="post">
       <div class="input-group">
         <label for="employeeId">Employee ID</label>
         <input type="text" id="employeeId" name="employeeId" required placeholder="Enter the Employee ID" />

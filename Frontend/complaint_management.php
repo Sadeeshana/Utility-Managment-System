@@ -35,7 +35,7 @@
         <h1>Complaint Management</h1>
         <p>View, manage and track customer complaints.</p>
       </div>
-      <a id="addComplaintBtn" class="add-btn" href="addnewcomplaint.html"><i class="fa-solid fa-plus"></i> Add new Complaint</a>
+      <a id="addComplaintBtn" class="add-btn" href="addnewcomplaint.php"><i class="fa-solid fa-plus"></i> Add new Complaint</a>
     </div>
 
     <div class="search-bar">

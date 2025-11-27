@@ -23,7 +23,7 @@ if (isset($_POST['employeeId'])) {
     if (sqlsrv_has_rows($stmt)) {
         // Success -> Go to Dashboard
         $_SESSION['logged_in_id'] = $empID;
-        header("Location: ../Frontend/dashboard.html"); 
+        header("Location: ../Frontend/dashboard.php"); 
         exit();
     } else {
         
@@ -36,7 +36,7 @@ if (isset($_POST['employeeId'])) {
 function goBack($message) {
     echo "<script>
             alert('$message'); 
-            window.location.href='/Frontend/LoginPage.html';
+            window.location.href='/Frontend/LoginPage.php';
           </script>";
     exit();
 }

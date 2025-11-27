@@ -1,8 +1,5 @@
-
-        // --- JAVASCRIPT ---
         document.addEventListener('DOMContentLoaded', () => {
             // 1. Sample Data (Simulating a database fetch)
-            loadCustomers();
             
 
             const tableBody = document.getElementById('customerTableBody');

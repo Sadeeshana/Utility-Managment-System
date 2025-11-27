@@ -4,7 +4,6 @@ function filterTable() {
     if (!searchInput) return; 
 
     let filter = searchInput.value.toLowerCase();
-    // Selector for your existing HTML structure
     let rows = document.querySelectorAll('#billingTable tbody tr');
 
     rows.forEach(row => {
@@ -58,10 +57,9 @@ function loadBills() {
             return response.json();
         })
         .then(data => {
-            // BOSS: This selects the table body without needing an ID change
             const tableBody = document.querySelector('#billingTable tbody');
 
-            // Safety Check: If it can't find the table, it stops here without crashing
+            // Safety Check
             if (!tableBody) {
                 console.error("Error: Could not find '#billingTable tbody'");
                 return;
@@ -78,6 +76,16 @@ function loadBills() {
                         <td>${bill.BillingDate}</td>
                         <td>${bill.DueDate}</td>
                         <td>${bill.Payment_Status}</td>
+                        <td>
+                            <a href="editbill.php?id=${bill.BillID}" class="edit-link">
+                                Edit
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#" style="color: red; text-decoration: none;" onclick="deleteBill(${bill.BillID}); return false;">
+                                Delete
+                            </a>
+                        </td>
                     </tr>
                 `;
                 tableBody.innerHTML += row;
@@ -90,6 +98,29 @@ function loadBills() {
         .catch(error => console.error('Error loading bills:', error));
 }
 
-// 4. Run
+// 4. THE MISSING DELETE FUNCTION
+function deleteBill(billID) {
+    // Confirm before deleting
+    if (confirm("Are you sure you want to delete Bill ID: " + billID + "?")) {
+        
+        // BOSS: Make sure your PHP file is named exactly "Deletebill.php" (Case Sensitive)
+        fetch('../Backend/Deletebill.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            // We send the ID to PHP
+            body: 'bill_id=' + billID
+        })
+        .then(response => response.text()) // We expect a text message back
+        .then(data => {
+            alert(data); // Show the success message
+            loadBills(); // Refresh the table to show the row is gone
+        })
+        .catch(error => console.error('Error:', error));
+    }
+}
+
+// 5. Run
 loadBills();
 setInterval(loadBills, 3000);

@@ -98,24 +98,22 @@ function loadBills() {
         .catch(error => console.error('Error loading bills:', error));
 }
 
-// 4. THE MISSING DELETE FUNCTION
+
 function deleteBill(billID) {
-    // Confirm before deleting
     if (confirm("Are you sure you want to delete Bill ID: " + billID + "?")) {
         
-        // BOSS: Make sure your PHP file is named exactly "Deletebill.php" (Case Sensitive)
+        
         fetch('../Backend/Deletebill.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            // We send the ID to PHP
             body: 'bill_id=' + billID
         })
-        .then(response => response.text()) // We expect a text message back
+        .then(response => response.text()) 
         .then(data => {
-            alert(data); // Show the success message
-            loadBills(); // Refresh the table to show the row is gone
+            alert(data);
+            loadBills(); 
         })
         .catch(error => console.error('Error:', error));
     }

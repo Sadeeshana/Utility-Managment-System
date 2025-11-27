@@ -53,6 +53,7 @@
           <th>Description</th>
           <th>Status of Complaint</th>
           <th>Edit</th> 
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>

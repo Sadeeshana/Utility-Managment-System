@@ -57,6 +57,8 @@
                                 <th>Address</th>
                                 <th>Email</th>
                                 <th>Customer Type</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody id="customerTableBody">

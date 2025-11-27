@@ -1,70 +1,40 @@
-        document.addEventListener('DOMContentLoaded', () => {
-            // 1. Sample Data (Simulating a database fetch)
-            
+document.addEventListener('DOMContentLoaded', () => {
 
-            const tableBody = document.getElementById('customerTableBody');
-            const searchInput = document.getElementById('searchInput');
-            
-            // Function to render the table rows
-            function renderTable(data) {
-                tableBody.innerHTML = ''; // Clear existing rows
-                data.forEach((customer, index) => {
-                    const row = document.createElement('tr');
-                    // Use index to apply the correct visual background color from CSS
-                    row.className = index % 2 === 0 ? 'odd-row' : 'even-row'; 
-                    
-                    row.innerHTML = `
-                        <td>${customer.name}</td>
-                        <td>${customer.id}</td>
-                        <td><a href="mailto:${customer.email}">${customer.email}</a></td>
-                        <td>${customer.status}</td>
-                        <td class="actions">
-                            <i class="fas fa-eye" title="View Details" data-id="${customer.id}"></i>
-                            <i class="fas fa-edit" title="Edit Customer" data-id="${customer.id}"></i>
-                            <i class="fas fa-trash-alt" title="Delete Customer" data-id="${customer.id}"></i>
-                        </td>
-                    `;
-                    tableBody.appendChild(row);
-                });
-            }
+    // 1. Load Data Immediately
+    loadCustomers();
+    setInterval(loadCustomers, 3000);
 
-            // Initial render
-            renderTable(CustomerData);
+    // 2. Search Logic
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.addEventListener('input', filterTable);
+    }
 
+    // 3. Add Customer Button
+    const addBtn = document.querySelector('.add-customer-btn');
+    if (addBtn) {
+        addBtn.addEventListener('click', () => {
+            window.location.href = 'addnewcustomer.html';
+        });
+    }
+});
 
-            // 2. Search Functionality
-            searchInput.addEventListener('input', (e) => {
-                const searchTerm = e.target.value.toLowerCase();
-                const filteredData = customerData.filter(customer =>
-                    customer.name.toLowerCase().includes(searchTerm) ||
-                    customer.id.toLowerCase().includes(searchTerm) ||
-                    customer.email.toLowerCase().includes(searchTerm)
-                );
-                renderTable(filteredData);
-            });
+// --- FUNCTIONS ---
 
+function filterTable() {
+    const searchInput = document.getElementById('searchInput');
+    if (!searchInput) return;
 
-            // 3. Actions (View, Edit, Delete) - Delegation
-            tableBody.addEventListener('click', (e) => {
-                if (e.target.tagName === 'I') {
-                    const action = e.target.title.split(' ')[0]; // e.g., "View", "Edit", "Delete"
-                    const customerId = e.target.dataset.id;
-                    
-                    // Simple interaction feedback
-                    console.log(`${action} action triggered for Customer ID: ${customerId}`);
-                    alert(`${action} customer with ID: ${customerId}`);
-                }
-            });
+    const filter = searchInput.value.toLowerCase();
+    const rows = document.querySelectorAll('#customerTableBody tr');
 
-            // 4. "Add New Customer" Button Handler
-            document.querySelector('.add-customer-btn').addEventListener('click', () => {
-                window.location.href = 'addnewcustomer.html';
-            });
-  });
+    rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        row.style.display = text.includes(filter) ? '' : 'none';
+    });
+}
 
-
-
-  function loadCustomers() {
+function loadCustomers() {
     fetch('../Backend/CustomerMan.php') 
         .then(response => {
             if (!response.ok) {
@@ -73,29 +43,37 @@
             return response.json();
         })
         .then(data => {
-            const tableBody = document.querySelector('#customerTableBody');
+            const tableBody = document.getElementById('customerTableBody');
+            if (!tableBody) return;
+
             tableBody.innerHTML = ''; 
 
-            data.forEach(cusd => {
+            data.forEach((customer, index) => {
+                const rowClass = index % 2 === 0 ? 'odd-row' : 'even-row';
+                
                 
                 const row = `
-                    <tr>
-                        <td>${cusd.CustomerID}</td>
-                        <td>${cusd.Customer_Name}</td>
-                        <td>${cusd.Address}</td>
-                        <td>${cusd.Email}</td>
-                        <td>${cusd.Customer_Type}</td>
+                    <tr class="${rowClass}">
+                        <td>${customer.CustomerID}</td>
+                        <td>${customer.Customer_Name}</td>
+                        <td>${customer.Address}</td>
+                        <td><a href="mailto:${customer.Email}">${customer.Email}</a></td>
+                        <td>${customer.Customer_Type}</td>
+                        <td>
+                        <a href="editcomplant.html?id=${customer.CustomerID}" class="edit-link">Edit</a>
+                    </td>
+                    <td>
+                        <a href="#" style="color: red; text-decoration: none;" onclick="deleteComplaint(${customer.CustomerID}); return false;">
+                            Delete
+                        </a>
+                    </td>
                     </tr>
                 `;
                 tableBody.innerHTML += row;
             });
 
+          
             filterTable(); 
         })
         .catch(error => console.error('Error loading data:', error));
 }
-
-
-loadCustomers();
-
-setInterval(loadCustomers, 3000);

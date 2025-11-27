@@ -48,7 +48,7 @@
                 </div>
 
                 <!-- Buttons -->
-                <button type="button" class="btn btn-back" onclick="window.location.href='LoginPage.html'">
+                <button type="button" class="btn btn-back" onclick="window.location.href='LoginPage.php'">
                     Back
                 </button>
 

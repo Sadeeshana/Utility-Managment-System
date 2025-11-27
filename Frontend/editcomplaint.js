@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (backBtn) {
         backBtn.addEventListener('click', function (e) {
             e.preventDefault(); // stop form submit
-            window.location.href = "complaint_management.html"; // redirect
+            window.location.href = "complaint_management.php"; // redirect
         });
     }
 
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     
                     // Redirect
                     setTimeout(() => {
-                        window.location.href = "complaint_management.html";
+                        window.location.href = "complaint_management.php";
                     }, 1000);
                 } else {
                     console.warn("PHP message:", data);

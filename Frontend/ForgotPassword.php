@@ -20,7 +20,7 @@
                   <p>verification code.</p>
               </div>
 
-              <button onclick="window.location.href='/Frontend/LoginPage.html'" class="btn back-btn" id="backBtn">Back to Login</button>
+              <button onclick="window.location.href='/Frontend/LoginPage.php'" class="btn back-btn" id="backBtn">Back to Login</button>
           </aside>
 
           <!-- Right Side -->

@@ -13,7 +13,7 @@
 
 <div class="left">
     <p>Please enter the 4-digit verification code sent to your email.</p>
-    <button onclick="window.location.href='LoginPage.html'">Back to Login</button>
+    <button onclick="window.location.href='LoginPage.php'">Back to Login</button>
 </div>
 
 <div class="right">

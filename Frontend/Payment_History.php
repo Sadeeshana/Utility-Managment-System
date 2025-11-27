@@ -24,16 +24,16 @@
                 </h2>
 
                 <ul>
-                    <li><a href="dashboard.html"><img src="/images/S1.png"> &nbsp;Dashboard</a></li>
-                    <li><a href="Customermanagement.html"><img src="/images/S2.png"> &nbsp;Customers</a></li>
-                    <li><a href="Billing_Management.html"><img src="/images/S3.png"> &nbsp;Billings</a></li>
-                    <li><a href="Genaratereports.html"><img src="/images/S4.png"> &nbsp;Reports</a></li>
-                    <li><a href="complaint_management.html"><img src="/images/S5.png"> &nbsp;Complaints</a></li>
+                    <li><a href="dashboard.php"><img src="/images/S1.png"> &nbsp;Dashboard</a></li>
+                    <li><a href="Customermanagement.php"><img src="/images/S2.png"> &nbsp;Customers</a></li>
+                    <li><a href="Billing_Management.php"><img src="/images/S3.png"> &nbsp;Billings</a></li>
+                    <li><a href="Genaratereports.php"><img src="/images/S4.png"> &nbsp;Reports</a></li>
+                    <li><a href="complaint_management.php"><img src="/images/S5.png"> &nbsp;Complaints</a></li>
                 </ul>
             </div>
 
             <div class="logout-section">
-                <button onclick="window.location.href='/Frontend/LoginPage.html'" class="logout-btn" type="button">Log out</button>
+                <button onclick="window.location.href='/Frontend/LoginPage.php'" class="logout-btn" type="button">Log out</button>
             </div>
         </div>
 

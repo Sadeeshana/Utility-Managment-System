@@ -16,5 +16,5 @@ document.getElementById("updateForm").addEventListener("submit", function(e) {
 });
 
 function goToLogin() {
-  window.location.href = "LoginPage.html";
+  window.location.href = "LoginPage.php";
 }

@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     alert('Registration successful!');
 
     // optional: redirect to login page
-    const loginHref = 'LoginScreen.html';
+    const loginHref = 'LoginScreen.php';
     window.location.href = loginHref;
   });
 });

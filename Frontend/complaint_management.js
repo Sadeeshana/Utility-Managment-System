@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (logoutBtn) logoutBtn.addEventListener('click', () => alert('🚪 Logging out...'));
 
     const addBtn = document.getElementById('addComplaintBtn');
-    if (addBtn) addBtn.addEventListener('click', () => window.location.href = 'addnewcomplaint.html');
+    if (addBtn) addBtn.addEventListener('click', () => window.location.href = 'addnewcomplaint.php');
 });
 
 // --- FUNCTIONS (MOVED OUTSIDE so they are accessible) ---

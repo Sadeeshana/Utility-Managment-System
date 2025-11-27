@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (backBtn) {
         backBtn.addEventListener('click', function (e) {
             e.preventDefault(); // stop form submit
-            window.location.href = "complaint_management.html"; // redirect
+            window.location.href = "complaint_management.php"; // redirect
         });
     }
 
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     this.reset();
                     
                     setTimeout(() => {
-                        window.location.href = "Complaint_Management.html"; 
+                        window.location.href = "Complaint_Management.php"; 
                     }, 1000);
                 } else {
                     alert("Failed to add complaint.\nServer says: " + data);

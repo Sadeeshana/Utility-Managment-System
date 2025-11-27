@@ -19,15 +19,15 @@
                     <p>UTILITY MANAGEMENT SYSTEM</p>
                 </h2>
                 <ul>
-                    <li><a href="dashboard.html"><img src="/images/S1.png" class="Dashboard-Icon" alt="Dashboard-Icon"> &nbsp;&nbsp;&nbsp;Dashboard</a></li>
-                    <li><a href="Customermanagement.html"><img src="/images/S2.png" class="Customers-Icon" alt="Customers-Icon"> &nbsp;&nbsp;&nbsp;Customers</a></li>
-                    <li><a href="Billing_Management.html"><img src="/images/S3.png" class="Billings-Icon" alt="Billings-Icon"> &nbsp;&nbsp;&nbsp;Billings</a></li>
-                    <li><a href="Genaratereports.html"><img src="/images/S4.png" class="Reports-Icon" alt="Reports-Icon"> &nbsp;&nbsp;&nbsp;Reports</a></li>
-                    <li><a href="complaint_management.html"><img src="/images/S5.png" class="Complaints-Icon" alt="Complaints-Icon"> &nbsp;&nbsp;&nbsp;Complaints</a></li>
+                    <li><a href="dashboard.php"><img src="/images/S1.png" class="Dashboard-Icon" alt="Dashboard-Icon"> &nbsp;&nbsp;&nbsp;Dashboard</a></li>
+                    <li><a href="Customermanagement.php"><img src="/images/S2.png" class="Customers-Icon" alt="Customers-Icon"> &nbsp;&nbsp;&nbsp;Customers</a></li>
+                    <li><a href="Billing_Management.php"><img src="/images/S3.png" class="Billings-Icon" alt="Billings-Icon"> &nbsp;&nbsp;&nbsp;Billings</a></li>
+                    <li><a href="Genaratereports.php"><img src="/images/S4.png" class="Reports-Icon" alt="Reports-Icon"> &nbsp;&nbsp;&nbsp;Reports</a></li>
+                    <li><a href="complaint_management.php"><img src="/images/S5.png" class="Complaints-Icon" alt="Complaints-Icon"> &nbsp;&nbsp;&nbsp;Complaints</a></li>
                 </ul>
             </div>
             <div class="logout-section">
-                <button onclick="window.location.href='/Frontend/LoginPage.html'" class="logout-btn" type="button">Log out</button>
+                <button onclick="window.location.href='LoginPage.php'" class="logout-btn" type="button">Log out</button>
             </div>
         </div>
  
@@ -38,7 +38,7 @@
           <h1>Meter Management</h1>
           <p>View, search, and manage all registered utility meters.</p>
         </div>
-        <button onclick="window.location.href='/Frontend/Field officers - Enter new data.html'" class="add-btn">+ Register New Meter</button>
+        <button onclick="window.location.href='Field officers - Enter new data.php'" class="add-btn">+ Register New Meter</button>
       </header>
 
       <!-- Search and filters -->

@@ -6,19 +6,19 @@ document.addEventListener("DOMContentLoaded", () => {
     if (navButtons.length >= 4) {
 
         navButtons[0].addEventListener("click", () => {
-            window.location.href = "Genaratereports.html";   
+            window.location.href = "Genaratereports.php";   
         });
 
         navButtons[1].addEventListener("click", () => {
-            window.location.href = "Topconsumer.html"; 
+            window.location.href = "Topconsumer.php"; 
         });
 
         navButtons[2].addEventListener("click", () => {
-            window.location.href = "Unpaidbills.html";  
+            window.location.href = "Unpaidbills.php";  
         });
 
         navButtons[3].addEventListener("click", () => {
-            window.location.href = "UtilityUsageAnalytics.html";  
+            window.location.href = "UtilityUsageAnalytics.php";  
         });
     }
 

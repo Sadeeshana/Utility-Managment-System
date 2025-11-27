@@ -41,11 +41,11 @@ document.getElementById("registerForm").addEventListener("submit", function(even
 
     // Redirect 
     setTimeout(() => {
-        window.location.href = "Dashboard.html";
+        window.location.href = "dashboard.php";
     }, 2000);
 });
 
 
 document.querySelector(".back-btn").addEventListener("click", function() {
-    window.location.href = "LoginPage.html"; // Change this to your login page path
+    window.location.href = "LoginPage.php"; // Change this to your login page path
 });

@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (backBtn) {
         backBtn.addEventListener('click', function (e) {
             e.preventDefault(); // stop form submit
-            window.location.href = "Billing_Management.html"; // redirect
+            window.location.href = "Billing_Management.php"; // redirect
         });
     }
 
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(this);
 
             try {
-                const response = await fetch("Php/Addbill.php", {
+                const response = await fetch("Backend/Addbill.php", {
                     method: "POST",
                     body: formData
                 });
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     // Redirect after 1 second
                     setTimeout(() => {
-                        window.location.href = "Billing_Management.html";
+                        window.location.href = "Billing_Management.php";
                     }, 1000);
                 } else {
                     // CHANGED: Alert error from PHP

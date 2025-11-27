@@ -19,10 +19,10 @@
     if (navButtons.length > 0) {
         
         const paths = [
-            "Genaratereports.html",
-            "Topconsumer.html",
-            "Unpaidbills.html",
-            "UtilityUsageAnalytics.html"
+            "Genaratereports.php",
+            "Topconsumer.php",
+            "Unpaidbills.php",
+            "UtilityUsageAnalytics.php"
         ];
 
         navButtons.forEach((btn, index) => {

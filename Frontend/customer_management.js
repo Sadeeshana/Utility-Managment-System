@@ -60,7 +60,7 @@ function loadCustomers() {
                         <td><a href="mailto:${customer.Email}">${customer.Email}</a></td>
                         <td>${customer.Customer_Type}</td>
                         <td>
-                        <a href="editcustomerdetails.php?id=${customer.CustomerID}" class="edit-link">Edit</a>
+                        <a href="../Frontend/editcustomerdetails.php?id=${customer.CustomerID}" class="edit-link">Edit</a>
                     </td>
                     <td>
                         <a href="#" style="color: red; text-decoration: none;" onclick="deleteCustomer(${customer.CustomerID}); return false;">

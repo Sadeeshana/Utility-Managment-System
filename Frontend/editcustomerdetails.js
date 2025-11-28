@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (backBtn) {
         backBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = "customer_management.php";
+            window.location.href = "Customermanagement.php";
         });
     }
 
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const formData = new FormData(this);
 
             try {
-                const response = await fetch("/Utility/Backend/updatecustomer.php", {
+                const response = await fetch("/Utility/Backend/Customeredit.php", {
                     method: "POST",
                     body: formData
                 });
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     alert('Customer details updated successfully!');
 
                     setTimeout(() => {
-                        window.location.href = "customer_management.php";
+                        window.location.href = "Customermanagement.php";
                     }, 1000);
                 } else {
                     console.warn("PHP message:", data);
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     try {
-        const response = await fetch(`/Utility/Backend/editcustomer.php?id=${customerID}`);
+        const response = await fetch(`/Utility/Backend/Customeredit.php?id=${customerID}`);
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);

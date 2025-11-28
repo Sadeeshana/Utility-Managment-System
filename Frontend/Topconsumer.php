@@ -91,16 +91,7 @@
                 </tbody>
             </table>
 
-            <div class="pagination">
-      <span>Showing 1 to 5 of 100 results</span>
-      <div class="pages">
-         <button class="active">1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
-        <span>.......</span>
-      </div>
+           
         </section>
         </div>
        

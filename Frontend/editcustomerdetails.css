@@ -21,6 +21,7 @@ h2 {
     font-weight: 600;
     font-size: 20px;
     color: white;
+    font-family: "IBM Plex Sans";
 }
 
 /* Form Container */
@@ -55,7 +56,7 @@ label {
 input, select {
     padding: 10px;
     border-radius: 8px;
-    border: 1px solid #ccc;
+    border: 1px ;
     outline: none;
     font-size: 14px;
     font-family: 'IBM Plex Sans';

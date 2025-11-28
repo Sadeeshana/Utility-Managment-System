@@ -22,9 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// ================================
-// UTILITY TYPE DROPDOWN BEHAVIOR
-// ================================
+
 document.addEventListener('DOMContentLoaded', () => {
     const dd = document.getElementById('utility-type');
     if (!dd) return;
@@ -107,3 +105,37 @@ document.addEventListener('DOMContentLoaded', () => {
         }));
     });
 });
+function loadViewTop() {
+    
+    fetch('../Backend/Topconsumers.php') 
+        .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.json();
+        })
+        .then(data => {
+           
+            const tableBody = document.getElementById('top');
+            
+            if (!tableBody) return;
+
+            tableBody.innerHTML = ''; 
+
+            data.forEach(item => {
+                
+                const row = `
+                    <tr>
+                        
+                        <td>${item.CustomerID}</td>
+                        <td>${item.Utility_Type}</td>
+                        <td>${item.Units_Consumed}</td>
+                        
+                    </tr>
+                `;
+                tableBody.innerHTML += row;
+            });
+        })
+        .catch(error => console.error('Error loading view:', error));
+}
+
+// Run it
+loadViewTop();

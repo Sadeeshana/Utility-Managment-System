@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Managers Reports & Analytics</title>
     <link rel="stylesheet" href="Topconsumer.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-<!--Test commit-->
+
 </head>
 <body>
     
@@ -73,7 +72,7 @@
         </section>
 
         <!-- Top consumers table-->
-        <section class="table-card" aria-label="Top consumers">
+        
             <table class="data-table">
                 <thead>
                     <tr>
@@ -84,15 +83,13 @@
                         
                     </tr>
                 </thead>
-                <tbody id="top-consumers-body">
-                    <tr class="empty">
-                        <td colspan="5">No data to display</td>
-                    </tr>
+                <tbody id="top">
+                    
                 </tbody>
-            </table>
+                </table>
 
            
-        </section>
+        
         </div>
        
 <script src="Topconsumer.js"></script>

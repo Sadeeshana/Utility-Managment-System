@@ -24,6 +24,11 @@ if (isset($_POST['customer_id'])) {
     $stmtPayment = sqlsrv_query($conn, $sqlPayment, array($CustomerID));
     if ($stmtPayment === false) { die(print_r(sqlsrv_errors(), true)); }
 
+    $sqlMeter = "DELETE FROM Meter_Readings WHERE CustomerID = ?";
+    $stmtMeter = sqlsrv_query($conn, $sqlMeter, array($CustomerID));
+    if ($stmtMeter === false) { die(print_r(sqlsrv_errors(), true)); }
+
+
 
 
     // 4. Run Query

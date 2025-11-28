@@ -36,7 +36,7 @@ if (isset($_POST['employeeId'])) {
 function goBack($message) {
     echo "<script>
             alert('$message'); 
-            window.location.href='/Frontend/LoginPage.php';
+            window.location.href='../Frontend/LoginPage.php';
           </script>";
     exit();
 }

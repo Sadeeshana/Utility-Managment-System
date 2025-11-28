@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             alert(data.error);
         } else {
             if (get('customerId')) get('customerId').value = data.CustomerID;
-            if (get('customerName')) get('customerName').value = data.CustomerName;
+            if (get('customerName')) get('customerName').value = data.Customer_Name;
             if (get('address')) get('address').value = data.Address;
             if (get('email')) get('email').value = data.Email;
             if (get('customerType')) get('customerType').value = data.CustomerType;

@@ -15,16 +15,16 @@
         <div class="sidebar">
             <div>
                 <h2>
-                    <img src="/images/A1.png" alt="Admin-Icon">
+                    <img src="../images/A1.png" alt="Admin-Icon">
                     Admin Panel
                     <p>UTILITY MANAGEMENT SYSTEM</p>
                 </h2>
                 <ul>
-                    <li><a href="dashboard.php"><img src="/images/S1.png" class="Dashboard-Icon" alt="Dashboard-Icon"> &nbsp;&nbsp;&nbsp;Dashboard</a></li>
-                    <li><a href="Customermanagement.php"><img src="/images/S2.png" class="Customers-Icon" alt="Customers-Icon"> &nbsp;&nbsp;&nbsp;Customers</a></li>
-                    <li><a href="Billing_Management.php"><img src="/images/S3.png" class="Billings-Icon" alt="Billings-Icon"> &nbsp;&nbsp;&nbsp;Billings</a></li>
-                    <li><a href="Genaratereports.php"><img src="/images/S4.png" class="Reports-Icon" alt="Reports-Icon"> &nbsp;&nbsp;&nbsp;Reports</a></li>
-                    <li><a href="complaint_management.php"><img src="/images/S5.png" class="Complaints-Icon" alt="Complaints-Icon"> &nbsp;&nbsp;&nbsp;Complaints</a></li>
+                    <li><a href="dashboard.php"><img src="../images/S1.png" class="Dashboard-Icon" alt="Dashboard-Icon"> &nbsp;&nbsp;&nbsp;Dashboard</a></li>
+                    <li><a href="Customermanagement.php"><img src="../images/S2.png" class="Customers-Icon" alt="Customers-Icon"> &nbsp;&nbsp;&nbsp;Customers</a></li>
+                    <li><a href="Billing_Management.php"><img src="../images/S3.png" class="Billings-Icon" alt="Billings-Icon"> &nbsp;&nbsp;&nbsp;Billings</a></li>
+                    <li><a href="Genaratereports.php"><img src="../images/S4.png" class="Reports-Icon" alt="Reports-Icon"> &nbsp;&nbsp;&nbsp;Reports</a></li>
+                    <li><a href="complaint_management.php"><img src="../images/S5.png" class="Complaints-Icon" alt="Complaints-Icon"> &nbsp;&nbsp;&nbsp;Complaints</a></li>
                 </ul>
             </div>
             <div class="logout-section">
@@ -57,7 +57,7 @@
           <th name="bill_date">Billing Date</th>
           <th name="due_date">Due Date</th>
           <th name="pstatus">Payment Status</th>
-          <th>Edit</th>
+          
           <th>Delete</th>
         </tr>
       </thead>

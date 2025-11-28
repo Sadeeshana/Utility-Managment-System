@@ -63,7 +63,7 @@ function loadCustomers() {
                         <a href="editcustomerdetails.php?id=${customer.CustomerID}" class="edit-link">Edit</a>
                     </td>
                     <td>
-                        <a href="#" style="color: red; text-decoration: none;" onclick="deleteComplaint(${customer.CustomerID}); return false;">
+                        <a href="#" style="color: red; text-decoration: none;" onclick="deleteCustomer(${customer.CustomerID}); return false;">
                             Delete
                         </a>
                     </td>
@@ -76,4 +76,23 @@ function loadCustomers() {
             filterTable(); 
         })
         .catch(error => console.error('Error loading data:', error));
+}
+
+function deleteCustomer(CustomerID) {
+    if (confirm("Are you sure you want to delete Complaint ID: " + CustomerID + "?")) {
+        
+        fetch('../Backend/CustomerDel.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'customer_id=' + CustomerID
+        })
+        .then(response => response.text()) 
+        .then(data => {
+            alert(data);
+            loadCustomers(); // Now this will work because the function is global!
+        })
+        .catch(error => console.error('Error:', error));
+    }
 }

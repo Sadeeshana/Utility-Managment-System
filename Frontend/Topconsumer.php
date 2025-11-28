@@ -24,7 +24,7 @@
  <!--Topics-->
  <main class="main-content">
  <header>
-        <h1><center>Top consumers report</center></h1> 
+        <h1><center>Top consumers</center></h1> 
         <p><center>Identify and analysis the top consumers</center></p>
 
         </header>

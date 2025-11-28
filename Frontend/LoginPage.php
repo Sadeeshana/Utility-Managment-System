@@ -12,7 +12,7 @@
   <div class="container">
 
     <div class="left">
-      <img src="/images/Rectangle 6.png" alt="Billing Illustration" />
+      <img src="../images/Rectangle 6.png" alt="Billing Illustration" />
       <p>Manage your billing and customer data easily.</p>
     </div>
 

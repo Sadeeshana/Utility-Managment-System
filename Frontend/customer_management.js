@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const addBtn = document.querySelector('.add-customer-btn');
     if (addBtn) {
         addBtn.addEventListener('click', () => {
-            window.location.href = 'addnewcustomer.html';
+            window.location.href = 'addnewcustomer.php';
         });
     }
 });

@@ -54,3 +54,39 @@ document.addEventListener('DOMContentLoaded', () => {
     alert('Exporting CSV…');
   });
 });
+
+function loadViewData() {
+    // Fetch from the new PHP file
+    fetch('../Backend/Unpaidbill.php') 
+        .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.json();
+        })
+        .then(data => {
+            // Make sure your HTML table body has this ID
+            const tableBody = document.getElementById('Unpaid');
+            
+            if (!tableBody) return;
+
+            tableBody.innerHTML = ''; 
+
+            data.forEach(item => {
+                // BOSS: Change these names to match your View's columns
+                const row = `
+                    <tr>
+                        <td>${item.BillID}</td>
+                        <td>${item.CustomerID}</td>
+                        <td>${item.MeterID}</td>
+                        <td>${item.BillingDate}</td>
+                        <td>${item.DueDate}</td>
+                        <td>${item.Payment_Status}</td>
+                    </tr>
+                `;
+                tableBody.innerHTML += row;
+            });
+        })
+        .catch(error => console.error('Error loading view:', error));
+}
+
+// Run it
+loadViewData();

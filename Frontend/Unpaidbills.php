@@ -90,18 +90,24 @@
    <!-- Table -->
    <section class="list-card">
      <div class="table-wrap">
-       <table class="bills-table">
+       <table class="bills-table" id="Unpaids" name="Unpaids">
          <thead>
            <tr>
-             <th style="width:44px;"><input type="checkbox" aria-label="Select all"></th>
+             
              <th>Bill ID</th>
              <th>Customer ID</th>
              <th>Meter ID</th>
              <th>Billing Date</th>
              <th>Due Date</th>
              <th>Payment Status</th>
+
            </tr>
+        
          </thead>
+          <tbody id="Unpaid"> 
+        
+
+          </tbody>  
          
        </table>
      </div>

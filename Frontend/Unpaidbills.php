@@ -50,41 +50,7 @@
        <input type="text" class="search-input" placeholder="Search by name , account">
      </div>
 
-     <div class="control-group">
-       <div class="dropdown" id="f-utility">
-         <button class="chip" aria-haspopup="listbox" aria-expanded="false">
-           <span class="chip-label">Utility : All</span><span class="chev">▾</span>
-         </button>
-         <ul class="menu" role="listbox">
-           <li class="menu-item" data-value="all" aria-selected="true">All</li>
-           <li class="menu-item" data-value="electricity">Electricity</li>
-           <li class="menu-item" data-value="gas">Gas</li>
-           <li class="menu-item" data-value="water">Water</li>
-         </ul>
-       </div>
-
-       <div class="dropdown" id="f-status">
-         <button class="chip" aria-haspopup="listbox" aria-expanded="false">
-           <span class="chip-label">Status : Overdue</span><span class="chev">▾</span>
-         </button>
-         <ul class="menu" role="listbox">
-           <li class="menu-item" data-value="overdue" aria-selected="true">Overdue</li>
-           <li class="menu-item" data-value="all">All</li>
-         </ul>
-       </div>
-
-       <div class="dropdown" id="f-due">
-         <button class="chip" aria-haspopup="listbox" aria-expanded="false">
-           <span class="chip-label">Due date</span><span class="chev">▾</span>
-         </button>
-         <ul class="menu" role="listbox">
-           <li class="menu-item" data-value="soonest" aria-selected="true">Soonest first</li>
-           <li class="menu-item" data-value="latest">Latest first</li>
-         </ul>
-       </div>
-
-       <button class="chip export" id="export-csv">Export CSV ⬇</button>
-     </div>
+     
    </section>
 
    <!-- Table -->
@@ -112,17 +78,7 @@
        </table>
      </div>
 
-     <div class="pagination">
-      <span>Showing 1 to 5 of 100 results</span>
-      <div class="pages">
-         <button class="active">1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
-        <span>.......</span>
-      </div>
-    </div>
+     
   </div>
    </section>
  </main>

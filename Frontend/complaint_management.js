@@ -61,7 +61,7 @@ function loadComplaints() {
                     <td>${comp.Description}</td>
                     <td>${comp.Status_of_Complaint}</td>
                     <td>
-                        <a href="editcomplant.html?id=${comp.ComplaintID}" class="edit-link">Edit</a>
+                        <a href="../Frontend/editcomplaint.php?id=${comp.ComplaintID}" class="edit-link">Edit</a>
                     </td>
                     <td>
                         <a href="#" style="color: red; text-decoration: none;" onclick="deleteComplaint(${comp.ComplaintID}); return false;">

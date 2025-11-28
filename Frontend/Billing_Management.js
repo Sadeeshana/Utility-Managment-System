@@ -76,11 +76,7 @@ function loadBills() {
                         <td>${bill.BillingDate}</td>
                         <td>${bill.DueDate}</td>
                         <td>${bill.Payment_Status}</td>
-                        <td>
-                            <a href="editbill.php?id=${bill.BillID}" class="edit-link">
-                                Edit
-                            </a>
-                        </td>
+                        
                         <td>
                             <a href="#" style="color: red; text-decoration: none;" onclick="deleteBill(${bill.BillID}); return false;">
                                 Delete

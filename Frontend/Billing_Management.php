@@ -57,7 +57,7 @@
           <th name="bill_date">Billing Date</th>
           <th name="due_date">Due Date</th>
           <th name="pstatus">Payment Status</th>
-          <th>Edit</th>
+          
           <th>Delete</th>
         </tr>
       </thead>

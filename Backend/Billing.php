@@ -2,7 +2,6 @@
 include 'database.php'; 
 
 // This code SHOWS data. 
-// It uses a standard SELECT query, which works fine even if you use SPs for inserting.
 $sql = "SELECT 
             BillID, 
             CustomerID, 

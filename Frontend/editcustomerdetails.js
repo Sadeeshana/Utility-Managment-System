@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const formData = new FormData(this);
 
             try {
-                const response = await fetch("/Utility/Backend/CustomerMan.php", {
+                const response = await fetch("/Utility/Backend/Customeredit.php", {
                     method: "POST",
                     body: formData
                 });

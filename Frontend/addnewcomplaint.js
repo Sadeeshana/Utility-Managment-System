@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(this);
 
             try {
-                const response = await fetch('/Utility/Backend/Addcomplaint.php', { 
+                const response = await fetch('../Backend/Addcomplaint.php', { 
                     method: "POST",
                     body: formData
                 });

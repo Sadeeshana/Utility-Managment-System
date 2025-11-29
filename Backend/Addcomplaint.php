@@ -1,44 +1,40 @@
 <?php
+session_start();
 include 'database.php';
 
-//Names in html form
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+    if (isset($_SESSION['logged_in_id'])) {
+        $EmployeeID = $_SESSION['logged_in_id'];
+    } else {
+        die("Error: Session expired. Please log in again.");
+    }
 
-$EmployeeID = $_POST['EmployeeID'];
-$CustomerID = $_POST['CustomerID'];
-$Date = $_POST['ComplaintDate'];
-$Status = $_POST['Status'];
-$Description = $_POST['Description'];
+    $CustomerID  = $_POST['CustomerID'];
+    $Date        = $_POST['ComplaintDate'];
+    $Status      = $_POST['Status'];
+    $Description = $_POST['Description'];
 
-
-$sql = "EXEC ComplaintProcedure ?,?,?,?,?";
- // Prepare the parameters array
-$params =[
-    $EmployeeID,
-    $CustomerID,
-    $Date,
-    $Description,
-    $Status
+    $sql = "{CALL ComplaintProcedure(?, ?, ?, ?, ?)}";
     
+    $params = [
+         $CustomerID,
+        $EmployeeID,  
+       
+        $Date,
+        $Description,
+        $Status
+    ];
 
-];
+    $stmt = sqlsrv_query($conn, $sql, $params);
 
-//Execute the statment
-$stmt = sqlsrv_query($conn,$sql,$params);
-
-if($stmt){
-    echo "Complaint added successfully";
-
-}else {
-    echo "Can't add the complaint this moment";
-    die( print_r( sqlsrv_errors(), true) );
+    if ($stmt) {
+        echo "Complaint added successfully";
+    } else {
+        echo "Can't add complaint. ";
+        die(print_r(sqlsrv_errors(), true));
+    }
+    
+    sqlsrv_free_stmt($stmt);
 }
-
-
-
-
-}
-
-
 ?>

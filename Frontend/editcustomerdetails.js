@@ -1,4 +1,3 @@
-// EDIT CUSTOMER DETAILS SCRIPT
 
 document.addEventListener('DOMContentLoaded', async () => {
 
@@ -16,9 +15,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    // -------------------------------
-    // PART 1: SUBMIT FORM (UPDATE)
-    // -------------------------------
+  
     if (customerForm) {
         customerForm.addEventListener('submit', async function (e) {
             e.preventDefault();
@@ -82,9 +79,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    // -----------------------------------
-    // PART 2: FETCH DATA (LOAD DATA)
-    // -----------------------------------
+   
     if (!customerID) {
         alert("No ID provided!");
         return;

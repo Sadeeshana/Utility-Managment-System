@@ -23,6 +23,16 @@ if (isset($_POST['employeeId'])) {
     if (sqlsrv_has_rows($stmt)) {
         // Success -> Go to Dashboard
         $_SESSION['logged_in_id'] = $empID;
+
+        $row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
+
+        $_SESSION['logged_in_id'] = $row['EmployeeID'];
+        $_SESSION['user_role'] = $row['Role'];
+
+
+
+
+
         header("Location: ../Frontend/dashboard.php"); 
         exit();
     } else {

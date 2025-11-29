@@ -79,7 +79,7 @@ function loadCustomers() {
 }
 
 function deleteCustomer(CustomerID) {
-    if (confirm("Are you sure you want to delete Complaint ID: " + CustomerID + "?")) {
+    if (confirm("Are you sure you want to delete Customer ID: " + CustomerID + "?")) {
         
         fetch('../Backend/CustomerDel.php', {
             method: 'POST',

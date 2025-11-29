@@ -1,6 +1,8 @@
 
         // --- JavaScript Code ---
         document.addEventListener('DOMContentLoaded', () => {
+
+            loadDashboardcards();
             // Basic interaction for sidebar (e.g., changing the active state)
             const navLinks = document.querySelectorAll('.sidebar-nav ul li');
             
@@ -17,3 +19,27 @@
             
             console.log("Dashboard loaded successfully.");
         });
+
+        function loadDashboardcards() {
+            fetch('../Backend/Dashboardcards.php')
+            .then(response => {
+                if(!response.ok) throw new Error('Network error');
+                return response.json();
+            })
+            .then(data => {
+                // Customers
+                const customer = document.getElementById('count-customers');
+                if(customer) customer.innerText = data.total_customers;
+
+                // 2. Pending Bills
+            const billsEl = document.getElementById('count-bills');
+            if (billsEl) billsEl.innerText = data.pending_bills;
+
+            // 3. Complaints
+            const complaintsEl = document.getElementById('count-complaints');
+            if (complaintsEl) complaintsEl.innerText = data.open_complaints;
+
+
+            })
+            .catch(error => console.error('Error loading stats',error));
+        }

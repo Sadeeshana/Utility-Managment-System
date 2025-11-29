@@ -44,7 +44,7 @@
 
             </div>
             <div class="logout-section">
-                <button onclick="window.location.href='/Frontend/LoginPage.php'" class="logout-btn" type="button">Log out</button>
+                <button onclick="window.location.href='../Frontend/LoginPage.php'" class="logout-btn" type="button">Log out</button>
             </div>
         </div>
 
@@ -64,23 +64,23 @@
                         <i class="fas fa-users"></i>
                     </div>
                     <h3>Total Customers</h3>
-                    <h2>1,245</h2>
+                    <h2 id="count-customers"></h2>
                 </div>
 
                 <div class="summary-card" >
                     <div class="card-icon-bg green">
                         <i class="fas fa-file-invoice-dollar"></i>
                     </div>
-                    <h3>Pending Billings</h3>
-                    <h2>38</h2>
+                    <h3>Unpaid Billings</h3>
+                    <h2 id="count-bills"></h2>
                 </div>
 
                 <div class="summary-card" >
                     <div class="card-icon-bg red">
                          <i class="fas fa-headset"></i>
                     </div>
-                    <h3>Open Complaints</h3>
-                    <h2>12</h2>
+                    <h3>In progress Complaints</h3>
+                    <h2 id="count-complaints"></h2>
                 </div>
 
                 <div class="summary-card" >

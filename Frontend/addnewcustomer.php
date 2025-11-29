@@ -44,8 +44,12 @@
                     <h3>Personal Details</h3>
                     <div class="form-grid">
                         <div class="form-group">
+                            <label for="id">CustomerID</label>
+                            <input type="text" id="id" name="id" required>
+                        </div>
+                        <div class="form-group">
                             <label for="firstName">Full Name</label>
-                            <input type="text" id="firstName" name="firstName" required>
+                            <input type="text" id="fullName" name="firstName" required>
                         </div>
 
 

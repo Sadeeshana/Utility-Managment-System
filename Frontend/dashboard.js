@@ -3,6 +3,7 @@
         document.addEventListener('DOMContentLoaded', () => {
 
             loadDashboardcards();
+            setInterval(loadDashboardcards, 1000);
             // Basic interaction for sidebar (e.g., changing the active state)
             const navLinks = document.querySelectorAll('.sidebar-nav ul li');
             

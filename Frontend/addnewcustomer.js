@@ -3,52 +3,20 @@
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById('customerForm');
             const createButton = document.getElementById('createButton');
+            if(createButton){
+                createButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    addNewCustomer();
+                });
+            }
             const cancelButton = document.getElementById('cancelButton');
+            if(cancelButton){
+                cancelButton.addEventListener('click', () => {
+                    window.location.href = 'Customermanagement.php';
+                });
+            }
 
-            // 1. Handle Form Submission
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Collect form data
-                const formData = new FormData(form);
-                const data = {};
-                formData.forEach((value, key) => {
-                    // Special handling for checkbox arrays
-                    if (data[key]) {
-                        if (Array.isArray(data[key])) {
-                            data[key].push(value);
-                        } else {
-                            data[key] = [data[key], value];
-                        }
-                    } else {
-                        data[key] = value;
-                    }
-                });
-                
-                // Get checked services only (FormData naturally includes only checked boxes)
-                const checkedServices = formData.getAll('services');
-                
-                // Console output for demonstration
-                console.log("--- Customer Data Captured ---");
-                console.log("Personal Details:", {
-                    firstName: data.firstName,
-                    lastName: data.lastName,
-                    dob: data.dob,
-                });
-                console.log("Contact Details:", {
-                    email: data.email,
-                    contactNumber: data.contactNumber,
-                });
-                console.log("Service Address:", {
-                    streetAddress: data.streetAddress,
-                    city: data.city,
-                    postalCode: data.postalCode,
-                });
-                console.log("Utility Services:", checkedServices);
-
-                alert("Customer Profile Created/Updated successfully! (Check console for data)");
-                // In a real application, you would send this data to a server using fetch()
-            });
+           
 
             // 2. Handle Cancel Button
             cancelButton.addEventListener('click', () => {
@@ -66,3 +34,45 @@
                 });
             });
         });
+
+        function addNewCustomer() {
+    
+    const id      = document.getElementById('id').value;
+    const name    = document.getElementById('fullName').value;
+    const type    = document.getElementById('customerType').value;
+    const email   = document.getElementById('email').value;
+    const address = document.getElementById('address').value;
+
+    
+    if(id === "" || name === "") {
+        alert("Please fill in Customer ID and Full Name.");
+        return;
+    }
+
+    if (type === "") {
+        alert("Please select a Customer Type.");
+        return; 
+    }
+
+    
+    fetch('../Backend/Addcustomer.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        
+        body: `id=${id}&fullname=${name}&customerType=${type}&email=${email}&address=${address}`
+    })
+    .then(response => response.text())
+    .then(data => {
+        // D. Check Response
+        if (data.trim() === "Success") {
+            alert("Customer Added Successfully!");
+            window.location.href = 'Customermanagement.php'; // Go back to list
+        } else {
+            // Show the error message from PHP/SQL
+            alert("Database Error:\n" + data);
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}

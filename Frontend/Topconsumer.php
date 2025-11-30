@@ -48,15 +48,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="filter-group">
-                <label class="filter-label">Time Period</label>
-                <button class="filter-button" id="time-period-btn">
-                    <span id="time-period-label">This Month</span>
-                    
-                </button>
-                <!-- Hidden native month picker -->
-                <input type="month" id="time-period-input" class="visually-hidden" aria-label="Choose month">
-            </div>
+            
             <div class="filter-group search-group">
                 <label class="filter-label">Search consumer</label>
                 <div class="search-box">
@@ -64,11 +56,7 @@
                     <span class="icon" aria-hidden="true">&#128269;</span>
                 </div>
             </div>
-            <div class="filter-group">
-                <button class="export-button">
-                    Export <span aria-hidden="true">&#11015;</span>
-                </button>
-            </div>
+            
         </section>
 
         <!-- Top consumers table-->

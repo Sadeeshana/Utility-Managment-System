@@ -87,8 +87,8 @@
                     <div class="card-icon-bg purple">
                         <i class="fas fa-chart-bar"></i>
                     </div>
-                    <h3>Generated Reports</h3>
-                    <h2>45</h2>
+                    <h3>Total employees</h3>
+                    <h2 id="count-employees"></h2>
                 </div>
 
                 <div class="summary-card">

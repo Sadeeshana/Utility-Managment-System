@@ -57,11 +57,7 @@
   <button class="generate-btn" id="generateBtn">Generate Report</button>
 </section>
 
-                <aside class="card recent-reports-card">
-                    <h4>Recently Generated Reports</h4>
-                    
-                    </aside>
-
+                
             </div>
         </main>
 

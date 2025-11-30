@@ -32,13 +32,17 @@
                 const customer = document.getElementById('count-customers');
                 if(customer) customer.innerText = data.total_customers;
 
-                // 2. Pending Bills
+                //  Pending Bills
             const billsEl = document.getElementById('count-bills');
             if (billsEl) billsEl.innerText = data.pending_bills;
 
-            // 3. Complaints
+            // Complaints
             const complaintsEl = document.getElementById('count-complaints');
             if (complaintsEl) complaintsEl.innerText = data.open_complaints;
+
+            // Employees
+            const employeesEl = document.getElementById('count-employees');
+            if (employeesEl) employeesEl.innerText = data.total_employees;
 
 
             })

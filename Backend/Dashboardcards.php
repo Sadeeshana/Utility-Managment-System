@@ -5,7 +5,8 @@ include 'database.php';
 $stats =[
     "total_customers" => 0,
     "total_bills" => 0,
-    "open_complaints"=> 0
+    "open_complaints"=> 0,
+    "total_employees"=> 0
 ];
 
 //Count total customers
@@ -27,6 +28,13 @@ $sql3 = "SELECT COUNT(*) as count FROM Complaint WHERE Status_of_Complaint = 'In
 $stmt3 = sqlsrv_query($conn, $sql3);
 if ($stmt3 && $row = sqlsrv_fetch_array($stmt3, SQLSRV_FETCH_ASSOC)) {
     $stats['open_complaints'] = $row['count'];
+}
+
+//Count in all employees
+$sql4 = "SELECT COUNT(*) as count FROM Employee"; 
+$stmt4 = sqlsrv_query($conn, $sql4);
+if ($stmt4 && $row = sqlsrv_fetch_array($stmt4, SQLSRV_FETCH_ASSOC)) {
+    $stats['total_employees'] = $row['count'];
 }
 
 // Send the results as JSON

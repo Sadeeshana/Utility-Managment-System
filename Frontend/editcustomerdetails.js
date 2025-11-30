@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     try {
-        const response = await fetch(`/Utility/Backend/Customeredit.php?id=${customerID}`);
+        const response = await fetch(`../Backend/Customeredit.php?id=${customerID}`);
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);

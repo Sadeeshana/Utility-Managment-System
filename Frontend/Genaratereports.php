@@ -36,27 +36,22 @@
   <p>Choose the type of report and the period it should cover.</p>
 
 <!-- Utility Selection -->
-  <label for="utility">Select Utility:</label>
+  <label for="utility">Select Report type:</label>
   <select id="utility" name="utility" class="report-select">
-    <option value="electricity">Electricity</option>
-    <option value="water">Water</option>
-    <option value="gas">Gas</option>
+    <option value="customer">Customer</option>
+    <option value="employee">Employee</option>
+    <option value="meter">Meter readings</option>
+    <option value="complaints">Complaints</option>
   </select>
 
   <!-- Report Period Selection -->
   <label for="report-period">Select Period:</label>
   <select id="report-period" name="report-period" class="report-select">
-    <option value="daily">Daily</option>
     <option value="monthly">Monthly</option>
     <option value="yearly">Yearly</option>
   </select>
 
-  <!-- Report Type Selection -->
-  <label for="report-type">Report Type:</label>
-  <select id="report-type" name="report-type" class="report-select">
-    <option value="summary">Summary Report</option>
-    <option value="detailed">Detailed Report</option>
-  </select>
+
 
   <button class="generate-btn">Generate Report</button>
 </section>

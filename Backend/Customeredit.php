@@ -1,4 +1,6 @@
 <?php
+
+
 include 'database.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -7,7 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name    = $_POST['CustomerName'];    
     $type    = $_POST['CustomerType']; 
     $email   = $_POST['Email'];        
-    $address = $_POST['Address'];      
+    $address = $_POST['Address'];    
+    
+    
     // 2. The Update Query
     $sql = "UPDATE Customer SET 
                 Customer_Name = ?, 
@@ -31,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     
     exit;
+}
 
 if (isset($_GET['id'])) {
     
@@ -58,4 +63,5 @@ if (isset($_GET['id'])) {
         echo json_encode(["error" => "No data found"]);
     }
 }
+
 ?>

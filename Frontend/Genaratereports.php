@@ -46,8 +46,9 @@
 
   <!-- Report Period Selection -->
   <label for="report-period">Select Period:</label>
-  <select id="report-period" name="report-period" class="report-select">
-    <option value="monthly">Monthly</option>
+  <select id="reportperiod" name="report-period" class="report-select">
+  <option value="daily">Daily</option>  
+  <option value="monthly">Monthly</option>
     <option value="yearly">Yearly</option>
   </select>
 

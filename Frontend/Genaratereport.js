@@ -32,19 +32,18 @@ document.addEventListener("DOMContentLoaded", () => {
         generateBtn.addEventListener('click', (e) => {
             e.preventDefault();
 
+            //Get report type
             const reportTypeInput = document.getElementById('reportType');
-            
-
-            if (!reportTypeInput) {
-                alert("Error: Could not find report type dropdown.");
-                return;
-            }
-
             const typeValue = reportTypeInput.value;
 
-            const url = `../Backend/ViewReport.php?type=${typeValue}`;
+            //Get time period (Daily, Monthly, Yearly)
+            const periodInput = document.getElementById('reportperiod');
+            const periodValue = periodInput ? periodInput.value : 'all';
+
+            // Open New Tab
+            const url = `../Backend/ViewReport.php?type=${typeValue}&period=${periodValue}`;
             
-            //Open in new tab
+           
             window.open(url, '_blank'); 
         });
     }

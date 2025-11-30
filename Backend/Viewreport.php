@@ -2,10 +2,27 @@
 include 'database.php';
 
 $type = isset($_GET['type']) ? $_GET['type'] : '';
+$period = isset($_GET['period']) ? $_GET['period'] : 'all';
 
 $title = "General Report";
 $headers = [];
 $data = [];
+
+//Date filter logic
+function getDateFilter($dateColumn, $period) {
+    if($period == 'daily'){
+        return " WHERE CAST($dateColumn AS DATE) = CAST(GETDATE() AS DATE)";
+    }
+    elseif ($period == 'monthly') {
+        
+        return " WHERE MONTH($dateColumn) = MONTH(GETDATE()) AND YEAR($dateColumn) = YEAR(GETDATE())";
+    } 
+    elseif ($period == 'yearly') {
+        
+        return " WHERE YEAR($dateColumn) = YEAR(GETDATE())";
+    }
+    return ""; 
+}
 
 //Query to run based on Type
 switch ($type) {
@@ -25,12 +42,15 @@ switch ($type) {
         $title = "Meter Readings Report";
         $headers = ["Reading ID","Customer ID", "Employee ID", "Utility Type", "Reading Date", "Current Reading", "Previous Reading", "Units Consumed"];
         $sql = "SELECT ReadingID,CustomerID,EmployeeID, Utility_Type,Reading_Date, Current_reading,Previous_reading,Units_consumed  FROM Meter_Readings"; 
+        $sql .= getDateFilter('Reading_Date', $period);
         break;
+        
 
     case 'complaints':
         $title = "complaints History Report";
         $headers = ["ComplaintID", "Customer ID", "Employee ID", "Complaint Date", "Description", "Status"];
         $sql = "SELECT ComplaintID, CustomerID, EmployeeID, Complaint_date,Description,Status_of_Complaint FROM Complaint";
+        $sql .= getDateFilter('Complaint_date', $period);
         break;
 
     default:

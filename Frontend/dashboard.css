@@ -17,6 +17,8 @@
     --color-gas: #f44336;   /* Used for complaints red */
     --color-green: #4CAF50; /* New for billings */
     --color-purple: #9C27B0; /* New for reports */
+    --color-orange: #E58E26;
+    --color-teal: #00cec9;
 }
 
 * {
@@ -343,4 +345,84 @@ body {
     .dashboard-grid.summary-grid {
         grid-template-columns: 1fr; 
     }
+}
+/* =========================================
+   SEARCH WIDGET STYLES (Using Variables)
+   ========================================= */
+
+/* 1. Icon Backgrounds */
+.card-icon-bg.orange {
+    background-color: var(--color-orange);
+    color: white;
+}
+
+.card-icon-bg.teal {
+    background-color: var(--color-teal);
+    color: white;
+}
+
+/* 2. Buttons */
+.orange-btn {
+    background-color: var(--color-orange);
+}
+
+.teal-btn {
+    background-color: var(--color-teal);
+}
+
+/* 3. Search Input Box */
+.search-input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+.search-input:focus {
+    border-color: var(--dark-blue);
+    box-shadow: 0 0 5px rgba(10, 61, 98, 0.2);
+}
+
+/* 4. Search Buttons Structure */
+.search-btn {
+    width: 45px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.search-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px var(--light-blue);
+}
+
+.search-btn:active {
+    transform: translateY(0);
+}
+
+/* 5. Search Result Area */
+.search-result {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 12px;
+    font-size: 14px;
+    color: var(--text-muted);
+    min-height: 60px;
+    width: 100%;
+    border-left: 4px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    line-height: 1.6;
 }

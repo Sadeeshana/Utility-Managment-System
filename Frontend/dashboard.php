@@ -58,7 +58,35 @@
             </header>
 
             <div class="dashboard-grid summary-grid">
-                
+                <div class="summary-card">
+                    <div class="card-icon-bg orange"> 
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Search Employee</h3>
+                    <div style="display: flex; gap: 5px; margin-top: 10px;">
+                     <input type="text" id="searchEmpID" placeholder="Emp ID..." style="width: 70%; padding: 5px;">
+                    <button onclick="searchUDF('employee')" style="cursor: pointer;">Search about employee</button>
+                    </div>
+                    <div id="empResult" style="margin-top: 10px; font-size: 20px; color: #000000ff; min-height: 40px;">
+                    Enter ID to view details
+                    </div>
+                </div>
+                        
+                <div class="summary-card">
+                    <div class="card-icon-bg teal" >
+                        <i class="fas fa-address-book"></i>
+                    </div>
+                    <h3>Search Customer</h3>
+                    <div style="display: flex; gap: 5px; margin-top: 10px;">
+                    <input type="text" id="searchCustID" placeholder="Cust ID..." style="width: 70%; padding: 5px;">
+                    <button onclick="searchUDF('customer')" style="cursor: pointer;">Search about customer</button>
+                     </div>
+                    <div id="custResult" style="margin-top: 10px; font-size: 20px; color: #000000ff; min-height: 40px;">
+                    Enter ID to view details
+                     </div>
+                    
+                </div>
+
                 <div class="summary-card" onclick="window.location.href='/Frontend/Customermanagement.php'">
                     <div class="card-icon-bg blue">
                         <i class="fas fa-users"></i>
@@ -91,22 +119,9 @@
                     <h2 id="count-employees"></h2>
                 </div>
 
-                <div class="summary-card">
-                    <div class="card-icon-bg"> 
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Utility Usage</h3>
-                    <h2>--</h2>
-                </div>
+                
 
-                <div class="summary-card">
-                    <div class="card-icon-bg" >
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <h3>New Widget</h3>
-                    <h2>--</h2>
-                </div>
-
+                
             </div>
         </main>
     </div>

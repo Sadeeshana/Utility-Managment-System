@@ -37,7 +37,7 @@
 
 <!-- Utility Selection -->
   <label for="utility">Select Report type:</label>
-  <select id="utility" name="utility" class="report-select">
+  <select id="reportType" name="utility" class="report-select">
     <option value="customer">Customer</option>
     <option value="employee">Employee</option>
     <option value="meter">Meter readings</option>
@@ -53,7 +53,7 @@
 
 
 
-  <button class="generate-btn">Generate Report</button>
+  <button class="generate-btn" id="generateBtn">Generate Report</button>
 </section>
 
                 <aside class="card recent-reports-card">

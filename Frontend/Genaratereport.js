@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    
     const navButtons = document.querySelectorAll(".nav-button");
 
-    // Assign redirects to sidebar buttons
     if (navButtons.length >= 4) {
-
         navButtons[0].addEventListener("click", () => {
             window.location.href = "Genaratereports.php";   
         });
@@ -22,4 +21,31 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    
+    
+    
+    const generateBtn = document.getElementById('generateBtn'); 
+   
+     
+
+    if (generateBtn) {
+        generateBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const reportTypeInput = document.getElementById('reportType');
+            
+
+            if (!reportTypeInput) {
+                alert("Error: Could not find report type dropdown.");
+                return;
+            }
+
+            const typeValue = reportTypeInput.value;
+
+            const url = `../Backend/ViewReport.php?type=${typeValue}`;
+            
+            //Open in new tab
+            window.open(url, '_blank'); 
+        });
+    }
 });

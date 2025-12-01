@@ -21,7 +21,7 @@
       <div class="row">
         <div class="form-group">
           <label>Reading ID</label>
-          <input type="text" id="readingId" placeholder="Auto generated" disabled>
+          <input type="text" id="readingId" placeholder="Enter reading ID" name="ReadingID">
         </div>
 
         <div class="form-group">

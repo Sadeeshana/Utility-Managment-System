@@ -65,46 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// ================================
-// TIME PERIOD MONTH PICKER
-// ================================
-document.addEventListener('DOMContentLoaded', () => {
-    const btn   = document.getElementById('time-period-btn');
-    const label = document.getElementById('time-period-label');
-    const input = document.getElementById('time-period-input');
-    if (!btn || !input || !label) return;
 
-    const now = new Date();
-    const pad = (n) => String(n).padStart(2, '0');
-    input.value = `${now.getFullYear()}-${pad(now.getMonth() + 1)}`;
-
-    const formatLabel = (yyyyMm) => {
-        const [y, m] = yyyyMm.split('-').map(Number);
-        const d = new Date(y, m - 1, 1);
-        const sameMonth = y === now.getFullYear() && (m - 1) === now.getMonth();
-        return sameMonth
-            ? 'This Month'
-            : d.toLocaleString(undefined, { month: 'long', year: 'numeric' });
-    };
-
-    label.textContent = formatLabel(input.value);
-
-    btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (typeof input.showPicker === 'function') {
-            input.showPicker();
-        } else {
-            input.click();
-        }
-    });
-
-    input.addEventListener('change', () => {
-        label.textContent = formatLabel(input.value);
-        document.dispatchEvent(new CustomEvent('time-period-change', {
-            detail: { value: input.value }
-        }));
-    });
-});
 function loadViewTop() {
     
     fetch('../Backend/Topconsumers.php') 

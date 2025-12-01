@@ -1,16 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Load Meter Readings Immediately
     loadMeterReadings();
-    setInterval(loadMeterReadings, 3000); // Refresh every 3 seconds
-
-    // 2. Search Logic
+    
+    setInterval(loadMeterReadings, 3000);
     const searchInput = document.getElementById('searchInput');
     if (searchInput) {
         searchInput.addEventListener('input', filterTable);
     }
 
-    // 3. Add Reading Button
     const addBtn = document.querySelector('.add-reading-btn');
     if (addBtn) {
         addBtn.addEventListener('click', () => {
@@ -19,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// --- FUNCTIONS ---
 
 function filterTable() {
     const searchInput = document.getElementById('searchInput');
@@ -35,18 +31,22 @@ function filterTable() {
 }
 
 function loadMeterReadings() {
-    fetch('../Backend/MeterReadingMan.php') 
+    fetch('../Backend/MeterRead.php') 
         .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
+            if (!response.ok) throw new Error('Network response was not ok');
             return response.json();
         })
         .then(data => {
             const tableBody = document.getElementById('meterReadingTableBody');
+            
             if (!tableBody) return;
 
             tableBody.innerHTML = ''; 
+
+            if (data.length === 0) {
+                tableBody.innerHTML = '<tr><td colspan="10" style="text-align:center;">No readings found</td></tr>';
+                return;
+            }
 
             data.forEach((reading, index) => {
                 const rowClass = index % 2 === 0 ? 'odd-row' : 'even-row';
@@ -56,25 +56,16 @@ function loadMeterReadings() {
                         <td>${reading.ReadingID}</td>
                         <td>${reading.CustomerID}</td>
                         <td>${reading.EmployeeID}</td>
-                        <td>${reading.UtilityType}</td>
-                        <td>${reading.ReadingDate}</td>
-                        <td>${reading.CurrentReading}</td>
-                        <td>${reading.PreviousReading}</td>
-                        <td>${reading.UnitsConsumed}</td>
-                        <td>
-                            <a href="editmeterreading.php?id=${reading.ReadingID}" class="edit-link">Edit</a>
+                        <td>${reading.Utility_Type}</td> <td>${reading.Reading_Date}</td> <td>${reading.Current_reading}</td> <td>${reading.Previous_reading}</td> <td>${reading.Units_consumed}</td> <td>
+                            
                         </td>
-                        <td>
-                            <a href="#" style="color: red; text-decoration: none;" onclick="deleteMeterReading(${reading.ReadingID}); return false;">
-                                Delete
-                            </a>
-                        </td>
+                       
                     </tr>
                 `;
                 tableBody.innerHTML += row;
             });
 
-            filterTable(); // Apply search filter after loading
+            filterTable(); 
         })
         .catch(error => console.error('Error loading data:', error));
 }
@@ -92,7 +83,7 @@ function deleteMeterReading(ReadingID) {
         .then(response => response.text()) 
         .then(data => {
             alert(data);
-            loadMeterReadings(); // Refresh the table
+            loadMeterReadings(); 
         })
         .catch(error => console.error('Error:', error));
     }

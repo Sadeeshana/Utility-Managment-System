@@ -1,85 +1,67 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const get = id => document.getElementById(id);
-    const meterForm = get('meterReadingForm');
 
-    // BACK BUTTON (NO VALIDATION)
-    const backBtn = get('backBtn');
-    if (backBtn) {
-        backBtn.addEventListener('click', function (e) {
-            e.preventDefault(); // stop form submit
-            window.location.href = "meterreading.php"; // redirect
-        });
-    }
+    const addBtn = document.getElementById('addReadingBtn'); 
+if (addBtn) {
+    addBtn.addEventListener('click', (e) => {
+        e.preventDefault(); 
+        submitReading();
+    });
+}
 
-    // AUTO-CALCULATE UNITS CONSUMED
-    const previousInput = get('previousReading');
-    const currentInput = get('currentReading');
-    const unitsInput = get('unitsConsumed');
-
-    function calculateUnits() {
-        const previous = parseFloat(previousInput.value) || 0;
-        const current = parseFloat(currentInput.value) || 0;
-        unitsInput.value = current - previous;
-    }
-
-    if (previousInput && currentInput) {
-        previousInput.addEventListener('input', calculateUnits);
-        currentInput.addEventListener('input', calculateUnits);
-    }
-
-    // FORM SUBMIT HANDLER
-    if (meterForm) {
-        meterForm.addEventListener('submit', async function(e) {
-            e.preventDefault(); 
-
-            // 1. VALIDATION
-            const requiredFields = ['employeeId', 'customerId', 'utilityType', 'readingDate', 'currentReading', 'previousReading'];
-            let isValid = true;
-
-            requiredFields.forEach(id => {
-                const el = get(id);
-                if (!el || el.value.trim() === '') {
-                    if (el) el.style.borderColor = 'red';
-                    isValid = false;
-                } else {
-                    el.style.borderColor = '#ccc';
-                }
-            });
-
-            if (!isValid) {
-                alert('Please fill all required fields.');
-                return;
-            }
-
-            // 2. SEND DATA
-            const formData = new FormData(this);
-
-            try {
-                const response = await fetch('../Backend/AddMeterReading.php', { 
-                    method: "POST",
-                    body: formData
-                });
-
-                const data = await response.text();
-
-                // 3. CHECK RESPONSE
-                if (data.includes("successfully")) {
-                    alert('Meter reading added successfully!');
-                    this.reset();
-                    unitsInput.value = ''; // reset units
-
-                    setTimeout(() => {
-                        window.location.href = "meterreadings.php"; 
-                    }, 1000);
-                } else {
-                    alert("Failed to add meter reading.\nServer says: " + data);
-                    console.error("PHP Error:", data);
-                }
-
-            } catch (error) {
-                console.error("Error submitting meter reading:", error);
-                alert("Network Error. Check console.");
-            }
-        });
+    const currInput = document.getElementById('currentReading');
+    const prevInput = document.getElementById('previousReading');
+    
+    if (currInput && prevInput) {
+        currInput.addEventListener('input', calculateUnits);
+        prevInput.addEventListener('input', calculateUnits);
     }
 });
+
+
+function calculateUnits() {
+    const curr = parseFloat(document.getElementById('currentReading').value) || 0;
+    const prev = parseFloat(document.getElementById('previousReading').value) || 0;
+    const unitsBox = document.getElementById('unitsConsumed');
+
+    if (curr > prev) {
+        unitsBox.value = (curr - prev).toFixed(0); // Set value automatically
+    } else {
+        unitsBox.value = 0;
+    }
+}
+
+function submitReading() {
+    //Get Values
+    const r_id  = document.getElementById('readingId').value;
+    
+    const c_id  = document.getElementById('customerId').value;
+    const e_id  = document.getElementById('employeeId').value;
+    const type  = document.getElementById('utilityType').value;
+    const date  = document.getElementById('readingDate').value;
+    const prev  = document.getElementById('previousReading').value;
+    const curr  = document.getElementById('currentReading').value;
+    const units = document.getElementById('unitsConsumed').value;
+
+    //Validation
+    if(r_id === "" || c_id === "" || curr === "") {
+        alert("Please fill in all required fields.");
+        return;
+    }
+
+    // Send to PHP
+    fetch('../Backend/Addmeter.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `reading_id=${r_id}&employee_id=${e_id}&customer_id=${c_id}&utility_type=${type}&reading_date=${date}&previous_reading=${prev}&current_reading=${curr}&units_consumed=${units}`
+    })
+    .then(response => response.text())
+    .then(data => {
+        if (data.includes("Success")) {
+            alert("Reading Added Successfully!");
+            window.location.href = "meterreadings.php"; // Redirect to list
+        } else {
+            alert(data); 
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}

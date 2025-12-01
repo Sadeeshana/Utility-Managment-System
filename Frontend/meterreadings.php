@@ -64,27 +64,7 @@
                         </tr>
                     </thead>
                     <tbody id="meterReadingTableBody">
-                        <tr>
-                            <td>1</td>
-                            <td>101</td>
-                            <td>501</td>
-                            <td>Electricity</td>
-                            <td>2025-11-30</td>
-                            <td>350</td>
-                            <td>300</td>
-                            <td>50</td>
-                            
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>102</td>
-                            <td>502</td>
-                            <td>Water</td>
-                            <td>2025-11-29</td>
-                            <td>120</td>
-                            <td>100</td>
-                            <td>20</td>
-                            
+                       
                         </tr>
                         
                     </tbody>

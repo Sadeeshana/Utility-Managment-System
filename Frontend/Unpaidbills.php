@@ -18,7 +18,7 @@
                 <button class="nav-button" >Full Reports (PDF)</button>
                 <button class="nav-button">Top Consumers by Utility</button>
                 <button class="nav-button" >Unpaid Bills</button>
-                <button class="nav-button">Usage of Utility</button>
+                
             </div>
 
             <div class="back-section">

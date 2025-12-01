@@ -68,7 +68,7 @@
                     <h3>Search Employee</h3>
                     <div style="display: flex; gap: 5px; margin-top: 10px;">
                      <input type="text" id="searchEmpID" placeholder="Emp ID..." style="width: 70%; padding: 5px;">
-                    <button onclick="searchUDF('employee')" style="cursor: pointer;">Search about employee</button>
+                    <button onclick="searchUDF('employee')" style="cursor: pointer;"> 🔍 Search about employee</button>
                     </div>
                     <div id="empResult" style="margin-top: 10px; font-size: 20px; color: #000000ff; min-height: 40px;">
                     Enter ID to view details
@@ -82,7 +82,7 @@
                     <h3>Search Customer</h3>
                     <div style="display: flex; gap: 5px; margin-top: 10px;">
                     <input type="text" id="searchCustID" placeholder="Cust ID..." style="width: 70%; padding: 5px;">
-                    <button onclick="searchUDF('customer')" style="cursor: pointer;">Search about customer</button>
+                    <button onclick="searchUDF('customer')" style="cursor: pointer;"> 🔍 Search about customer</button>
                      </div>
                     <div id="custResult" style="margin-top: 10px; font-size: 20px; color: #000000ff; min-height: 40px;">
                     Enter ID to view details

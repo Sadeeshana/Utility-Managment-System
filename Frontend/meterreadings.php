@@ -1,3 +1,12 @@
+<?php
+session_start(); 
+
+
+if (!isset($_SESSION['logged_in_id'])) {
+    header("Location: LoginPage.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,12 +28,24 @@
                 <p>UTILITY MANAGEMENT SYSTEM</p>
             </h2>
             <ul>
-                <li><a href="dashboard.php"><img src="../images/S1.png" class="Dashboard-Icon" alt="Dashboard-Icon"> Dashboard</a></li>
-                <li><a href="Customermanagement.php"><img src="../images/S2.png" class="Customers-Icon" alt="Customers-Icon"> Customers</a></li>
-                <li><a href="Billing_Management.php"><img src="../images/S3.png" class="Billings-Icon" alt="Billings-Icon"> Billings</a></li>
-                <li><a href="Genaratereports.php"><img src="../images/S4.png" class="Reports-Icon" alt="Reports-Icon"> Reports</a></li>
-                <li><a href="complaint_management.php"><img src="../images/S5.png" class="Complaints-Icon" alt="Complaints-Icon"> Complaints</a></li>
-                <li><a href="meterreadings.php"><img src="/images/S6.png" class="Meter-Icon" alt="Meter-Icon">Meter Data</a></li>
+                 <li><a href="dashboard.php" class="active"><img src="../images/S1.png" class="Dashboard-Icon" alt="Dashboard-Icon"> &nbsp;&nbsp;&nbsp;Dashboard</a></li>
+                    <?php if($_SESSION['user_role']== 'Admin'){?>
+                    <li><a href="Customermanagement.php"><img src="../images/S2.png" class="Customers-Icon" alt="Customers-Icon"> &nbsp;&nbsp;&nbsp;Customers</a></li>
+                    <?php } ?>
+                     <?php if($_SESSION['user_role']== 'Admin' || $_SESSION['user_role']== 'Cashier'){?>       
+                    <li><a href="Billing_Management.php"><img src="../images/S3.png" class="Billings-Icon" alt="Billings-Icon"> &nbsp;&nbsp;&nbsp;Billings</a></li>
+                    <?php } ?>
+                    <?php if($_SESSION['user_role']== 'Admin' || $_SESSION['user_role']== 'Manager'){?>
+                    <li><a href="Genaratereports.php"><img src="../images/S4.png" class="Reports-Icon" alt="Reports-Icon"> &nbsp;&nbsp;&nbsp;Reports</a></li>
+                    <?php } ?>
+                    <?php if($_SESSION['user_role']== 'Admin' || $_SESSION['user_role']== 'Manager'){?>        
+                    
+                        <li><a href="complaint_management.php"><img src="../images/S5.png" class="Complaints-Icon" alt="Complaints-Icon"> &nbsp;&nbsp;&nbsp;Complaints</a></li>
+
+                        <?php } ?>
+                        <?php if($_SESSION['user_role']== 'Admin' || $_SESSION['user_role']== 'Field officer'){?>    
+                        <li><a href="meterreadings.php"><img src="../images/S6.png" class="Meter-Icon" alt="Meter-Icon">Meter Data</a></li>
+                         <?php } ?>     
             </ul>
         </div>
         <div class="logout-section">

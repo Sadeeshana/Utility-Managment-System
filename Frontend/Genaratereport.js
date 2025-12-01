@@ -16,9 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = "Unpaidbills.php";  
         });
 
-        navButtons[3].addEventListener("click", () => {
-            window.location.href = "UtilityUsageAnalytics.php";  
-        });
+        
     }
 
     

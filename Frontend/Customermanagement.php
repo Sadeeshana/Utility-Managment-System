@@ -40,8 +40,13 @@
                     <?php } ?>
                     <?php if($_SESSION['user_role']== 'Admin' || $_SESSION['user_role']== 'Manager'){?>      
                     <li><a href="complaint_management.php"><img src="../images/S5.png" class="Complaints-Icon" alt="Complaints-Icon"> &nbsp;&nbsp;&nbsp;Complaints</a></li>
+                    
                     <?php } ?>
-                    <li><a href="meterreadings.php"><img src="/images/S6.png" class="Meter-Icon" alt="Meter-Icon">Meter Data</a></li>
+                     <?php if($_SESSION['user_role']== 'Admin' || $_SESSION['user_role']== 'Field officer'){?>  
+                        <li><a href="meterreadings.php"><img src="../images/S6.png" class="Meter-Icon" alt="Meter-Icon">Meter Data</a></li>
+                        <?php } ?>
+
+                    
 
                 </ul>
 

@@ -98,7 +98,7 @@
     </button>
 
     <!-- Create button -->
-    <button type="submit" id="createButton" onclick="window.location.href='Customermanagement.php'">
+    <button type="button" id="createButton">
         Create
     </button>
 </div>

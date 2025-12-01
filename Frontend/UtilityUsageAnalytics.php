@@ -24,6 +24,10 @@
                 <button class="nav-button" >Unpaid Bills</button>
                 <button class="nav-button" >Usage of Utility</button>
             </div>
+
+            <div class="back-section">
+                <button onclick="window.location.href='dashboard.php'" class="back-btn" type="button">Back to Dashboard</button>
+            </div>
         </nav>
     
 

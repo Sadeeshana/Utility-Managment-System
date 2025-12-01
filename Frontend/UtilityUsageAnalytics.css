@@ -47,8 +47,30 @@
     border-color: #1b4975;
 }
 
+.back-section {
+    margin-top: 270px;  
+}
 
+.back-btn {
+    width: 90%;
+    background-color: #E58E26;
+    color: #FFFFFF;
+    border: none;
+    padding: 12px 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    display: inline-block;
+    transition: background-color .25s ease;
+    margin-left: 15px;
+    margin-bottom: 30px;
+    font-family: "IBM Plex Sans";
+}
 
+.back-btn:hover { background-color: #CC7E22; }
+.back-btn:active { background-color: #F5B96A; }
 
 /* Reset and base styling */
 

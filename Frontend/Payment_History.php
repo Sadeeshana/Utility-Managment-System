@@ -29,6 +29,8 @@
                     <li><a href="Billing_Management.php"><img src="/images/S3.png"> &nbsp;Billings</a></li>
                     <li><a href="Genaratereports.php"><img src="/images/S4.png"> &nbsp;Reports</a></li>
                     <li><a href="complaint_management.php"><img src="/images/S5.png"> &nbsp;Complaints</a></li>
+                    <li><a href="meterreadings.php"><img src="/images/S6.png" class="Meter-Icon" alt="Meter-Icon">Meter Data</a></li>
+
                 </ul>
             </div>
 

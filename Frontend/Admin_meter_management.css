@@ -29,7 +29,7 @@ body {
         
         .container {
             display: flex;
-            height: 100vh;
+            height: 115vh;
             background-color: white;
         }
         
@@ -134,6 +134,11 @@ body {
         }
         
         .sidebar ul li .Complaints-Icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .sidebar ul li .Meter-Icon {
             width: 40px;
             height: 40px;
         }

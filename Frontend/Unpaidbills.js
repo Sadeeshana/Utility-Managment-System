@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Fallback static paths (only used if button doesn't have data-path)
   const fallbackPaths = [
-    "GenerateReports.php",       
+    "Genaratereports.php",       
     "Topconsumer.php",
     "Unpaidbills.php",
     "UtilityUsageAnalytics.php"
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function loadViewData() {
   // Adjust the backend path to match your file structure. If the PHP is at /Backend/Unpaidbill.php from the page root use '/Backend/Unpaidbill.php'
   // If it is relative to this script use './Backend/Unpaidbill.php' or 'Backend/Unpaidbill.php'
-  const backendUrl = 'Backend/Unpaidbill.php';
+  const backendUrl = '../Backend/Unpaidbill.php';
 
   fetch(backendUrl)
     .then(response => {

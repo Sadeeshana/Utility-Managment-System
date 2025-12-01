@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const navButtons = document.querySelectorAll(".nav-button");
 
-    if (navButtons.length >= 4) {
+    if (navButtons.length >= 3) {
         navButtons[0].addEventListener("click", () => {
             window.location.href = "Genaratereports.php";   
         });
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = "Unpaidbills.php";  
         });
 
-        
+      
     }
 
     

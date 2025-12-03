@@ -18,11 +18,11 @@ if ($stmt === false) {
     die(print_r(sqlsrv_errors(), true));
 }
 
-$complaints = array(); // FIXED: Use a consistent name
+$complaints = array(); 
 while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-    $complaints[] = $row; // FIXED: Add to the correct array
+    $complaints[] = $row; 
 }
 
 header('Content-Type: application/json');
-echo json_encode($complaints); // FIXED: Output the correct array
+echo json_encode($complaints); 
 ?>

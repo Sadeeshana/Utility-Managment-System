@@ -1,15 +1,12 @@
 <?php
 session_start();
 
-// 1. DATABASE CONNECTION
 include 'database.php'; 
 
-// 2. GET ID FROM HTML FORM
 if (isset($_POST['employeeId'])) {
     
     $empID = $_POST['employeeId'];
 
-    // 3. QUERY
     $sql = "SELECT * FROM Employee WHERE EmployeeID = ?";
     $params = array($empID);
 
@@ -19,9 +16,7 @@ if (isset($_POST['employeeId'])) {
         goBack("Login Error: Please check your input.");
     }
 
-    // 4. CHECK RESULT
     if (sqlsrv_has_rows($stmt)) {
-        // Success -> Go to Dashboard
         $_SESSION['logged_in_id'] = $empID;
 
         $row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);

@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $address = $_POST['Address'];    
     
     
-    // 2. The Update Query
+    //Update Query
     $sql = "UPDATE Customer SET 
                 Customer_Name = ?, 
                 Customer_Type = ?, 
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
     $params = array($name, $type, $email, $address, $id);
 
-    // 3. Execute
+    //Execute
     $stmt = sqlsrv_query($conn, $sql, $params);
 
     if ($stmt === false) {

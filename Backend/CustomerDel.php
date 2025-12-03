@@ -2,7 +2,7 @@
 session_start();
 include 'database.php'; 
 
-// 3. Check Data
+//Check Data
 if (isset($_POST['customer_id'])) {
     $CustomerID = $_POST['customer_id'];
     echo "Received Customer ID: " . $CustomerID . ". ";
@@ -31,7 +31,7 @@ if (isset($_POST['customer_id'])) {
 
 
 
-    // 4. Run Query
+    //Run Query
     $sql = "DELETE FROM Customer WHERE CustomerID = ?";
     $params = array($CustomerID);
 

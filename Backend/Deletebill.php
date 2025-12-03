@@ -2,12 +2,12 @@
 include 'database.php'; 
 
 
-// 3. Check Data
+//Check Data
 if (isset($_POST['bill_id'])) {
     $billID = $_POST['bill_id'];
     echo "Received Bill ID: " . $billID . ". ";
 
-    // 4. Run Query
+    //Run Query
     $sql = "DELETE FROM Bills WHERE BillID = ?";
     $params = array($billID);
 
@@ -17,7 +17,6 @@ if (isset($_POST['bill_id'])) {
         echo "SQL Error: ";
         die(print_r(sqlsrv_errors(), true));
     } else {
-        // Check if any rows were actually affected
         $rows_affected = sqlsrv_rows_affected($stmt);
         if ($rows_affected == -1 || $rows_affected > 0) {
             echo "Success! Bill deleted.";

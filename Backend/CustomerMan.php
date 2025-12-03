@@ -1,5 +1,4 @@
 <?php
-// 1. Include Database
 include 'database.php'; 
 
 
@@ -31,14 +30,12 @@ while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
     $data[] = $clean_row;
 }
 
-// 5. SEND JSON
+//SEND JSON
 header('Content-Type: application/json');
 
-// Check if json_encode fails
 $json_output = json_encode($data);
 
 if ($json_output === false) {
-    // If it fails, send a manual error 
     echo json_encode(["error" => "JSON Encoding Failed: " . json_last_error_msg()]);
 } else {
     echo $json_output;

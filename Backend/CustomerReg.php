@@ -1,7 +1,6 @@
 <?php
 include 'database.php';
 
-//Names in html form
 $customerID = $_POST['CustomerID'];
 $name = $_POST['Customer_Name'];
 $address = $_POST['Address'];
@@ -9,7 +8,6 @@ $email = $_POST['Email'];
 $type = $_POST['Customer_Type'];
 
 $sql = "EXEC CustomerProcedure ?,?,?,?,?";
- // Prepare the parameters array
 $params =[
     $customerID,
     $name,
@@ -19,7 +17,6 @@ $params =[
 
 ];
 
-//Execute the statment
 $stmt = sqlsrv_query($conn,$sql,$params);
 
 if($stmt){

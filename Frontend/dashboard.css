@@ -1,6 +1,4 @@
-/* --- CSS Styles --- */
 
-/* --- Variables --- */
 :root {
     --dark-blue: #0A3D62;
     --medium-blue:#0A3D62;
@@ -11,7 +9,6 @@
     --card-bg: white;
     --card-shadow: rgba(0, 0, 0, 0.05);
 
-    /* Utility Colors for icons/charts */
     --color-electricity: #ffc107; 
     --color-water: #2196f3; /* Used for customers blue */
     --color-gas: #f44336;   /* Used for complaints red */
@@ -38,7 +35,6 @@ body {
     background-color: white;
 }
 
-/*SIDEBAR */
 * {
             margin: 0;
             padding: 0;
@@ -211,7 +207,6 @@ body {
             margin-bottom: 20px;
         }
 
-/* --- Main Content --- */
 .main-content {
     flex-grow: 1;
     padding: 30px;
@@ -247,7 +242,6 @@ body {
 
 
 
-/* Location Widget */
 .location-widget {
     background-color: var(--card-bg);
     padding: 12px 20px;
@@ -275,15 +269,12 @@ body {
     color: var(--text-muted);
 }
 
-/* --- DASHBOARD GRID STYLES --- */
 
 .dashboard-grid.summary-grid {
     display: grid;
-    /* Create a 2x2 grid */
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
     
-    /* Added margin-top to push the grid down from the header */
     margin-top: 50px; 
 }
 
@@ -351,11 +342,6 @@ body {
         grid-template-columns: 1fr; 
     }
 }
-/* =========================================
-   SEARCH WIDGET STYLES (Using Variables)
-   ========================================= */
-
-/* 1. Icon Backgrounds */
 .card-icon-bg.orange {
     background-color: var(--color-orange);
     color: white;
@@ -366,7 +352,6 @@ body {
     color: white;
 }
 
-/* 2. Buttons */
 .orange-btn {
     background-color: var(--color-orange);
 }
@@ -375,7 +360,6 @@ body {
     background-color: var(--color-teal);
 }
 
-/* 3. Search Input Box */
 .search-input {
     flex: 1;
     padding: 10px 15px;
@@ -392,7 +376,6 @@ body {
     box-shadow: 0 0 5px rgba(10, 61, 98, 0.2);
 }
 
-/* 4. Search Buttons Structure */
 .search-btn {
     width: 45px;
     height: 40px;
@@ -417,7 +400,6 @@ body {
     transform: translateY(0);
 }
 
-/* 5. Search Result Area */
 .search-result {
     margin-top: 20px;
     padding: 15px;

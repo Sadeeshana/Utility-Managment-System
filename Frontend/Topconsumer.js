@@ -1,6 +1,3 @@
-// ================================
-// SIDEBAR NAVIGATION BUTTON PATHS
-// ================================
 document.addEventListener('DOMContentLoaded', () => {
     const navButtons = document.querySelectorAll('.nav-button');
 

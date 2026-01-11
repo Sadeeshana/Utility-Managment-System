@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
 
 
-/* Global Reset and Body Styling */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -13,7 +12,7 @@ body {
     background-color: white;
 }
 
-/* Dashboard Layout (Flexbox) */
+/* Dashboard Layout  */
 .dashboard-container {
     display: flex;
     min-height: 100vh;

@@ -1,16 +1,13 @@
-// Customer_registration.js
 
 document.getElementById("registerForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent form from submitting normally
+    event.preventDefault(); 
 
-    // Get form values
     const customerID = document.forms["registerForm"]["CustomerID"].value.trim();
     const name = document.forms["registerForm"]["Customer_Name"].value.trim();
     const address = document.forms["registerForm"]["Address"].value.trim();
     const email = document.forms["registerForm"]["Email"].value.trim();
     const customerType = document.forms["registerForm"]["Customer_Type"].value.trim();
 
-    // Regular expression for email validation
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     // Validation checks

@@ -74,7 +74,7 @@
     const changeValue = (given - pay).toFixed(2);
     const receiptType = selectedReceipt.value;
 
-    alert(`✅ Payment processed successfully!
+    alert(` Payment processed successfully!
 Method: ${method}
 Amount paid: Rs. ${pay.toFixed(2)}
 Amount given: Rs. ${given.toFixed(2)}

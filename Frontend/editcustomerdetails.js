@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const customerID = urlParams.get('id');
     const customerForm = get('customerForm');
 
-    // BACK BUTTON
     const backBtn = get('backBtn');
     if (backBtn) {
         backBtn.addEventListener('click', (e) => {

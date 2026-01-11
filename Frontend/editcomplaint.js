@@ -1,4 +1,3 @@
-// FIX 1: Added 'async' here so we can use await inside
 document.addEventListener('DOMContentLoaded', async () => {
     
     const get = id => document.getElementById(id);
@@ -6,7 +5,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const complaintID = urlParams.get('id');
     const complaintForm = get('complaintForm');
 
-    // BACK BUTTON (NO VALIDATION)
     
     const backBtn = get('addBackBtn');
     if (backBtn) {
@@ -16,7 +14,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    // --- PART 1: SUBMIT FORM (UPDATE) ---
     if (complaintForm) {
         complaintForm.addEventListener('submit', async function(e) {
             e.preventDefault(); 
@@ -43,8 +40,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             const formData = new FormData(this);
 
             try {
-                // FIX 2: Moved Alert inside the success check
-                // FIX 3: Point to the UPDATE PHP file (Change path if needed)
                 const response = await fetch("/Utility/Backend/updatecomplaint.php", {
                     method: "POST",
                     body: formData
@@ -71,18 +66,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    // --- PART 2: FETCH DATA (LOAD) ---
     if (!complaintID) {
         alert("No ID provided!");
         return;
     }
 
     try {
-        // FIX 4: Point to the GET PHP file (Change path if needed)
-        // We use the file specifically made to get JSON data
         const response = await fetch(`/Utility/Backend/editcomplaint.php?id=${complaintID}`);
         
-        // Check if response is JSON before parsing
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -92,8 +83,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (data.error) {
             alert(data.error);
         } else {
-            // Fill the Input Boxes
-            // IMPORTANT: Ensure your HTML <input> has name="ComplaintID" matching PHP $_POST
             if(get('complaintId')) get('complaintId').value = data.ComplaintID;
             if(get('employeeId')) get('employeeId').value = data.EmployeeID;
             if(get('customerId')) get('customerId').value = data.CustomerID;

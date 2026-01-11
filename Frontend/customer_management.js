@@ -1,16 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Load Data Immediately
+    //Load Data Immediately
     loadCustomers();
     setInterval(loadCustomers, 3000);
 
-    // 2. Search Logic
+    //Search Logic
     const searchInput = document.getElementById('searchInput');
     if (searchInput) {
         searchInput.addEventListener('input', filterTable);
     }
 
-    // 3. Add Customer Button
+    //Add Customer Button
     const addBtn = document.querySelector('.add-customer-btn');
     if (addBtn) {
         addBtn.addEventListener('click', () => {
@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// --- FUNCTIONS ---
 
 function filterTable() {
     const searchInput = document.getElementById('searchInput');
@@ -91,7 +90,7 @@ function deleteCustomer(CustomerID) {
         .then(response => response.text()) 
         .then(data => {
             alert(data);
-            loadCustomers(); // Now this will work because the function is global!
+            loadCustomers(); 
         })
         .catch(error => console.error('Error:', error));
     }

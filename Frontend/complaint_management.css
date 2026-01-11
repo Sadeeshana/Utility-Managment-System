@@ -175,7 +175,6 @@
 
 /* Main content */
 .main {
-  /* occupy remaining space beside the sidebar */
   flex: 1 1 auto;
   min-width: 0; 
   margin-left: 0;
@@ -294,7 +293,6 @@ tr:last-child td {
   border-bottom: none;
 }
 
-/* Pagination */
 .pagination {
   margin-top: 10px;
   font-size: 14px;

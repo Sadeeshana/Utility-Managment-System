@@ -1,13 +1,10 @@
-// employee form handler (place in employee.js)
 document.addEventListener('DOMContentLoaded', () => {
-  // robustly find the form (id or first form on page)
   const form = document.getElementById('employeeRegistrationForm') || document.querySelector('form');
   if (!form) {
     console.warn('No form found on the page.');
     return;
   }
 
-  // helper: show inline error message under an input
   function showError(input, message) {
     clearError(input);
     const err = document.createElement('div');
@@ -28,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // basic validators
   const validators = {
     required: (v) => v != null && String(v).trim() !== '',
     email: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
@@ -40,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const id = input.id || input.name || '';
     const val = (input.value || '').trim();
 
-    // clear previous error
     clearError(input);
 
     if (!validators.required(val)) {
@@ -63,11 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
       return false;
     }
 
-    // passed
     return true;
   }
 
-  // attach live validation clearing
   Array.from(form.querySelectorAll('input')).forEach((inp) => {
     inp.addEventListener('input', () => clearError(inp));
     inp.addEventListener('blur', () => validateField(inp));
@@ -76,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // find all relevant inputs (common names/ids used in the HTML)
     const fields = {
       username: form.querySelector('#username') || form.querySelector('[name="username"]'),
       firstName: form.querySelector('#firstName') || form.querySelector('[name="firstName"]'),
@@ -87,10 +79,9 @@ document.addEventListener('DOMContentLoaded', () => {
       jobRole: form.querySelector('#jobRole') || form.querySelector('[name="jobRole"]')
     };
 
-    // validate each present field, stop if any invalid
     for (const key in fields) {
       const input = fields[key];
-      if (!input) continue; // missing in HTML, skip
+      if (!input) continue; 
       const ok = validateField(input);
       if (!ok) {
         input.focus();
@@ -98,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // build payload
     const payload = {};
     for (const key in fields) {
       const input = fields[key];
@@ -106,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
       payload[key] = input.value.trim();
     }
 
-    // Save to localStorage (demo only) - append to 'employees' array
     try {
       const existing = JSON.parse(localStorage.getItem('employees') || '[]');
       existing.push({
@@ -118,10 +107,8 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Failed to save to localStorage', err);
     }
 
-    // success feedback (replace with nicer UI if desired)
     alert('Registration successful!');
 
-    // optional: redirect to login page
     const loginHref = 'LoginScreen.php';
     window.location.href = loginHref;
   });

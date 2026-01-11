@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const backBtn = get('addBackBtn');
     if (backBtn) {
         backBtn.addEventListener('click', function (e) {
-            e.preventDefault(); // stop form submit
+            e.preventDefault(); 
             window.location.href = "Billing_Management.php"; // redirect
         });
     }
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         billForm.addEventListener('submit', async function (e) {
             e.preventDefault(); // Stop normal form submission
 
-            // VALIDATION
+            
             const requiredFields = ['customerId', 'billId', 'meterId', 'billingDate', 'dueDate', 'totalBill', 'amountToPay', 'amountGiven'];
             let isValid = true;
 
@@ -80,9 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 const data = await response.text();
 
-                // Check if PHP message contains "successful"
                 if (data.toLowerCase().includes("successful")) {
-                    // CHANGED: Alert success
                     alert(data); 
                     this.reset(); // Clear form
                     calculateChange(); // Reset change field
@@ -92,12 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         window.location.href = "Billing_Management.php";
                     }, 1000);
                 } else {
-                    // CHANGED: Alert error from PHP
                     alert(data); 
                 }
 
             } catch (error) {
-                 // CHANGED: Alert network error
                 alert("Error: " + error);
             }
         });

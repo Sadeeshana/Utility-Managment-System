@@ -13,7 +13,6 @@ document.getElementById("meterForm").addEventListener("submit", function (e) {
         "Initial Reading: " + initial);
 });
 
-// Cancel button clears form
 document.querySelector(".cancel-btn").addEventListener("click", function () {
     document.getElementById("meterForm").reset();
 });

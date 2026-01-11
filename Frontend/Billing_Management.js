@@ -1,4 +1,4 @@
-// 1. Search Logic
+//Search Logic
 function filterTable() {
     let searchInput = document.getElementById('search');
     if (!searchInput) return; 
@@ -12,7 +12,7 @@ function filterTable() {
     });
 }
 
-// 2. Event Listeners (With Safety Checks)
+//Event Listeners (With Safety Checks)
 const searchInput = document.getElementById('search');
 if (searchInput) {
     searchInput.addEventListener('input', filterTable);
@@ -49,7 +49,7 @@ if (addBillBtn) {
     });
 }
 
-// 3. Load Bills Function
+//Load Bills Function
 function loadBills() {
     fetch('../Backend/Billing.php') 
         .then(response => {
@@ -115,6 +115,6 @@ function deleteBill(billID) {
     }
 }
 
-// 5. Run
+//Run
 loadBills();
 setInterval(loadBills, 3000);

@@ -1,5 +1,4 @@
 
-        // --- JAVASCRIPT ---
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById('customerForm');
             const createButton = document.getElementById('createButton');
@@ -18,7 +17,7 @@
 
            
 
-            // 2. Handle Cancel Button
+            //Handle Cancel Button
             cancelButton.addEventListener('click', () => {
                 const confirmed = confirm("Are you sure you want to cancel and clear the form?");
                 if (confirmed) {
@@ -27,7 +26,7 @@
                 }
             });
             
-            // 3. Simple Search Bar Functionality (Optional)
+            //Simple Search Bar Functionality (Optional)
             document.querySelectorAll('.search-field input').forEach(input => {
                 input.addEventListener('focus', () => {
                     console.log(`Ready to search by ${input.placeholder.replace('Search by ', '')}...`);
@@ -65,7 +64,7 @@
     })
     .then(response => response.text())
     .then(data => {
-        // D. Check Response
+        //Check Response
         if (data.trim() === "Success") {
             alert("Customer Added Successfully!");
             window.location.href = 'Customermanagement.php'; // Go back to list

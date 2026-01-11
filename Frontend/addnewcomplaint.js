@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const get = id => document.getElementById(id);
     const complaintForm = get('complaintForm');
 
-    // BACK BUTTON (NO VALIDATION)
     
     const backBtn = get('addBackBtn');
     if (backBtn) {
@@ -13,13 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     
-    // FORM SUBMIT HANDLER
     
     if (complaintForm) {
         complaintForm.addEventListener('submit', async function(e) {
             e.preventDefault(); 
 
-            // 1. VALIDATION
             const requiredFields = ['employeeId', 'customerId', 'complaintDate', 'description'];
             let isValid = true;
 
@@ -38,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // 2. SEND DATA
             const formData = new FormData(this);
 
             try {
@@ -49,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const data = await response.text();
 
-                // 3. CHECK RESPONSE
                 if (data.includes("successfully")) {
                     alert('You have added a complaint successfully!');
                     this.reset();

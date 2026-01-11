@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // 1. Load Data Immediately
+    //Load Data Immediately
     loadComplaints();
 
-    // 2. Event Listeners
+    //Event Listeners
     const searchInput = document.getElementById('search');
     if (searchInput) {
         searchInput.addEventListener('input', function() {
@@ -36,10 +36,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (addBtn) addBtn.addEventListener('click', () => window.location.href = 'addnewcomplaint.php');
 });
 
-// --- FUNCTIONS (MOVED OUTSIDE so they are accessible) ---
 
 function loadComplaints() {
-    // Check your path: usually ../Backend/Complaint.php if JS is in Frontend
     fetch('../Backend/Complaint.php') 
     .then(response => {
         if (!response.ok) throw new Error('Network response was not ok');
@@ -89,7 +87,7 @@ function deleteComplaint(ComplaintID) {
         .then(response => response.text()) 
         .then(data => {
             alert(data);
-            loadComplaints(); // Now this will work because the function is global!
+            loadComplaints(); 
         })
         .catch(error => console.error('Error:', error));
     }

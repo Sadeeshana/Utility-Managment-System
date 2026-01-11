@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // DROPDOWN BEHAVIOR
   document.querySelectorAll('.dropdown').forEach(dd => {
     const btn = dd.querySelector('.chip');
     const menu = dd.querySelector('.menu');
@@ -29,15 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }));
     });
 
-    // Close on outside click or Escape
     document.addEventListener('click', () => setOpen(false));
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
   });
 
-  // NAV BUTTONS - moved outside dropdown loop and using data-path fallback
   const navButtons = document.querySelectorAll('.nav-button');
 
-  // Fallback static paths (only used if button doesn't have data-path)
   const fallbackPaths = [
     "Genaratereports.php",       
     "Topconsumer.php",
@@ -48,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (navButtons.length > 0) {
     navButtons.forEach((btn, index) => {
       btn.addEventListener('click', (e) => {
-        // Prefer an explicit data-path attribute on the button
         const dataPath = btn.dataset.path;
         const path = dataPath && dataPath.trim().length > 0 ? dataPath.trim() : (fallbackPaths[index] || null);
 
@@ -57,22 +52,17 @@ document.addEventListener('DOMContentLoaded', () => {
           return;
         }
 
-        // Use location.assign so history behaves normally
         window.location.assign(path);
       });
     });
   }
 
-  // Export CSV stub
   document.getElementById('export-csv')?.addEventListener('click', () => {
     alert('Exporting CSV…');
   });
 });
 
-// LOAD VIEW DATA
 function loadViewData() {
-  // Adjust the backend path to match your file structure. If the PHP is at /Backend/Unpaidbill.php from the page root use '/Backend/Unpaidbill.php'
-  // If it is relative to this script use './Backend/Unpaidbill.php' or 'Backend/Unpaidbill.php'
   const backendUrl = '../Backend/Unpaidbill.php';
 
   fetch(backendUrl)
@@ -87,7 +77,6 @@ function loadViewData() {
         return;
       }
 
-      // Build rows using an array and join for performance (avoid innerHTML += in a loop)
       const rows = data.map(item => {
         return `
           <tr>
@@ -106,7 +95,6 @@ function loadViewData() {
     .catch(error => console.error('Error loading view:', error));
 }
 
-// Simple HTML escaper to avoid accidental XSS from backend values
 function escapeHtml(str) {
   if (str === null || typeof str === 'undefined') return '';
   return String(str)
@@ -117,5 +105,4 @@ function escapeHtml(str) {
     .replaceAll("'", '&#39;');
 }
 
-// Run it
 loadViewData();
